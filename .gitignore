@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.env
+*.sqlite3
+*.sqlite
+.DS_Store
+.vscode/
+
+# Local course materials - do not commit
+local_materials/
+# Course citation previews are rendered in process-local temporary directories.
+course_preview_cache/
+rendered_course_pages/
+
+# Downloaded pilot feedback and summaries stay local; only instructions are tracked.
+pilot_feedback_inbox/*
+!pilot_feedback_inbox/README.md
+pilot_feedback_summary/*
+!pilot_feedback_summary/README.md
+pilot_session_pack/*
+
+# P4d remote Pilot artifacts must remain outside the repository.
+introai_pilot_artifacts/

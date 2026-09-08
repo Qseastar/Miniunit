@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "pilot_release": "p4d",
+  "roles": [
+    {
+      "role_id": "role_a",
+      "title_zh": "课程自由问答与课件引用",
+      "focus": "观察回答是否回应问题、来源是否有帮助、语言是否自然，以及模型故障和重试提示。",
+      "required_core_task_ids": ["course_question_answering", "reviewed_diagnostic", "mastery_map", "map_to_learning_action", "persistent_learning_state", "repeat_practice"],
+      "observation_prompts": ["回答是否真正回应了问题？", "课件来源是否合理且容易理解？", "故障或重试时是否知道下一步？"],
+      "expected_duration_minutes": 20
+    },
+    {
+      "role_id": "role_b",
+      "title_zh": "审核诊断与题目质量",
+      "focus": "观察 handoff 是否自然、题意是否清晰、选项是否有歧义、解析是否帮助理解。",
+      "required_core_task_ids": ["course_question_answering", "reviewed_diagnostic", "mastery_map", "map_to_learning_action", "persistent_learning_state", "repeat_practice"],
+      "observation_prompts": ["能否自然进入审核诊断？", "题目和选项是否只有一个合理答案？", "解析是否帮助理解而非只给结论？"],
+      "expected_duration_minutes": 20
+    },
+    {
+      "role_id": "role_c",
+      "title_zh": "知识掌握图谱与导航",
+      "focus": "观察状态、分层浏览、详情定位是否清楚，以及图谱是否帮助决定下一步。",
+      "required_core_task_ids": ["course_question_answering", "reviewed_diagnostic", "mastery_map", "map_to_learning_action", "persistent_learning_state", "repeat_practice"],
+      "observation_prompts": ["状态和先修关系是否容易理解？", "详情定位和返回是否稳定？", "图谱是否帮助你决定下一步？"],
+      "expected_duration_minutes": 20
+    },
+    {
+      "role_id": "role_d",
+      "title_zh": "学习状态持续追踪",
+      "focus": "观察刷新、服务重启、新档案隔离和清空操作是否符合预期。",
+      "required_core_task_ids": ["course_question_answering", "reviewed_diagnostic", "mastery_map", "map_to_learning_action", "persistent_learning_state", "repeat_practice"],
+      "observation_prompts": ["刷新后状态是否恢复？", "新学习档案是否与旧档案隔离？", "清空操作是否只影响当前档案？"],
+      "expected_duration_minutes": 20
+    },
+    {
+      "role_id": "role_e",
+      "title_zh": "重复证据与练习模式",
+      "focus": "观察首次验证、重复练习、practice-only、hint 和 reveal 的提示是否清楚。",
+      "required_core_task_ids": ["course_question_answering", "reviewed_diagnostic", "mastery_map", "map_to_learning_action", "persistent_learning_state", "repeat_practice"],
+      "observation_prompts": ["首次验证是否更新学习记录？", "重复题是否明确是练习且不重复提高掌握度？", "hint 或 reveal 后的说明是否清楚？"],
+      "expected_duration_minutes": 20
+    },
+    {
+      "role_id": "role_f",
+      "title_zh": "总体新手体验与异常恢复",
+      "focus": "以第一次使用者视角观察理解成本、小屏表现和模型不可用时的恢复路径。",
+      "required_core_task_ids": ["course_question_answering", "reviewed_diagnostic", "mastery_map", "map_to_learning_action", "persistent_learning_state", "repeat_practice"],
+      "observation_prompts": ["第一次使用能否看懂？", "小屏下核心任务是否仍可完成？", "模型不可用时是否知道接下来做什么？"],
+      "expected_duration_minutes": 20
+    }
+  ]
+}

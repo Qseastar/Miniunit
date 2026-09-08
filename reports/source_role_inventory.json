@@ -1,0 +1,827 @@
+{
+  "blocked_slot_count": 1,
+  "blocked_slots": [
+    {
+      "blocked_reason": "The reviewed project subset does not directly support a safe frontier lower-cost-update item.",
+      "concept": "uniform_cost_search",
+      "missing_evidence": "A source page that explicitly specifies replacement or decrease-key behavior for a lower-cost duplicate frontier path.",
+      "prohibited_fallback_knowledge": "Do not infer implementation-specific UCS frontier-update behavior from general textbook knowledge.",
+      "proposed_template_id": "verify_ucs_frontier_update_v1",
+      "source_pages_reviewed": [
+        "ai_lec2_uninformed_search.pdf:60-63"
+      ]
+    }
+  ],
+  "candidate_template_count": 0,
+  "production_template_count": 20,
+  "rows": [
+    {
+      "bank": "production",
+      "chunk_id": "lec2_bfs_layer_order",
+      "context_only": false,
+      "evidence_strength": null,
+      "page_end": 34,
+      "page_start": 31,
+      "primary_concept": "breadth_first_search",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_bfs_layer_order",
+        "page_end": 34,
+        "page_start": 31,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_bfs_frontier_choice_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec2_bfs_properties",
+      "context_only": false,
+      "evidence_strength": null,
+      "page_end": 35,
+      "page_start": 35,
+      "primary_concept": "breadth_first_search",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_bfs_properties",
+        "page_end": 35,
+        "page_start": 35,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_bfs_equal_cost_condition_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec2_ucs_lowest_cost",
+      "context_only": false,
+      "evidence_strength": null,
+      "page_end": 62,
+      "page_start": 60,
+      "primary_concept": "uniform_cost_search",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_ucs_lowest_cost",
+        "page_end": 62,
+        "page_start": 60,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_ucs_min_g_choice_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec2_search_problem_components",
+      "context_only": false,
+      "evidence_strength": null,
+      "page_end": 10,
+      "page_start": 6,
+      "primary_concept": "search_problem_formulation",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_search_problem_components",
+        "page_end": 10,
+        "page_start": 6,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_search_problem_components_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec2_eight_puzzle_formulation",
+      "context_only": false,
+      "evidence_strength": null,
+      "page_end": 12,
+      "page_start": 12,
+      "primary_concept": "state_space_and_operators",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_eight_puzzle_formulation",
+        "page_end": 12,
+        "page_start": 12,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_successor_operator_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec2_frontier_expansion",
+      "context_only": false,
+      "evidence_strength": null,
+      "page_end": 20,
+      "page_start": 20,
+      "primary_concept": "frontier_and_explored_set",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_frontier_expansion",
+        "page_end": 20,
+        "page_start": 20,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_frontier_explored_membership_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec2_graph_search_repeated_states",
+      "context_only": false,
+      "evidence_strength": null,
+      "page_end": 27,
+      "page_start": 27,
+      "primary_concept": "frontier_and_explored_set",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_graph_search_repeated_states",
+        "page_end": 27,
+        "page_start": 27,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_frontier_explored_membership_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec2_graph_search_repeated_states",
+      "context_only": false,
+      "evidence_strength": null,
+      "page_end": 27,
+      "page_start": 27,
+      "primary_concept": "tree_search_vs_graph_search",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_graph_search_repeated_states",
+        "page_end": 27,
+        "page_start": 27,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_graph_search_repeated_state_handling_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec2_dfs_deepest_first",
+      "context_only": false,
+      "evidence_strength": null,
+      "page_end": 46,
+      "page_start": 37,
+      "primary_concept": "depth_first_search",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_dfs_deepest_first",
+        "page_end": 46,
+        "page_start": 37,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_dfs_frontier_choice_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "support_stack_lifo",
+      "context_only": false,
+      "evidence_strength": null,
+      "page_end": 2,
+      "page_start": 1,
+      "primary_concept": "depth_first_search",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ds_stack_queue_priority_queue.pdf",
+      "source_ref": {
+        "chunk_id": "support_stack_lifo",
+        "page_end": 2,
+        "page_start": 1,
+        "source_file": "ds_stack_queue_priority_queue.pdf"
+      },
+      "template_id": "verify_dfs_frontier_choice_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec2_iddfs_strategy",
+      "context_only": false,
+      "evidence_strength": null,
+      "page_end": 57,
+      "page_start": 53,
+      "primary_concept": "iterative_deepening_search",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_iddfs_strategy",
+        "page_end": 57,
+        "page_start": 53,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_iddfs_depth_limit_schedule_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec3_a_star_f_g_h",
+      "context_only": false,
+      "evidence_strength": "direct",
+      "page_end": 18,
+      "page_start": 18,
+      "primary_concept": "informed_search_and_heuristics",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec3_informed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec3_a_star_f_g_h",
+        "page_end": 18,
+        "page_start": 18,
+        "source_file": "ai_lec3_informed_search.pdf"
+      },
+      "template_id": "verify_informed_search_g_h_roles_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec3_greedy_search",
+      "context_only": false,
+      "evidence_strength": "direct",
+      "page_end": 9,
+      "page_start": 9,
+      "primary_concept": "greedy_best_first_search",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec3_informed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec3_greedy_search",
+        "page_end": 9,
+        "page_start": 9,
+        "source_file": "ai_lec3_informed_search.pdf"
+      },
+      "template_id": "verify_greedy_min_h_choice_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec3_a_star_f_g_h",
+      "context_only": false,
+      "evidence_strength": "direct",
+      "page_end": 18,
+      "page_start": 18,
+      "primary_concept": "a_star_search",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec3_informed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec3_a_star_f_g_h",
+        "page_end": 18,
+        "page_start": 18,
+        "source_file": "ai_lec3_informed_search.pdf"
+      },
+      "template_id": "verify_astar_min_f_choice_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec3_a_star_f_g_h",
+      "context_only": false,
+      "evidence_strength": "direct",
+      "page_end": 21,
+      "page_start": 21,
+      "primary_concept": "a_star_search",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec3_informed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec3_a_star_f_g_h",
+        "page_end": 21,
+        "page_start": 21,
+        "source_file": "ai_lec3_informed_search.pdf"
+      },
+      "template_id": "verify_astar_min_f_choice_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec3_admissibility",
+      "context_only": false,
+      "evidence_strength": "direct",
+      "page_end": 30,
+      "page_start": 30,
+      "primary_concept": "admissibility_and_consistency",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec3_informed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec3_admissibility",
+        "page_end": 30,
+        "page_start": 30,
+        "source_file": "ai_lec3_informed_search.pdf"
+      },
+      "template_id": "verify_admissibility_no_overestimate_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec2_solution_and_optimality",
+      "context_only": false,
+      "evidence_strength": "supported_inference",
+      "page_end": 11,
+      "page_start": 11,
+      "primary_concept": "search_problem_formulation",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_solution_and_optimality",
+        "page_end": 11,
+        "page_start": 11,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_path_cost_accumulation_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec2_eight_puzzle_formulation",
+      "context_only": false,
+      "evidence_strength": "supported_inference",
+      "page_end": 12,
+      "page_start": 12,
+      "primary_concept": "search_problem_formulation",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_eight_puzzle_formulation",
+        "page_end": 12,
+        "page_start": 12,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_path_cost_accumulation_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec2_graph_search_repeated_states",
+      "context_only": false,
+      "evidence_strength": "supported_inference",
+      "page_end": 27,
+      "page_start": 27,
+      "primary_concept": "tree_search_vs_graph_search",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_graph_search_repeated_states",
+        "page_end": 27,
+        "page_start": 27,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_search_node_state_distinction_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec2_dfs_deepest_first",
+      "context_only": false,
+      "evidence_strength": "supported_inference",
+      "page_end": 46,
+      "page_start": 37,
+      "primary_concept": "depth_first_search",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_dfs_deepest_first",
+        "page_end": 46,
+        "page_start": 37,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_dfs_infinite_branch_risk_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec2_dfs_properties",
+      "context_only": false,
+      "evidence_strength": "supported_inference",
+      "page_end": 48,
+      "page_start": 48,
+      "primary_concept": "depth_first_search",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_dfs_properties",
+        "page_end": 48,
+        "page_start": 48,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_dfs_infinite_branch_risk_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec2_iddfs_strategy",
+      "context_only": true,
+      "evidence_strength": "supported_inference",
+      "page_end": 53,
+      "page_start": 53,
+      "primary_concept": "completeness_optimality_complexity",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "context_only",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_iddfs_strategy",
+        "context_only": true,
+        "page_end": 53,
+        "page_start": 53,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_search_algorithm_properties_v1",
+      "topic_match": false
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec2_iddfs_properties",
+      "context_only": false,
+      "evidence_strength": "supported_inference",
+      "page_end": 58,
+      "page_start": 58,
+      "primary_concept": "completeness_optimality_complexity",
+      "primary_evidence": true,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_iddfs_properties",
+        "page_end": 58,
+        "page_start": 58,
+        "primary_evidence": true,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_search_algorithm_properties_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec2_bfs_properties",
+      "context_only": false,
+      "evidence_strength": "supported_inference",
+      "page_end": 35,
+      "page_start": 35,
+      "primary_concept": "completeness_optimality_complexity",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_bfs_properties",
+        "page_end": 35,
+        "page_start": 35,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_search_algorithm_properties_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec2_dfs_properties",
+      "context_only": false,
+      "evidence_strength": "supported_inference",
+      "page_end": 48,
+      "page_start": 48,
+      "primary_concept": "completeness_optimality_complexity",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_dfs_properties",
+        "page_end": 48,
+        "page_start": 48,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_search_algorithm_properties_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec2_ucs_properties",
+      "context_only": false,
+      "evidence_strength": "supported_inference",
+      "page_end": 63,
+      "page_start": 63,
+      "primary_concept": "completeness_optimality_complexity",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec2_ucs_properties",
+        "page_end": 63,
+        "page_start": 63,
+        "source_file": "ai_lec2_uninformed_search.pdf"
+      },
+      "template_id": "verify_search_algorithm_properties_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec3_greedy_limitations",
+      "context_only": false,
+      "evidence_strength": "direct",
+      "page_end": 14,
+      "page_start": 14,
+      "primary_concept": "greedy_best_first_search",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec3_informed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec3_greedy_limitations",
+        "page_end": 14,
+        "page_start": 14,
+        "source_file": "ai_lec3_informed_search.pdf"
+      },
+      "template_id": "verify_greedy_suboptimality_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec3_a_star_f_g_h",
+      "context_only": false,
+      "evidence_strength": "direct",
+      "page_end": 18,
+      "page_start": 18,
+      "primary_concept": "a_star_search",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec3_informed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec3_a_star_f_g_h",
+        "page_end": 18,
+        "page_start": 18,
+        "source_file": "ai_lec3_informed_search.pdf"
+      },
+      "template_id": "verify_astar_f_value_v1",
+      "topic_match": true
+    },
+    {
+      "bank": "production",
+      "chunk_id": "lec3_consistency",
+      "context_only": false,
+      "evidence_strength": "direct",
+      "page_end": 39,
+      "page_start": 39,
+      "primary_concept": "admissibility_and_consistency",
+      "primary_evidence": false,
+      "result": "pass",
+      "role": "evidence",
+      "role_valid": true,
+      "source_file": "ai_lec3_informed_search.pdf",
+      "source_ref": {
+        "chunk_id": "lec3_consistency",
+        "page_end": 39,
+        "page_start": 39,
+        "source_file": "ai_lec3_informed_search.pdf"
+      },
+      "template_id": "verify_consistency_edge_check_v1",
+      "topic_match": true
+    }
+  ],
+  "run_metadata": {
+    "env": "not_read",
+    "mode": "offline",
+    "network": "disabled"
+  },
+  "schema_version": 1,
+  "statistics": {
+    "candidate_source_refs": 0,
+    "context_only_refs": 1,
+    "declared_primary_evidence_refs": 1,
+    "duplicate_refs": 0,
+    "evidence_strength_distribution": {
+      "direct": 8,
+      "supported_inference": 10
+    },
+    "filename_mismatches": 0,
+    "invalid_pages": 0,
+    "invalid_templates": 0,
+    "non_context_evidence_refs": 28,
+    "production_source_refs": 29,
+    "templates_with_all_refs_context_only": 0,
+    "templates_with_zero_evidence_refs": 0,
+    "topic_mismatches": 0,
+    "total_source_refs": 29,
+    "unknown_chunks": 0
+  },
+  "templates": [
+    {
+      "bank": "production",
+      "primary_concept": "breadth_first_search",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_bfs_frontier_choice_v1"
+    },
+    {
+      "bank": "production",
+      "primary_concept": "breadth_first_search",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_bfs_equal_cost_condition_v1"
+    },
+    {
+      "bank": "production",
+      "primary_concept": "uniform_cost_search",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_ucs_min_g_choice_v1"
+    },
+    {
+      "bank": "production",
+      "primary_concept": "search_problem_formulation",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_search_problem_components_v1"
+    },
+    {
+      "bank": "production",
+      "primary_concept": "state_space_and_operators",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_successor_operator_v1"
+    },
+    {
+      "bank": "production",
+      "primary_concept": "frontier_and_explored_set",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_frontier_explored_membership_v1"
+    },
+    {
+      "bank": "production",
+      "primary_concept": "tree_search_vs_graph_search",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_graph_search_repeated_state_handling_v1"
+    },
+    {
+      "bank": "production",
+      "primary_concept": "depth_first_search",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_dfs_frontier_choice_v1"
+    },
+    {
+      "bank": "production",
+      "primary_concept": "iterative_deepening_search",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_iddfs_depth_limit_schedule_v1"
+    },
+    {
+      "bank": "production",
+      "primary_concept": "informed_search_and_heuristics",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_informed_search_g_h_roles_v1"
+    },
+    {
+      "bank": "production",
+      "primary_concept": "greedy_best_first_search",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_greedy_min_h_choice_v1"
+    },
+    {
+      "bank": "production",
+      "primary_concept": "a_star_search",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_astar_min_f_choice_v1"
+    },
+    {
+      "bank": "production",
+      "primary_concept": "admissibility_and_consistency",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_admissibility_no_overestimate_v1"
+    },
+    {
+      "bank": "production",
+      "primary_concept": "search_problem_formulation",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_path_cost_accumulation_v1"
+    },
+    {
+      "bank": "production",
+      "primary_concept": "tree_search_vs_graph_search",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_search_node_state_distinction_v1"
+    },
+    {
+      "bank": "production",
+      "primary_concept": "depth_first_search",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_dfs_infinite_branch_risk_v1"
+    },
+    {
+      "bank": "production",
+      "primary_concept": "completeness_optimality_complexity",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_search_algorithm_properties_v1"
+    },
+    {
+      "bank": "production",
+      "primary_concept": "greedy_best_first_search",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_greedy_suboptimality_v1"
+    },
+    {
+      "bank": "production",
+      "primary_concept": "a_star_search",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_astar_f_value_v1"
+    },
+    {
+      "bank": "production",
+      "primary_concept": "admissibility_and_consistency",
+      "result": "pass",
+      "source_role_issues": [],
+      "template_id": "verify_consistency_edge_check_v1"
+    }
+  ]
+}

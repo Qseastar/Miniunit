@@ -1,0 +1,29 @@
+name: verification-quality
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  offline-verification-quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install project dependencies
+        run: python -m pip install -r requirements.txt pytest
+      - name: Compile tooling
+        run: PYTHONPATH=src python -m py_compile tools/verification_benchmark.py tools/course_material_manifest.py tools/verify_local_course_materials.py tools/verification_quality_gate.py tools/release_preflight.py tools/generate_template_review_packet.py tools/generate_verification_reports.py
+      - name: Offline quality gate
+        run: PYTHONPATH=src python tools/verification_quality_gate.py --strict --json-report /tmp/introai_verification_quality.json --markdown-report /tmp/introai_verification_quality.md
+      - name: Acceptance and smoke
+        run: PYTHONPATH=src python -m pytest tests/test_template_acceptance.py tests/test_p2f_candidate_templates.py tests/test_p2g_quality_gate.py tests/test_release_preflight.py -q && PYTHONPATH=src python -m pytest -m smoke -q
+      - name: Full offline suite
+        run: PYTHONPATH=src python -m pytest -q
+      - name: Working tree check
+        run: git diff --check

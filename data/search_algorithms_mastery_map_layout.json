@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "nodes": [
+    {"concept_id": "search_problem_formulation", "layer": 0, "order": 0},
+    {"concept_id": "state_space_and_operators", "layer": 1, "order": 0},
+    {"concept_id": "local_search", "layer": 1, "order": 1},
+    {"concept_id": "llm_search_and_test_time_scaling", "layer": 1, "order": 2},
+    {"concept_id": "adversarial_search", "layer": 1, "order": 3},
+    {"concept_id": "tree_search_vs_graph_search", "layer": 2, "order": 0},
+    {"concept_id": "hill_climbing", "layer": 2, "order": 1},
+    {"concept_id": "evolutionary_search", "layer": 2, "order": 2},
+    {"concept_id": "minimax_search", "layer": 2, "order": 3},
+    {"concept_id": "monte_carlo_search", "layer": 2, "order": 4},
+    {"concept_id": "frontier_and_explored_set", "layer": 3, "order": 0},
+    {"concept_id": "simulated_annealing", "layer": 3, "order": 1},
+    {"concept_id": "game_state_evaluation", "layer": 3, "order": 2},
+    {"concept_id": "alpha_beta_pruning", "layer": 3, "order": 3},
+    {"concept_id": "exploration_exploitation", "layer": 3, "order": 4},
+    {"concept_id": "breadth_first_search", "layer": 4, "order": 0},
+    {"concept_id": "depth_first_search", "layer": 4, "order": 1},
+    {"concept_id": "upper_confidence_bound", "layer": 4, "order": 2},
+    {"concept_id": "completeness_optimality_complexity", "layer": 5, "order": 0},
+    {"concept_id": "iterative_deepening_search", "layer": 5, "order": 1},
+    {"concept_id": "monte_carlo_tree_search", "layer": 5, "order": 2},
+    {"concept_id": "uniform_cost_search", "layer": 6, "order": 0},
+    {"concept_id": "informed_search_and_heuristics", "layer": 7, "order": 0},
+    {"concept_id": "greedy_best_first_search", "layer": 8, "order": 0},
+    {"concept_id": "a_star_search", "layer": 8, "order": 1},
+    {"concept_id": "admissibility_and_consistency", "layer": 9, "order": 0}
+  ]
+}

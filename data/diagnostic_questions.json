@@ -1,0 +1,547 @@
+{
+  "diagnostic_questions": [
+    {
+      "id": "dq_formulation_maze_001",
+      "concept_ids": [
+        "search_problem_formulation"
+      ],
+      "question_text": "一个迷宫入口在 S，出口在 G。普通地面进入代价为1，泥地进入代价为4，墙不能进入。请把这个任务形式化为搜索问题：初始状态、目标测试、动作集合、路径代价分别应该怎么定义？",
+      "expected_answer": "初始状态是入口 S 所在位置；目标测试是判断当前位置是否为出口 G；动作是从当前位置向上、下、左、右移动，但不能越界或进入墙；路径代价是每次移动进入新格子的代价累计，普通地面加1，泥地加4。",
+      "rubric": "完整回答应同时给出初始状态、目标测试、合法动作和累计路径代价，并体现墙不可进入、不同格子代价不同。若只列出四要素但没有说明合法性或不同代价，只给部分分。若把启发式距离当作路径代价，应扣分。",
+      "difficulty": "medium"
+    },
+    {
+      "id": "dq_formulation_cost_001",
+      "concept_ids": [
+        "search_problem_formulation",
+        "state_space_and_operators"
+      ],
+      "question_text": "地图上有两条从 S 到 G 的路线：路线甲走4步，全是平路，每步代价1；路线乙也走4步，但其中两步是山路，每步代价5。只用“步数”评价路径会误判什么？搜索问题中应该增加哪个定义来解决？",
+      "expected_answer": "只看步数会把两条4步路线看成一样好，但它们总代价不同：路线甲代价4，路线乙代价12。应该定义路径代价，把每一步的实际代价累计起来，用总代价比较路径优劣。",
+      "rubric": "完整回答应指出相同步数不代表相同总代价，并说明路径代价用于累计动作成本、比较路径优劣。若只说山路更贵但没联系到路径代价定义，可给部分分。",
+      "difficulty": "medium"
+    },
+    {
+      "id": "dq_state_action_001",
+      "concept_ids": [
+        "state_space_and_operators"
+      ],
+      "question_text": "迷宫里有一扇门必须拿到钥匙才能打开。状态表示如果只记录当前位置，不记录“是否已经拿到钥匙”，搜索可能出现什么错误？",
+      "expected_answer": "搜索会把实际上不同的情况当成同一个状态。例如同样在门前，拿到钥匙时可以开门，没拿到钥匙时不能开门。状态必须包含会影响后续合法动作和结果的信息，否则可能错误剪枝或找出不可执行路径。",
+      "rubric": "完整回答应指出状态表示必须包含影响后续动作的信息，并用钥匙/开门说明同一位置可能对应不同状态。若只说状态不完整但不解释后果，可给部分分。",
+      "difficulty": "easy"
+    },
+    {
+      "id": "dq_frontier_001",
+      "concept_ids": [
+        "frontier_and_explored_set"
+      ],
+      "question_text": "搜索过程中，节点 X 已经被生成出来，但还没有取出来展开它的后继。X 应该属于 frontier 还是 explored set？为什么不能把 frontier 理解成“已经访问完的节点”？",
+      "expected_answer": "X 应该属于 frontier。frontier 保存的是已经生成但尚未扩展的候选节点；explored set 通常保存已经被扩展过的状态。因此 frontier 不是访问完的节点集合，而是等待被选择和扩展的边界。",
+      "rubric": "完整回答应区分已生成未扩展与已扩展，并正确对应 frontier 和 explored set。若只说 frontier 是待扩展节点但没有说明 explored set，可给部分分。",
+      "difficulty": "easy"
+    },
+    {
+      "id": "dq_graph_search_repeat_001",
+      "concept_ids": [
+        "tree_search_vs_graph_search",
+        "frontier_and_explored_set"
+      ],
+      "question_text": "图中 A 可以到 B，B 又可以回到 A。如果图搜索不记录 explored set，只按后继不断生成节点，可能会发生什么？explored set 具体避免了什么问题？",
+      "expected_answer": "搜索可能在 A 和 B 之间反复生成、反复扩展，陷入重复状态或环路。explored set 记录已经扩展过的状态，使算法不要再次扩展同一状态，从而避免无意义重复搜索。",
+      "rubric": "完整回答应提到环路/重复状态，并说明 explored set 避免同一状态被重复扩展。若只说提高效率但没说明重复或环路，可给部分分。",
+      "difficulty": "medium"
+    },
+    {
+      "id": "dq_bfs_order_001",
+      "concept_ids": [
+        "breadth_first_search"
+      ],
+      "question_text": "有两条从 S 到 G 的路径：路径甲只走2步，但总代价100；路径乙走4步，但总代价4。BFS 更可能先找到哪条？这说明 BFS 的“最优”依赖什么条件？",
+      "expected_answer": "BFS 按层搜索，优先找到步数更少的路径，所以可能先找到2步的路径甲。但路径甲总代价更高。BFS 只保证步数最少；只有每一步代价相同时，步数最少才等价于路径代价最低。",
+      "rubric": "完整回答应区分步数最少和总代价最低，并说明 BFS 最优性依赖单位步长或等动作代价。若只说 BFS 找最短路径但不说明代价条件，应扣分。",
+      "difficulty": "medium",
+      "assessment": {
+        "required_groups": [
+          {
+            "id": "fewest_steps",
+            "label": "BFS 默认保证步数或边数最少",
+            "terms": [
+              "步数最少",
+              "边数最少",
+              "最少步数",
+              "最少边数",
+              "最浅目标",
+              "动作次数最少",
+              "边比较少",
+              "经过的边比较少",
+              "经过的边少",
+              "边数少",
+              "步数少",
+              "不总能找到总代价最低",
+              "不总能保证总代价最低",
+              "fewest steps",
+              "minimum number of steps"
+            ]
+          },
+          {
+            "id": "equal_step_cost_condition",
+            "label": "每一步代价相同这一条件",
+            "terms": [
+              "每一步代价相同",
+              "每步代价相同",
+              "每一步代价一样",
+              "所有边代价相等",
+              "所有边的代价相同",
+              "所有边代价相同",
+              "单步代价相同",
+              "每条边的花费都一样",
+              "每条边花费一样",
+              "每条边成本相同",
+              "每条边的成本相同",
+              "所有动作或边的代价都相同",
+              "等步代价",
+              "单位代价",
+              "无权图",
+              "equal action costs",
+              "equal step costs",
+              "unit cost"
+            ]
+          },
+          {
+            "id": "path_cost_distinction",
+            "label": "步数与路径总代价的区分",
+            "terms": [
+              "不是总代价最小",
+              "不是按总代价选择",
+              "不总能找到总代价最低路径",
+              "并不总能找到总代价最低路径",
+              "并不总能保证总代价最低",
+              "不等于路径总代价最低",
+              "步数最少才等价于路径总代价最低",
+              "步数最少才等价于最小总代价",
+              "才等价于总代价最低",
+              "才保证路径总代价最低",
+              "边数少才等于总成本低",
+              "总费用也最小",
+              "cheapest only",
+              "path cost"
+            ],
+            "conditional_match": {
+              "term_sets": [
+                [
+                  "步数最少",
+                  "最少步数",
+                  "边数最少",
+                  "最少边数",
+                  "步数少",
+                  "边数少",
+                  "fewest steps",
+                  "minimum number of steps"
+                ],
+                [
+                  "路径总代价最小",
+                  "路径总代价最低",
+                  "总代价最小",
+                  "总代价最低",
+                  "最低路径代价",
+                  "总成本低",
+                  "path cost"
+                ]
+              ],
+              "relation_terms": [
+                "才等价于",
+                "才意味着",
+                "才能保证",
+                "不等于",
+                "不代表",
+                "而不是",
+                "不一定保证",
+                "only if",
+                "only with"
+              ]
+            }
+          }
+        ],
+        "optional_groups": [],
+        "blocking_misconceptions": [
+          {
+            "id": "bfs_always_cost_optimal",
+            "patterns": [
+              "BFS 总能找到总代价最低路径",
+              "总能找到总代价最低",
+              "任意边权",
+              "任意代价",
+              "任何边权",
+              "不需要等代价",
+              "总是总代价最优",
+              "总是路径代价最低",
+              "所有边权非负 bfs 就保证总代价最小",
+              "所有边权都是非负的 所以 bfs 保证总代价最小",
+              "always cost optimal"
+            ],
+            "proposition": "BFS 在任意边权或动作代价下都保证路径总代价最低，不需要等步代价条件。",
+            "feedback": "BFS 并不保证任意边权下的总代价最优；请说明等步代价条件。"
+          }
+        ],
+        "pass_threshold": 1.0
+      },
+      "teaching_support": {
+        "model_answer": "BFS 会优先找到步数更少的路径，但步数少不一定总代价低。只有每一步代价相同，步数最少才等价于路径总代价最低。",
+        "explanation": "BFS 的选择依据是层数或边数，不会比较累计路径代价；边代价不同时，需要按累计代价选择。",
+        "scaffold": "先区分“步数最少”和“总代价最低”，再说明只有每步代价相同时二者才等价。"
+      }
+    },
+    {
+      "id": "dq_bfs_trace_001",
+      "concept_ids": [
+        "breadth_first_search",
+        "frontier_and_explored_set"
+      ],
+      "question_text": "假设 BFS 在节点从 frontier 取出时才进行目标测试。S 的后继按字母顺序为 A、B；A 的后继按字母顺序为 C、G；B 的后继为 D。按字母顺序加入 frontier，直到 G 被取出并通过目标测试时，节点取出/检查顺序是什么？返回路径是什么？",
+      "expected_answer": "节点取出/检查顺序是 S、A、B、C、G。BFS 先处理深度1的 A、B，再处理深度2的 C、G；G 被取出并通过目标测试后停止，不需要再展开 G 的后继。G 的父节点是 A，所以返回路径是 S-A-G。",
+      "rubric": "完整回答应在给定目标测试时机下写出 S、A、B、C、G，并给出路径 S-A-G；能说明 G 被取出后停止更好。若路径正确但顺序缺失，可给部分分。若采用生成时目标测试，应指出这与本题前提不符。",
+      "difficulty": "medium"
+    },
+    {
+      "id": "dq_dfs_memory_001",
+      "concept_ids": [
+        "depth_first_search"
+      ],
+      "question_text": "一个搜索树每层都有很多节点，但 DFS 总是先沿一条分支往下走。与 BFS 相比，DFS 的 frontier 通常保存哪些节点？为什么这会让 DFS 在很宽的搜索树中更省内存？",
+      "expected_answer": "DFS 通常只需要保存当前路径上的节点和少量等待回溯的兄弟分支；BFS 需要保存一整层甚至下一层的大量节点。搜索树很宽时，每层节点很多，所以 BFS 的 frontier 会很大，而 DFS 通常更省内存。",
+      "rubric": "完整回答应把 DFS 的深入策略、保存当前路径/待回溯分支、BFS 保存整层节点三者联系起来。若只说 DFS 用栈所以省内存，可给部分分。",
+      "difficulty": "easy"
+    },
+    {
+      "id": "dq_dfs_risk_001",
+      "concept_ids": [
+        "depth_first_search",
+        "completeness_optimality_complexity"
+      ],
+      "question_text": "搜索树左分支无限深，右分支第2层就有目标。如果 DFS 固定先搜索左分支，会发生什么？这说明 DFS 在什么情况下可能缺少哪种性质？",
+      "expected_answer": "DFS 可能一直沿左边无限分支向下搜索，无法回溯到右边第2层的目标，因此即使存在解也可能找不到。这说明在存在无限深分支且没有深度限制或重复控制时，DFS 可能不完备。",
+      "rubric": "完整回答应指出无限分支会导致 DFS 可能找不到已存在的解，并明确对应完备性问题。若只说 DFS 可能走错方向，可给部分分。",
+      "difficulty": "medium"
+    },
+    {
+      "id": "dq_bfs_vs_dfs_001",
+      "concept_ids": [
+        "breadth_first_search",
+        "depth_first_search"
+      ],
+      "question_text": "现在有两个搜索任务：任务 A 的目标大概率在浅层；任务 B 的搜索树非常宽且内存很有限。你会分别优先考虑 BFS 还是 DFS？请分别说明理由。",
+      "expected_answer": "任务 A 更适合优先考虑 BFS，因为 BFS 按层扩展，浅层有目标时容易较早找到，并且在等代价时能保证最浅解最优。任务 B 在内存很有限时可优先考虑 DFS，因为 DFS 通常不需要保存整层大量节点，更节省空间。",
+      "rubric": "完整回答应分别对应两个任务：浅层目标偏向 BFS，宽树且内存紧张偏向 DFS，并给出原因。若只回答一个任务或只给算法名不给理由，可给部分分。",
+      "difficulty": "easy"
+    },
+    {
+      "id": "dq_completeness_001",
+      "concept_ids": [
+        "completeness_optimality_complexity"
+      ],
+      "question_text": "某搜索算法在问题有解时，也可能因为一直搜索错误方向而永远不给出解。这个算法缺少哪种性质？这项性质的标准含义是什么？",
+      "expected_answer": "它缺少完备性。完备性指的是：只要问题存在解，算法就保证能在有限时间内找到至少一个解。",
+      "rubric": "完整回答应指出缺少完备性，并解释“有解则保证找到解”的含义。若只写出完备性但没有解释，可给部分分。",
+      "difficulty": "easy"
+    },
+    {
+      "id": "dq_optimality_001",
+      "concept_ids": [
+        "completeness_optimality_complexity"
+      ],
+      "question_text": "一个搜索算法返回了某条能到达目标的路径，但这条路径总代价不是最低。它违反的是完备性还是最优性？搜索算法的“最优”通常比较步数还是路径代价？",
+      "expected_answer": "它违反的是最优性，不是完备性，因为它确实找到了一个解。搜索算法的最优性通常指返回路径代价最低的解；只有每步代价相同时，步数最少才等价于路径代价最低。",
+      "rubric": "完整回答应区分完备性和最优性，并说明最优比较路径代价而不是默认比较步数。若只说返回最好答案，可给部分分。",
+      "difficulty": "medium"
+    },
+    {
+      "id": "dq_ucs_basic_001",
+      "concept_ids": [
+        "uniform_cost_search"
+      ],
+      "question_text": "UCS 的 frontier 中有 A(g=4)、B(g=2)、C(g=7)。下一步应扩展谁？如果后来发现一条到 A 的新路径，总代价 g=1，frontier 中原来的 A 应该怎么处理？",
+      "expected_answer": "下一步扩展 B，因为 UCS 每次选择当前累计路径代价 g 最小的节点。发现到 A 的更低代价路径时，应更新 A 的 g 值和对应父指针/路径，使 frontier 中保留代价更小的 A。",
+      "rubric": "完整回答应选择 B，并说明更便宜路径出现时要更新 frontier 中对应状态的记录。若只答 B 但不处理更新，可给部分分。若认为先到达的 A 永远不变，应扣分。",
+      "difficulty": "medium"
+    },
+    {
+      "id": "dq_ucs_vs_bfs_001",
+      "concept_ids": [
+        "uniform_cost_search",
+        "breadth_first_search"
+      ],
+      "question_text": "从 S 到 G 有一条直接边 S-G，代价100；还有一条两步路径 S-A-G，每条边代价1。若不考虑启发式，BFS 和 UCS 分别可能返回哪条路径？为什么？",
+      "expected_answer": "BFS 按层数搜索，可能返回一步到达的 S-G；UCS 按累计路径代价 g 搜索，会返回 S-A-G，因为总代价2低于100。",
+      "rubric": "完整回答应指出 BFS 偏向浅层路径，UCS 偏向累计代价最低路径，并给出 S-G 与 S-A-G 的对比。若只说 UCS 会选 S-A-G，可给部分分。",
+      "difficulty": "medium"
+    },
+    {
+      "id": "dq_heuristic_basic_001",
+      "concept_ids": [
+        "informed_search_and_heuristics"
+      ],
+      "question_text": "在地图搜索中，当前城市到目标城市的直线距离可以用来估计还剩多远。它为什么属于 h(n)，而不能当作已经走过的路径代价 g(n)？",
+      "expected_answer": "直线距离估计的是从当前状态到目标的剩余代价，所以属于 h(n)。g(n) 是从起点到当前状态已经实际累计付出的路径代价。二者方向和含义不同，不能混用。",
+      "rubric": "完整回答应区分 h(n) 是未来剩余代价估计、g(n) 是过去已付出代价累计。若只说直线距离是估计值但不区分 g/h，可给部分分。",
+      "difficulty": "easy"
+    },
+    {
+      "id": "dq_greedy_mislead_001",
+      "concept_ids": [
+        "greedy_best_first_search",
+        "informed_search_and_heuristics"
+      ],
+      "question_text": "frontier 中有两个节点：A 已经从起点花了 g=50，但估计离目标 h=1；B 已经花了 g=2，估计离目标 h=5。贪心最佳优先搜索会先选谁？为什么它可能很快但不保证总代价最低？",
+      "expected_answer": "贪心最佳优先搜索会先选 A，因为它只看 h(n)，A 的 h=1 最小。它可能很快接近目标，但忽略了已经花掉的 g(n)，所以可能选择总代价很高的路径，不保证最优。",
+      "rubric": "完整回答应说明 Greedy 只看 h、会选 A，并指出忽略 g 会导致不保证最低总代价。若只说启发式可能不准但不提 g/h 取舍，可给部分分。",
+      "difficulty": "medium"
+    },
+    {
+      "id": "dq_greedy_vs_astar_choice_001",
+      "concept_ids": [
+        "greedy_best_first_search",
+        "a_star_search"
+      ],
+      "question_text": "frontier 中有 A(g=10,h=1)、B(g=2,h=4)、C(g=3,h=5)。贪心最佳优先搜索和 A* 分别会优先扩展哪个节点？请写出依据。",
+      "expected_answer": "Greedy 只看 h(n)，A 的 h=1 最小，所以选 A。A* 看 f(n)=g(n)+h(n)：A=11，B=6，C=8，所以选 B。",
+      "rubric": "完整回答应分别按 h 和 f=g+h 计算并选择。若只答出一个算法的选择或没有计算依据，可给部分分。",
+      "difficulty": "medium"
+    },
+    {
+      "id": "dq_astar_formula_001",
+      "concept_ids": [
+        "a_star_search"
+      ],
+      "question_text": "A* 为什么要同时考虑 g(n) 和 h(n)？请用一句话分别说明 g(n)、h(n)、f(n)=g(n)+h(n) 在选择节点时的作用。",
+      "expected_answer": "g(n) 表示从起点到当前节点已经付出的真实累计代价；h(n) 表示从当前节点到目标的估计剩余代价；f(n)=g(n)+h(n) 估计经过该节点到达目标的总路径代价，因此 A* 用它平衡已付代价和未来估计。",
+      "rubric": "完整回答应说明 g、h、f 三者含义，并体现 A* 不是只看已走代价也不是只看启发式。若只写 f=g+h 而没有解释作用，可给部分分。",
+      "difficulty": "easy"
+    },
+    {
+      "id": "dq_astar_trace_001",
+      "concept_ids": [
+        "a_star_search",
+        "uniform_cost_search",
+        "informed_search_and_heuristics"
+      ],
+      "question_text": "Start 的三个后继为 A、B、D，对应边代价分别是2、3、5；h(A)=2、h(B)=5、h(D)=1。A* 第一次从这三个候选中会扩展谁？请计算每个候选的 f 值。",
+      "expected_answer": "A 的 f=2+2=4，B 的 f=3+5=8，D 的 f=5+1=6。A* 选择 f 值最小的 A。",
+      "rubric": "完整回答应计算 A、B、D 三个 f 值，并选择 f 最小的 A。若只说 A 但没有计算，可给部分分。",
+      "difficulty": "medium"
+    },
+    {
+      "id": "dq_admissibility_check_001",
+      "concept_ids": [
+        "admissibility_and_consistency"
+      ],
+      "question_text": "某节点到目标的真实最低剩余代价是4，但启发式函数给出 h(n)=6。这个启发式在该节点上是否可采纳？为什么？",
+      "expected_answer": "不可采纳。可采纳启发式不能高估真实最低剩余代价，而这里 h(n)=6 大于真实最低代价4。",
+      "rubric": "完整回答应指出 h 高估真实最低剩余代价，因此违反可采纳性。若只说不可采纳但原因不清，可给部分分。",
+      "difficulty": "easy"
+    },
+    {
+      "id": "dq_consistency_check_001",
+      "concept_ids": [
+        "admissibility_and_consistency",
+        "a_star_search"
+      ],
+      "question_text": "A 到 B 的一步代价为2，h(A)=5，h(B)=1。请检查这条边是否满足一致性条件 h(A) <= cost(A,B)+h(B)，并说明计算过程。",
+      "expected_answer": "不满足。右边 cost(A,B)+h(B)=2+1=3，但 h(A)=5，5 <= 3 不成立，所以这条边违反一致性。",
+      "rubric": "完整回答应代入一致性不等式并判断不成立。若只答不满足但不写计算过程，可给部分分。",
+      "difficulty": "hard"
+    },
+    {
+      "id": "dq_admissible_vs_consistent_001",
+      "concept_ids": [
+        "admissibility_and_consistency",
+        "a_star_search"
+      ],
+      "question_text": "已知真实最低剩余代价 h*(S)=5、h*(A)=3、h*(G)=0；启发式 h(S)=4、h(A)=4、h(G)=0，且边 A->G 的代价为3。这个启发式是否可采纳？在边 A->G 上是否一致？请分别判断。",
+      "expected_answer": "不可采纳，因为 h(A)=4 大于真实最低剩余代价 h*(A)=3。在边 A->G 上也不一致，因为一致性要求 h(A) <= cost(A,G)+h(G)，但 4 <= 3+0 不成立。",
+      "rubric": "完整回答应分别检查可采纳性和一致性：指出 h(A) 高估真实代价，并代入 A->G 的一致性不等式。若只判断其中一项，可给部分分。",
+      "difficulty": "hard"
+    },
+    {
+      "id": "dq_astar_optimality_condition_001",
+      "concept_ids": [
+        "a_star_search",
+        "admissibility_and_consistency",
+        "completeness_optimality_complexity"
+      ],
+      "question_text": "A* 是不是无论使用什么启发式都一定返回最低代价路径？如果不是，启发式至少需要满足什么性质？在图搜索中为什么通常更强调一致性？",
+      "expected_answer": "不是。A* 的最优性依赖启发式性质：树搜索中通常要求可采纳，即不高估真实最低剩余代价；图搜索中通常更强调一致性，因为一致性保证 f 值沿路径不下降，使一个状态第一次被扩展时通常已经以最低 g 值到达，从而避免反复重新打开节点。",
+      "rubric": "完整回答应否定“任意启发式都最优”，说明可采纳与最优性的关系，并进一步说明图搜索中一致性的重要性。若只说需要可采纳但没有解释一致性，可给部分分。",
+      "difficulty": "hard"
+    },
+    {
+      "id": "dq_bfs_complexity_001",
+      "concept_ids": [
+        "breadth_first_search",
+        "completeness_optimality_complexity"
+      ],
+      "question_text": "BFS 在分支因子很大、目标深度为 d 的搜索树上，为什么时间和空间都容易爆炸？请从“按层扩展”和 frontier 保存内容解释。",
+      "expected_answer": "BFS 会按层生成并扩展节点；如果每个节点有很多后继，深度越大，节点数量会近似按分支因子指数增长。为了保证按层处理，BFS 的 frontier 还要保存当前层和下一层的大量节点，因此时间和空间都可能随深度快速膨胀。",
+      "rubric": "完整回答应提到按层扩展、分支因子导致节点数指数增长、frontier 保存大量节点。若只说 BFS 很慢或占内存但不解释原因，可给部分分。",
+      "difficulty": "medium"
+    },
+    {
+      "id": "dq_bfs_expansion_001",
+      "concept_ids": [
+        "breadth_first_search"
+      ],
+      "question_text": "BFS 通常如何从 frontier 中选择下一个节点扩展？请说明它的扩展顺序，并可说明哪种数据结构与此顺序相匹配。",
+      "expected_answer": "BFS 按深度逐层扩展：先发现或先进入 frontier 的浅层节点先被处理。通常用先进先出的 FIFO 队列保存 frontier。",
+      "rubric": "完整回答应说明按层或由浅到深的扩展顺序；提到 FIFO 队列可以补充说明 frontier 为什么按该顺序处理。若描述为沿一条路径持续深入或使用栈，应判为错误。",
+      "difficulty": "easy",
+      "assessment": {
+        "required_groups": [
+          {
+            "id": "layer_order",
+            "label": "BFS 的逐层扩展顺序",
+            "terms": [
+              "逐层",
+              "按层",
+              "层序",
+              "由浅到深",
+              "先处理离起点更近的节点",
+              "先扩展离起点近的节点",
+              "先处理浅层节点",
+              "一层处理完再进入下一层",
+              "level by level"
+            ]
+          }
+        ],
+        "optional_groups": [
+          {
+            "id": "fifo_queue",
+            "label": "FIFO 队列与 frontier 顺序",
+            "terms": [
+              "FIFO",
+              "先进先出",
+              "队列",
+              "queue"
+            ]
+          }
+        ],
+        "blocking_misconceptions": [
+          {
+            "id": "bfs_is_depth_first",
+            "patterns": [
+              "沿一条路径一直深入",
+              "使用栈",
+              "最深节点",
+              "depth first"
+            ],
+            "proposition": "BFS 沿一条路径不断深入，或使用栈优先处理最深节点。",
+            "feedback": "BFS 不是沿单一路径持续深入；请关注它按层扩展。"
+          }
+        ],
+        "pass_threshold": 1.0
+      },
+      "teaching_support": {
+        "model_answer": "BFS 按深度逐层扩展。已经先进入 frontier 的浅层节点会先被取出并扩展，因此 frontier 通常用先进先出的 FIFO 队列维护。",
+        "explanation": "逐层扩展意味着 BFS 优先处理离起点边数更少的节点，而不是沿一条分支不断深入。",
+        "scaffold": "可以按两点组织：先说明 BFS 按层或由浅到深扩展；再说明 frontier 用 FIFO 队列时，先加入的节点先被处理。"
+      }
+    },
+    {
+      "id": "dq_ucs_when_costs_differ_001",
+      "concept_ids": [
+        "uniform_cost_search"
+      ],
+      "question_text": "当动作或边的代价不同时，应该优先使用哪种搜索？请说明它依据什么选择下一个扩展节点，并说明 frontier 常用的数据结构。",
+      "expected_answer": "当动作或边的代价不同时，应使用 UCS。UCS 每次选择累计路径代价 g(n) 最小的 frontier 节点，通常用优先队列维护 frontier。",
+      "rubric": "完整回答应说明不等代价时使用 UCS，并说明按累计路径代价 g(n) 最小选择；提到优先队列可补充 frontier 的实现。若说 UCS 按层数或步数选择，应判为错误。",
+      "difficulty": "easy",
+      "assessment": {
+        "required_groups": [
+          {
+            "id": "unequal_costs",
+            "label": "动作或边代价不同时使用 UCS",
+            "terms": [
+              "动作代价不同时",
+              "边代价不同时",
+              "代价不相同",
+              "不同代价",
+              "ucs",
+              "uniform cost search",
+              "考虑每一步的代价",
+              "ucs考虑每一步的代价",
+              "不是按步数或深度",
+              "不是按步数",
+              "unequal costs",
+              "different costs"
+            ]
+          },
+          {
+            "id": "cumulative_path_cost",
+            "label": "按累计路径代价 g(n) 选择",
+            "terms": [
+              "累计路径代价",
+              "路径总代价",
+              "累计代价最低",
+              "边代价之和",
+              "沿途每一步花费加起来",
+              "把沿途每一步的花费加起来",
+              "从起点到当前节点的总成本",
+              "沿途成本之和",
+              "把沿途成本累计起来",
+              "沿途花掉的成本都累计起来",
+              "当前总花费更小的节点先扩展",
+              "g(n)",
+              "lowest path cost"
+            ]
+          }
+        ],
+        "optional_groups": [
+          {
+            "id": "priority_queue",
+            "label": "优先队列管理 frontier",
+            "terms": [
+              "优先队列",
+              "priority queue"
+            ]
+          }
+        ],
+        "blocking_misconceptions": [
+          {
+            "id": "ucs_uses_depth_or_step_count",
+            "patterns": [
+              "按层数",
+              "按步数",
+              "按总步数",
+              "路径的总步数",
+              "按深度选择",
+              "只看下一步边代价",
+              "只看下一步的代价",
+              "最浅节点",
+              "和 BFS 完全一样",
+              "exactly the same as bfs"
+            ],
+            "proposition": "UCS 按路径总步数、深度，或仅下一步边代价来选择节点。",
+            "feedback": "UCS 依据累计路径代价选择，不是按深度或步数选择。"
+          }
+        ],
+        "pass_threshold": 1.0
+      },
+      "teaching_support": {
+        "model_answer": "当动作或边代价不同时，应使用 UCS。UCS 每次选择累计路径代价 g(n) 最小的 frontier 节点，通常用优先队列维护 frontier。",
+        "explanation": "UCS 比较已经付出的累计代价，而不是比较深度或步数，因此能处理不同动作代价。",
+        "scaffold": "按三点回答：说明代价不同时选 UCS；说明按最小 g(n) 选择；最后补充 frontier 可由优先队列维护。"
+      }
+    },
+    {
+      "id": "dq_astar_trace_002",
+      "concept_ids": [
+        "a_star_search",
+        "uniform_cost_search",
+        "informed_search_and_heuristics"
+      ],
+      "question_text": "给定边：Start-A=2，Start-B=3，Start-D=5，A-C=4，B-D=4，D-C=1，C-Goal=2，D-Goal=5；h(A)=2，h(B)=5，h(C)=2，h(D)=1，h(Goal)=0。假设 A* 每次选择 f(n)=g(n)+h(n) 最小的节点扩展；若 f 值相同，可以任选其一但要说明理由。请写出 Start 之后至少前三个被扩展的节点，并给出一条总代价最低的路径及总代价。",
+      "expected_answer": "Start 之后，frontier 中 A 的 f=2+2=4，B 的 f=3+5=8，D 的 f=5+1=6，所以先扩展 A。扩展 A 后得到 C，g(C)=6，f(C)=8；此时 D 的 f=6 最小，所以扩展 D。扩展 D 后可得到 C 的另一条路径 g=6、f=8，以及 Goal 的 g=10、f=10；接下来 B 和 C 都可能有 f=8，具体顺序取决于同优先级规则。最低代价路径可以是 Start-A-C-Goal，总代价 2+4+2=8；Start-D-C-Goal 也是总代价 5+1+2=8。",
+      "rubric": "完整回答应正确计算初始 A/B/D 的 f 值，说明 A、D 的扩展原因，承认 f 值相同处受 tie-breaking 影响，并给出总代价为8的最优路径之一。若只给路径但没有 f 值推理，可给部分分。若声称唯一返回某条同代价路径，应扣少量分。",
+      "difficulty": "hard"
+    }
+  ]
+}

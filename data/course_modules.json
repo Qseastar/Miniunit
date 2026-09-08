@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "course_id": "intro_ai",
+  "modules": [
+    {
+      "module_id": "search_algorithms",
+      "display_name_zh": "搜索算法",
+      "display_name_en": "Search Algorithms",
+      "unit_ids": ["search_algorithms"],
+      "knowledge_points_path": "data/knowledge_points.json",
+      "course_chunks_path": "data/course_chunks.json",
+      "diagnostic_templates_path": "data/diagnostic_templates.json",
+      "course_material_manifest_path": "data/course_material_manifest.json",
+      "default_diagnostic_concept_ids": [
+        "breadth_first_search",
+        "completeness_optimality_complexity",
+        "uniform_cost_search"
+      ],
+      "formative_questions_path": "data/diagnostic_questions.json",
+      "formative_tracks_path": "data/diagnostic_tracks.json",
+      "default_formative_track_id": "bfs_equal_cost_ucs",
+      "mastery_map_layout_path": "data/search_algorithms_mastery_map_layout.json",
+      "concept_copy_zh_path": "data/search_algorithms_concept_copy_zh.json"
+    }
+  ]
+}

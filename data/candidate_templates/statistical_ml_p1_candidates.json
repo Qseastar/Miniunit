@@ -1,0 +1,619 @@
+{
+  "schema_version": 1,
+  "candidate_batch_id": "statistical_ml_p1",
+  "candidate_status": "pending_human_review",
+  "templates": [
+    {
+      "id": "verify_supervised_vs_unsupervised_definition_v1",
+      "schema_version": 1,
+      "review_status": "candidate_draft",
+      "purpose": "mastery_verification",
+      "concept_ids": [
+        "statistical_ml__supervised_vs_unsupervised"
+      ],
+      "eligible_intents": [
+        "diagnostic_request",
+        "definition",
+        "explanation"
+      ],
+      "selection_priority": 300,
+      "question_type": "single_choice",
+      "prompt": "给定一批训练样本，如果其中每个样本都没有对应的标注（标签），这属于哪一类学习任务？",
+      "choices": [
+        {
+          "id": "unsupervised",
+          "text": "无监督学习"
+        },
+        {
+          "id": "supervised",
+          "text": "监督学习"
+        },
+        {
+          "id": "reinforcement",
+          "text": "强化学习"
+        },
+        {
+          "id": "semi_supervised",
+          "text": "半监督学习"
+        }
+      ],
+      "expected_answer": {
+        "choice_id": "unsupervised"
+      },
+      "deterministic_scorer": "single_choice_v1",
+      "misconception_rules": [],
+      "teaching_support": {
+        "hint": "回忆监督学习与无监督学习的关键区别：训练样本是否带有标注。",
+        "explanation": "监督学习要求所有训练样本都有对应的标注；无监督学习的训练样本均没有标注（例如聚类任务）。题干明确说明样本均无标注，因此属于无监督学习。"
+      },
+      "benchmark_case_ids": [
+        "stat_ml_supervised_unsupervised_correct",
+        "stat_ml_supervised_unsupervised_wrong"
+      ]
+    },
+    {
+      "id": "verify_knn_k_value_effect_v1",
+      "schema_version": 1,
+      "review_status": "candidate_draft",
+      "purpose": "mastery_verification",
+      "concept_ids": [
+        "statistical_ml__k_nearest_neighbors"
+      ],
+      "eligible_intents": [
+        "diagnostic_request",
+        "explanation",
+        "property"
+      ],
+      "selection_priority": 300,
+      "question_type": "single_choice",
+      "prompt": "在 k 近邻算法中，若 k 值取得过小（例如 k=1），通常会导致？",
+      "choices": [
+        {
+          "id": "overfitting",
+          "text": "模型变得复杂，容易过拟合"
+        },
+        {
+          "id": "underfitting",
+          "text": "模型过于简单，欠拟合"
+        },
+        {
+          "id": "no_effect",
+          "text": "对模型没有影响"
+        },
+        {
+          "id": "always_better",
+          "text": "一定提高泛化性能"
+        }
+      ],
+      "expected_answer": {
+        "choice_id": "overfitting"
+      },
+      "deterministic_scorer": "single_choice_v1",
+      "misconception_rules": [],
+      "teaching_support": {
+        "hint": "回顾课件：较小的 k 相当于用较小的邻域预测，训练误差减小，泛化误差会怎样变化？",
+        "explanation": "k 减小意味着模型变得更复杂，训练误差减小但泛化误差增大，容易过拟合；k 增大（直至 k=N）则模型过于简单。"
+      },
+      "benchmark_case_ids": [
+        "stat_ml_knn_k_correct",
+        "stat_ml_knn_k_wrong"
+      ]
+    },
+    {
+      "id": "verify_knn_manhattan_distance_v1",
+      "schema_version": 1,
+      "review_status": "candidate_draft",
+      "purpose": "mastery_verification",
+      "concept_ids": [
+        "statistical_ml__k_nearest_neighbors"
+      ],
+      "eligible_intents": [
+        "diagnostic_request",
+        "algorithm_trace"
+      ],
+      "selection_priority": 200,
+      "question_type": "numeric_answer",
+      "prompt": "二维空间中，两点 x=(1,1) 与 x'=(4,5) 的曼哈顿距离（闵可夫斯基距离 p=1）等于多少？",
+      "choices": [],
+      "expected_answer": {
+        "value": 7,
+        "absolute_tolerance": 0.01
+      },
+      "deterministic_scorer": "numeric_answer_v1",
+      "misconception_rules": [],
+      "teaching_support": {
+        "hint": "曼哈顿距离是各维坐标差绝对值之和：|4−1| + |5−1|。",
+        "explanation": "曼哈顿距离（p=1）为 Σ|xi − xi'| = |4−1| + |5−1| = 3 + 4 = 7。注意欧氏距离（p=2）是 5，不要混淆。"
+      },
+      "benchmark_case_ids": [
+        "stat_ml_knn_manhattan_correct",
+        "stat_ml_knn_manhattan_wrong"
+      ]
+    },
+    {
+      "id": "verify_linear_regression_least_squares_objective_v1",
+      "schema_version": 1,
+      "review_status": "candidate_draft",
+      "purpose": "mastery_verification",
+      "concept_ids": [
+        "statistical_ml__linear_regression_least_squares"
+      ],
+      "eligible_intents": [
+        "diagnostic_request",
+        "definition",
+        "explanation"
+      ],
+      "selection_priority": 300,
+      "question_type": "single_choice",
+      "prompt": "一元线性回归 f(x)=wx+b 中，最小二乘法（least square method）的优化目标是？",
+      "choices": [
+        {
+          "id": "min_mse",
+          "text": "最小化预测值与真实值之差的平方和（均方误差）"
+        },
+        {
+          "id": "min_abs",
+          "text": "最小化预测值与真实值之差的绝对值之和"
+        },
+        {
+          "id": "max_likelihood",
+          "text": "最大化样本的似然"
+        },
+        {
+          "id": "min_param",
+          "text": "最小化参数 w 和 b 的绝对值"
+        }
+      ],
+      "expected_answer": {
+        "choice_id": "min_mse"
+      },
+      "deterministic_scorer": "single_choice_v1",
+      "misconception_rules": [],
+      "teaching_support": {
+        "hint": "回顾课件：均方误差（MSE）对应的优化目标是什么？",
+        "explanation": "最小二乘法最小化均方误差，即 Σ(yi − f(xi))²，对应『差的平方和』，而不是绝对值之和（那是 L1 损失）。"
+      },
+      "benchmark_case_ids": [
+        "stat_ml_linear_least_squares_correct",
+        "stat_ml_linear_least_squares_wrong"
+      ]
+    },
+    {
+      "id": "verify_linear_regression_closed_form_intercept_v1",
+      "schema_version": 1,
+      "review_status": "candidate_draft",
+      "purpose": "mastery_verification",
+      "concept_ids": [
+        "statistical_ml__linear_regression_least_squares"
+      ],
+      "eligible_intents": [
+        "diagnostic_request",
+        "algorithm_trace"
+      ],
+      "selection_priority": 200,
+      "question_type": "numeric_answer",
+      "prompt": "一元线性回归 f(x)=wx+b 中，若训练样本 x 的均值 x̄=5、y 的均值 ȳ=3，且已求得 w=2，则闭式解给出的截距 b 等于多少？（提示：b = ȳ − w·x̄）",
+      "choices": [],
+      "expected_answer": {
+        "value": -7,
+        "absolute_tolerance": 0.01
+      },
+      "deterministic_scorer": "numeric_answer_v1",
+      "misconception_rules": [],
+      "teaching_support": {
+        "hint": "闭式解中 b = ȳ − w·x̄ = 3 − 2×5。",
+        "explanation": "一元回归闭式解 b = ȳ − w x̄，代入得 b = 3 − 2×5 = −7。"
+      },
+      "benchmark_case_ids": [
+        "stat_ml_linear_intercept_correct",
+        "stat_ml_linear_intercept_wrong"
+      ]
+    },
+    {
+      "id": "verify_logistic_regression_is_classifier_v1",
+      "schema_version": 1,
+      "review_status": "candidate_draft",
+      "purpose": "mastery_verification",
+      "concept_ids": [
+        "statistical_ml__logistic_regression"
+      ],
+      "eligible_intents": [
+        "diagnostic_request",
+        "definition",
+        "explanation"
+      ],
+      "selection_priority": 300,
+      "question_type": "single_choice",
+      "prompt": "关于对数几率回归（logistic regression），下列哪项说法正确？",
+      "choices": [
+        {
+          "id": "is_classifier",
+          "text": "它是一种分类学习算法"
+        },
+        {
+          "id": "is_regression",
+          "text": "它是一种回归算法，用于预测连续值"
+        },
+        {
+          "id": "is_clustering",
+          "text": "它是一种无监督聚类算法"
+        },
+        {
+          "id": "no_sigmoid",
+          "text": "它不使用 sigmoid 函数"
+        }
+      ],
+      "expected_answer": {
+        "choice_id": "is_classifier"
+      },
+      "deterministic_scorer": "single_choice_v1",
+      "misconception_rules": [],
+      "teaching_support": {
+        "hint": "课件明确强调：对数几率回归是分类学习算法，与『回归』这一名称无关。",
+        "explanation": "对数几率回归在回归模型中引入 sigmoid 函数，输出概率并用于二分类，因此是分类学习算法；『回归』只是历史命名。"
+      },
+      "benchmark_case_ids": [
+        "stat_ml_logistic_classifier_correct",
+        "stat_ml_logistic_classifier_wrong"
+      ]
+    },
+    {
+      "id": "verify_logistic_regression_sigmoid_range_v1",
+      "schema_version": 1,
+      "review_status": "candidate_draft",
+      "purpose": "mastery_verification",
+      "concept_ids": [
+        "statistical_ml__logistic_regression"
+      ],
+      "eligible_intents": [
+        "diagnostic_request",
+        "definition",
+        "property"
+      ],
+      "selection_priority": 250,
+      "question_type": "single_choice",
+      "prompt": "对数几率回归中，sigmoid 函数 y = 1/(1+e^(−z)) 的输出取值范围是？",
+      "choices": [
+        {
+          "id": "open_01",
+          "text": "(0, 1)"
+        },
+        {
+          "id": "closed_01",
+          "text": "[0, 1]"
+        },
+        {
+          "id": "all_real",
+          "text": "(−∞, +∞)"
+        },
+        {
+          "id": "binary",
+          "text": "{−1, +1}"
+        }
+      ],
+      "expected_answer": {
+        "choice_id": "open_01"
+      },
+      "deterministic_scorer": "single_choice_v1",
+      "misconception_rules": [],
+      "teaching_support": {
+        "hint": "sigmoid 输出是概率，取值在 0 和 1 之间，是否包含端点？",
+        "explanation": "sigmoid 函数 y = 1/(1+e^(−z)) 的输出范围是开区间 (0,1)，不会取到端点 0 或 1。"
+      },
+      "benchmark_case_ids": [
+        "stat_ml_logistic_sigmoid_correct",
+        "stat_ml_logistic_sigmoid_wrong"
+      ]
+    },
+    {
+      "id": "verify_kmeans_steps_order_v1",
+      "schema_version": 1,
+      "review_status": "candidate_draft",
+      "purpose": "mastery_verification",
+      "concept_ids": [
+        "statistical_ml__k_means_clustering"
+      ],
+      "eligible_intents": [
+        "diagnostic_request",
+        "algorithm_trace"
+      ],
+      "selection_priority": 250,
+      "question_type": "ordering",
+      "prompt": "请将 K 均值（K-Means）聚类的执行步骤按正确顺序排列。",
+      "choices": [
+        {
+          "id": "update",
+          "text": "更新各簇的均值向量，将其作为新的簇中心"
+        },
+        {
+          "id": "init",
+          "text": "随机选取 k 个样本点作为簇中心"
+        },
+        {
+          "id": "check",
+          "text": "若所有簇中心未发生改变则停止，否则回到划分步骤"
+        },
+        {
+          "id": "assign",
+          "text": "将其他样本点根据其与簇中心的距离，划分给最近的簇"
+        }
+      ],
+      "expected_answer": {
+        "ordered_choice_ids": [
+          "init",
+          "assign",
+          "update",
+          "check"
+        ]
+      },
+      "deterministic_scorer": "ordering_v1",
+      "misconception_rules": [],
+      "teaching_support": {
+        "hint": "回想 K-Means 的迭代：先选中心，再分配样本，再更新均值，最后判断是否收敛。",
+        "explanation": "正确顺序为：①随机选 k 个簇中心 → ②按距离把样本划分给最近的簇 → ③更新各簇均值作为新中心 → ④判断是否停止，未停止则回到②。"
+      },
+      "benchmark_case_ids": [
+        "stat_ml_kmeans_order_correct",
+        "stat_ml_kmeans_order_wrong"
+      ]
+    },
+    {
+      "id": "verify_kmeans_limitations_v1",
+      "schema_version": 1,
+      "review_status": "candidate_draft",
+      "purpose": "mastery_verification",
+      "concept_ids": [
+        "statistical_ml__k_means_clustering"
+      ],
+      "eligible_intents": [
+        "diagnostic_request",
+        "explanation",
+        "property"
+      ],
+      "selection_priority": 250,
+      "question_type": "single_choice",
+      "prompt": "下列哪项不是 K 均值（K-Means）聚类的不足？",
+      "choices": [
+        {
+          "id": "auto_k",
+          "text": "能够自动确定最优的聚类数目"
+        },
+        {
+          "id": "preset_k",
+          "text": "需要事先确定聚类数目"
+        },
+        {
+          "id": "sensitive_init",
+          "text": "初始化簇中心对聚类结果影响较大"
+        },
+        {
+          "id": "high_cost",
+          "text": "迭代执行的时间开销较大"
+        }
+      ],
+      "expected_answer": {
+        "choice_id": "auto_k"
+      },
+      "deterministic_scorer": "single_choice_v1",
+      "misconception_rules": [],
+      "teaching_support": {
+        "hint": "课件列出的不足包括：需预设簇数、对初始化敏感、迭代开销大、假设各维度重要性相同。哪一项与这些相反？",
+        "explanation": "K-Means 恰恰无法自动确定簇数目（需要事先指定 k），所以『能自动确定最优聚类数目』不是它的特性，而是其不足的反面。"
+      },
+      "benchmark_case_ids": [
+        "stat_ml_kmeans_limitations_correct",
+        "stat_ml_kmeans_limitations_wrong"
+      ]
+    }
+  ],
+  "acceptance_cases": {
+    "verify_supervised_vs_unsupervised_definition_v1": {
+      "primary_concept_id": "statistical_ml__supervised_vs_unsupervised",
+      "verification_goal": "Verify the student distinguishes supervised from unsupervised learning by whether training samples carry labels.",
+      "capability_boundary": "Does not test semi-supervised or reinforcement learning, and does not test any concrete algorithm.",
+      "evidence_strength": "direct",
+      "source_review_note": "lec8 p.3 defines supervised learning (all training samples labeled); p.40 defines unsupervised learning (no labels). Chunk ingestion for ai_lec8_statistical_learning.pdf is pending.",
+      "source_refs": [
+        {
+          "chunk_id": "statistical_ml_supervised_learning",
+          "source_file": "ai_lec8_statistical_learning.pdf",
+          "page_start": 3,
+          "page_end": 3
+        },
+        {
+          "chunk_id": "statistical_ml_unsupervised_learning",
+          "source_file": "ai_lec8_statistical_learning.pdf",
+          "page_start": 40,
+          "page_end": 40
+        }
+      ],
+      "question_type": "single_choice",
+      "deterministic_scorer": "single_choice_v1",
+      "expected_answer_position": 1,
+      "correct_answer": "unsupervised",
+      "wrong_answer": "supervised",
+      "malformed_answer": "unknown_choice"
+    },
+    "verify_knn_k_value_effect_v1": {
+      "primary_concept_id": "statistical_ml__k_nearest_neighbors",
+      "verification_goal": "Verify the student knows that a small k makes the kNN model more complex and prone to overfitting.",
+      "capability_boundary": "Does not test the exact optimal-k selection procedure or distance-metric computation.",
+      "evidence_strength": "direct",
+      "source_review_note": "lec8 p.7 states smaller k increases training error reduction but also generalization error (overfitting). Chunk ingestion for ai_lec8_statistical_learning.pdf is pending.",
+      "source_refs": [
+        {
+          "chunk_id": "statistical_ml_knn_algorithm",
+          "source_file": "ai_lec8_statistical_learning.pdf",
+          "page_start": 7,
+          "page_end": 7
+        }
+      ],
+      "question_type": "single_choice",
+      "deterministic_scorer": "single_choice_v1",
+      "expected_answer_position": 1,
+      "correct_answer": "overfitting",
+      "wrong_answer": "underfitting",
+      "malformed_answer": "unknown_choice"
+    },
+    "verify_knn_manhattan_distance_v1": {
+      "primary_concept_id": "statistical_ml__k_nearest_neighbors",
+      "verification_goal": "Verify the student computes Manhattan distance (Minkowski p=1) between two 2D points.",
+      "capability_boundary": "Does not test Euclidean distance, ordered vs unordered attributes, or test-time complexity.",
+      "evidence_strength": "direct",
+      "source_review_note": "lec8 p.8 defines Minkowski distance with p=1 as Manhattan distance. Chunk ingestion for ai_lec8_statistical_learning.pdf is pending.",
+      "source_refs": [
+        {
+          "chunk_id": "statistical_ml_knn_algorithm",
+          "source_file": "ai_lec8_statistical_learning.pdf",
+          "page_start": 8,
+          "page_end": 8
+        }
+      ],
+      "question_type": "numeric_answer",
+      "deterministic_scorer": "numeric_answer_v1",
+      "expected_answer_position": null,
+      "correct_answer": 7,
+      "wrong_answer": 5,
+      "malformed_answer": "abc"
+    },
+    "verify_linear_regression_least_squares_objective_v1": {
+      "primary_concept_id": "statistical_ml__linear_regression_least_squares",
+      "verification_goal": "Verify the student identifies least squares with minimizing mean squared error.",
+      "capability_boundary": "Does not test multivariate regression, the closed-form matrix solution, or regularization.",
+      "evidence_strength": "direct",
+      "source_review_note": "lec8 p.15-16 define the least squares objective as minimizing the mean squared error. Chunk ingestion for ai_lec8_statistical_learning.pdf is pending.",
+      "source_refs": [
+        {
+          "chunk_id": "statistical_ml_linear_regression",
+          "source_file": "ai_lec8_statistical_learning.pdf",
+          "page_start": 15,
+          "page_end": 16
+        }
+      ],
+      "question_type": "single_choice",
+      "deterministic_scorer": "single_choice_v1",
+      "expected_answer_position": 1,
+      "correct_answer": "min_mse",
+      "wrong_answer": "min_abs",
+      "malformed_answer": "unknown_choice"
+    },
+    "verify_linear_regression_closed_form_intercept_v1": {
+      "primary_concept_id": "statistical_ml__linear_regression_least_squares",
+      "verification_goal": "Verify the student computes the univariate closed-form intercept b = y_mean - w*x_mean.",
+      "capability_boundary": "Does not test the slope w closed form, multivariate matrix inversion, or when X^T X is singular.",
+      "evidence_strength": "direct",
+      "source_review_note": "lec8 p.17 gives the univariate closed form b = y_mean - w*x_mean. Chunk ingestion for ai_lec8_statistical_learning.pdf is pending.",
+      "source_refs": [
+        {
+          "chunk_id": "statistical_ml_linear_regression",
+          "source_file": "ai_lec8_statistical_learning.pdf",
+          "page_start": 17,
+          "page_end": 17
+        }
+      ],
+      "question_type": "numeric_answer",
+      "deterministic_scorer": "numeric_answer_v1",
+      "expected_answer_position": null,
+      "correct_answer": -7,
+      "wrong_answer": 7,
+      "malformed_answer": "abc"
+    },
+    "verify_logistic_regression_is_classifier_v1": {
+      "primary_concept_id": "statistical_ml__logistic_regression",
+      "verification_goal": "Verify the student identifies logistic regression as a classification algorithm.",
+      "capability_boundary": "Does not test the maximum-likelihood derivation, cross-entropy loss, or multi-class extension.",
+      "evidence_strength": "direct",
+      "source_review_note": "lec8 p.33 explicitly notes logistic regression is a classification algorithm. Chunk ingestion for ai_lec8_statistical_learning.pdf is pending.",
+      "source_refs": [
+        {
+          "chunk_id": "statistical_ml_logistic_regression",
+          "source_file": "ai_lec8_statistical_learning.pdf",
+          "page_start": 33,
+          "page_end": 33
+        }
+      ],
+      "question_type": "single_choice",
+      "deterministic_scorer": "single_choice_v1",
+      "expected_answer_position": 1,
+      "correct_answer": "is_classifier",
+      "wrong_answer": "is_regression",
+      "malformed_answer": "unknown_choice"
+    },
+    "verify_logistic_regression_sigmoid_range_v1": {
+      "primary_concept_id": "statistical_ml__logistic_regression",
+      "verification_goal": "Verify the student knows the sigmoid output range is the open interval (0,1).",
+      "capability_boundary": "Does not test the logit/odds relation, decision threshold, or gradient descent update.",
+      "evidence_strength": "direct",
+      "source_review_note": "lec8 p.32 introduces the sigmoid function y = 1/(1+e^-z) with output in (0,1). Chunk ingestion for ai_lec8_statistical_learning.pdf is pending.",
+      "source_refs": [
+        {
+          "chunk_id": "statistical_ml_logistic_regression",
+          "source_file": "ai_lec8_statistical_learning.pdf",
+          "page_start": 32,
+          "page_end": 32
+        }
+      ],
+      "question_type": "single_choice",
+      "deterministic_scorer": "single_choice_v1",
+      "expected_answer_position": 1,
+      "correct_answer": "open_01",
+      "wrong_answer": "closed_01",
+      "malformed_answer": "unknown_choice"
+    },
+    "verify_kmeans_steps_order_v1": {
+      "primary_concept_id": "statistical_ml__k_means_clustering",
+      "verification_goal": "Verify the student orders the four K-Means steps correctly.",
+      "capability_boundary": "Does not test convergence guarantees, centroid computation detail, or how k is chosen.",
+      "evidence_strength": "direct",
+      "source_review_note": "lec8 p.44 lists the four K-Means steps in order. Chunk ingestion for ai_lec8_statistical_learning.pdf is pending.",
+      "source_refs": [
+        {
+          "chunk_id": "statistical_ml_kmeans_clustering",
+          "source_file": "ai_lec8_statistical_learning.pdf",
+          "page_start": 44,
+          "page_end": 44
+        }
+      ],
+      "question_type": "ordering",
+      "deterministic_scorer": "ordering_v1",
+      "expected_answer_position": null,
+      "correct_answer": [
+        "init",
+        "assign",
+        "update",
+        "check"
+      ],
+      "wrong_answer": [
+        "assign",
+        "init",
+        "update",
+        "check"
+      ],
+      "malformed_answer": [
+        "init",
+        "unknown_step"
+      ]
+    },
+    "verify_kmeans_limitations_v1": {
+      "primary_concept_id": "statistical_ml__k_means_clustering",
+      "verification_goal": "Verify the student recognizes that K-Means cannot auto-determine the number of clusters.",
+      "capability_boundary": "Does not test initialization strategies, distance-weighted variants, or K-Means applications.",
+      "evidence_strength": "direct",
+      "source_review_note": "lec8 p.46 lists K-Means limitations including the need to pre-set k. Chunk ingestion for ai_lec8_statistical_learning.pdf is pending.",
+      "source_refs": [
+        {
+          "chunk_id": "statistical_ml_kmeans_clustering",
+          "source_file": "ai_lec8_statistical_learning.pdf",
+          "page_start": 46,
+          "page_end": 46
+        }
+      ],
+      "question_type": "single_choice",
+      "deterministic_scorer": "single_choice_v1",
+      "expected_answer_position": 1,
+      "correct_answer": "auto_k",
+      "wrong_answer": "preset_k",
+      "malformed_answer": "unknown_choice"
+    }
+  }
+}

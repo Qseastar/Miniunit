@@ -1,0 +1,189 @@
+{
+  "apptest": {
+    "candidate_templates": 0,
+    "multiple_choice_templates": 3,
+    "position_a_to_d_paths": 4,
+    "production_templates": 20,
+    "rerun_cases": 2,
+    "single_choice_templates": 17,
+    "stale_widget_cases": 0
+  },
+  "handoff": {
+    "production_primary_cases": 20,
+    "stale_plan_replacement_cases": 5
+  },
+  "multiple_choice": {
+    "actual_subset_scorer_calls": 173,
+    "candidate_templates": 0,
+    "permutation_checks": 124,
+    "production_templates": 3,
+    "templates": [
+      {
+        "bank_type": "production",
+        "choice_count": 7,
+        "legal_subset_count": 127,
+        "template_id": "verify_search_problem_components_v1"
+      },
+      {
+        "bank_type": "production",
+        "choice_count": 5,
+        "legal_subset_count": 31,
+        "template_id": "verify_frontier_explored_membership_v1"
+      },
+      {
+        "bank_type": "production",
+        "choice_count": 4,
+        "legal_subset_count": 15,
+        "template_id": "verify_informed_search_g_h_roles_v1"
+      }
+    ]
+  },
+  "mutation": {
+    "defined_cases": 45,
+    "executed_cases": 42,
+    "note": "42 directly executable mutations; 3 remaining requirements are represented by production-boundary isolation tests."
+  },
+  "replay": {
+    "correct": 20,
+    "hint": 20,
+    "malformed": 20,
+    "production_templates": 20,
+    "reveal": 20,
+    "serialization": 5,
+    "wrong": 20
+  },
+  "schema_version": 1,
+  "selector": {
+    "negative_cases": 20,
+    "positive_cases": 67,
+    "supporting_only_cases": 0,
+    "unknown_concept_cases": 20
+  },
+  "single_choice": {
+    "actual_scorer_calls": 66,
+    "candidate_templates": 0,
+    "malformed_input_categories": 9,
+    "production_templates": 17,
+    "templates": [
+      {
+        "bank_type": "production",
+        "legal_choice_count": 3,
+        "template_id": "verify_bfs_frontier_choice_v1",
+        "wrong_choice_count": 2
+      },
+      {
+        "bank_type": "production",
+        "legal_choice_count": 4,
+        "template_id": "verify_bfs_equal_cost_condition_v1",
+        "wrong_choice_count": 3
+      },
+      {
+        "bank_type": "production",
+        "legal_choice_count": 3,
+        "template_id": "verify_ucs_min_g_choice_v1",
+        "wrong_choice_count": 2
+      },
+      {
+        "bank_type": "production",
+        "legal_choice_count": 4,
+        "template_id": "verify_successor_operator_v1",
+        "wrong_choice_count": 3
+      },
+      {
+        "bank_type": "production",
+        "legal_choice_count": 4,
+        "template_id": "verify_graph_search_repeated_state_handling_v1",
+        "wrong_choice_count": 3
+      },
+      {
+        "bank_type": "production",
+        "legal_choice_count": 4,
+        "template_id": "verify_dfs_frontier_choice_v1",
+        "wrong_choice_count": 3
+      },
+      {
+        "bank_type": "production",
+        "legal_choice_count": 4,
+        "template_id": "verify_iddfs_depth_limit_schedule_v1",
+        "wrong_choice_count": 3
+      },
+      {
+        "bank_type": "production",
+        "legal_choice_count": 4,
+        "template_id": "verify_greedy_min_h_choice_v1",
+        "wrong_choice_count": 3
+      },
+      {
+        "bank_type": "production",
+        "legal_choice_count": 4,
+        "template_id": "verify_astar_min_f_choice_v1",
+        "wrong_choice_count": 3
+      },
+      {
+        "bank_type": "production",
+        "legal_choice_count": 4,
+        "template_id": "verify_admissibility_no_overestimate_v1",
+        "wrong_choice_count": 3
+      },
+      {
+        "bank_type": "production",
+        "legal_choice_count": 4,
+        "template_id": "verify_path_cost_accumulation_v1",
+        "wrong_choice_count": 3
+      },
+      {
+        "bank_type": "production",
+        "legal_choice_count": 4,
+        "template_id": "verify_search_node_state_distinction_v1",
+        "wrong_choice_count": 3
+      },
+      {
+        "bank_type": "production",
+        "legal_choice_count": 4,
+        "template_id": "verify_dfs_infinite_branch_risk_v1",
+        "wrong_choice_count": 3
+      },
+      {
+        "bank_type": "production",
+        "legal_choice_count": 4,
+        "template_id": "verify_search_algorithm_properties_v1",
+        "wrong_choice_count": 3
+      },
+      {
+        "bank_type": "production",
+        "legal_choice_count": 4,
+        "template_id": "verify_greedy_suboptimality_v1",
+        "wrong_choice_count": 3
+      },
+      {
+        "bank_type": "production",
+        "legal_choice_count": 4,
+        "template_id": "verify_astar_f_value_v1",
+        "wrong_choice_count": 3
+      },
+      {
+        "bank_type": "production",
+        "legal_choice_count": 4,
+        "template_id": "verify_consistency_edge_check_v1",
+        "wrong_choice_count": 3
+      }
+    ]
+  },
+  "state_machine": {
+    "action_kinds": 9,
+    "explored_paths": 105,
+    "max_path_length": 4,
+    "rejected_transitions": 30,
+    "unique_states": 105
+  },
+  "synthetic": {
+    "numeric_cases": 14,
+    "ordering_cases": 14
+  },
+  "tamper": {
+    "fields": 17,
+    "integration_rejections": 5,
+    "mutations": 17,
+    "restore_rejections": 12
+  }
+}

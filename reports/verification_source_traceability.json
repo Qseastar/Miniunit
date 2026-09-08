@@ -1,0 +1,528 @@
+{
+  "blocked_slot_count": 1,
+  "blocked_slots": [
+    {
+      "blocked_reason": "The reviewed project subset does not directly support a safe frontier lower-cost-update item.",
+      "concept": "uniform_cost_search",
+      "missing_evidence": "A source page that explicitly specifies replacement or decrease-key behavior for a lower-cost duplicate frontier path.",
+      "prohibited_fallback_knowledge": "Do not infer implementation-specific UCS frontier-update behavior from general textbook knowledge.",
+      "proposed_template_id": "verify_ucs_frontier_update_v1",
+      "source_pages_reviewed": [
+        "ai_lec2_uninformed_search.pdf:60-63"
+      ]
+    }
+  ],
+  "candidate_template_count": 0,
+  "chunk_review_status_distribution": {
+    "codex_draft": 29
+  },
+  "course_chunk_count": 69,
+  "entries": [
+    {
+      "bank_type": "production",
+      "primary_concept": "breadth_first_search",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec2_bfs_layer_order",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 34,
+          "page_start": 31,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_bfs_frontier_choice_v1"
+    },
+    {
+      "bank_type": "production",
+      "primary_concept": "breadth_first_search",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec2_bfs_properties",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 35,
+          "page_start": 35,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_bfs_equal_cost_condition_v1"
+    },
+    {
+      "bank_type": "production",
+      "primary_concept": "uniform_cost_search",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec2_ucs_lowest_cost",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 62,
+          "page_start": 60,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_ucs_min_g_choice_v1"
+    },
+    {
+      "bank_type": "production",
+      "primary_concept": "search_problem_formulation",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec2_search_problem_components",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 10,
+          "page_start": 6,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_search_problem_components_v1"
+    },
+    {
+      "bank_type": "production",
+      "primary_concept": "state_space_and_operators",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec2_eight_puzzle_formulation",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 12,
+          "page_start": 12,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_successor_operator_v1"
+    },
+    {
+      "bank_type": "production",
+      "primary_concept": "frontier_and_explored_set",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec2_frontier_expansion",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 20,
+          "page_start": 20,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        },
+        {
+          "chunk_id": "lec2_graph_search_repeated_states",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 27,
+          "page_start": 27,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_frontier_explored_membership_v1"
+    },
+    {
+      "bank_type": "production",
+      "primary_concept": "tree_search_vs_graph_search",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec2_graph_search_repeated_states",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 27,
+          "page_start": 27,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_graph_search_repeated_state_handling_v1"
+    },
+    {
+      "bank_type": "production",
+      "primary_concept": "depth_first_search",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec2_dfs_deepest_first",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 46,
+          "page_start": 37,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        },
+        {
+          "chunk_id": "support_stack_lifo",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 2,
+          "page_start": 1,
+          "source_evidence_role": "evidence",
+          "source_file": "ds_stack_queue_priority_queue.pdf",
+          "source_role": "prerequisite_support",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_dfs_frontier_choice_v1"
+    },
+    {
+      "bank_type": "production",
+      "primary_concept": "iterative_deepening_search",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec2_iddfs_strategy",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 57,
+          "page_start": 53,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_iddfs_depth_limit_schedule_v1"
+    },
+    {
+      "bank_type": "production",
+      "primary_concept": "informed_search_and_heuristics",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec3_a_star_f_g_h",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 18,
+          "page_start": 18,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec3_informed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_informed_search_g_h_roles_v1"
+    },
+    {
+      "bank_type": "production",
+      "primary_concept": "greedy_best_first_search",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec3_greedy_search",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 9,
+          "page_start": 9,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec3_informed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_greedy_min_h_choice_v1"
+    },
+    {
+      "bank_type": "production",
+      "primary_concept": "a_star_search",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec3_a_star_f_g_h",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 18,
+          "page_start": 18,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec3_informed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        },
+        {
+          "chunk_id": "lec3_a_star_f_g_h",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 21,
+          "page_start": 21,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec3_informed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_astar_min_f_choice_v1"
+    },
+    {
+      "bank_type": "production",
+      "primary_concept": "admissibility_and_consistency",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec3_admissibility",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 30,
+          "page_start": 30,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec3_informed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_admissibility_no_overestimate_v1"
+    },
+    {
+      "bank_type": "production",
+      "primary_concept": "search_problem_formulation",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec2_solution_and_optimality",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 11,
+          "page_start": 11,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        },
+        {
+          "chunk_id": "lec2_eight_puzzle_formulation",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 12,
+          "page_start": 12,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_path_cost_accumulation_v1"
+    },
+    {
+      "bank_type": "production",
+      "primary_concept": "tree_search_vs_graph_search",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec2_graph_search_repeated_states",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 27,
+          "page_start": 27,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_search_node_state_distinction_v1"
+    },
+    {
+      "bank_type": "production",
+      "primary_concept": "depth_first_search",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec2_dfs_deepest_first",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 46,
+          "page_start": 37,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        },
+        {
+          "chunk_id": "lec2_dfs_properties",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 48,
+          "page_start": 48,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_dfs_infinite_branch_risk_v1"
+    },
+    {
+      "bank_type": "production",
+      "primary_concept": "completeness_optimality_complexity",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec2_iddfs_strategy",
+          "chunk_review_status": "codex_draft",
+          "context_only": true,
+          "page_end": 53,
+          "page_start": 53,
+          "source_evidence_role": "context_only",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": false
+        },
+        {
+          "chunk_id": "lec2_iddfs_properties",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 58,
+          "page_start": 58,
+          "primary_evidence": true,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        },
+        {
+          "chunk_id": "lec2_bfs_properties",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 35,
+          "page_start": 35,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        },
+        {
+          "chunk_id": "lec2_dfs_properties",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 48,
+          "page_start": 48,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        },
+        {
+          "chunk_id": "lec2_ucs_properties",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 63,
+          "page_start": 63,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec2_uninformed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_search_algorithm_properties_v1"
+    },
+    {
+      "bank_type": "production",
+      "primary_concept": "greedy_best_first_search",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec3_greedy_limitations",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 14,
+          "page_start": 14,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec3_informed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_greedy_suboptimality_v1"
+    },
+    {
+      "bank_type": "production",
+      "primary_concept": "a_star_search",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec3_a_star_f_g_h",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 18,
+          "page_start": 18,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec3_informed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_astar_f_value_v1"
+    },
+    {
+      "bank_type": "production",
+      "primary_concept": "admissibility_and_consistency",
+      "source_role_issues": [],
+      "source_role_result": "pass",
+      "sources": [
+        {
+          "chunk_id": "lec3_consistency",
+          "chunk_review_status": "codex_draft",
+          "context_only": false,
+          "page_end": 39,
+          "page_start": 39,
+          "source_evidence_role": "evidence",
+          "source_file": "ai_lec3_informed_search.pdf",
+          "source_role": "course_core",
+          "topic_match": true
+        }
+      ],
+      "template_id": "verify_consistency_edge_check_v1"
+    }
+  ],
+  "production_template_count": 20,
+  "schema_version": 1,
+  "source_role_distribution": {
+    "course_core": 28,
+    "prerequisite_support": 1
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "materials": [
+    {
+      "material_id": "statistical_ml_course_core_ai_lec8",
+      "source_role": "course_core",
+      "source_file": "ai_lec8_statistical_learning.pdf",
+      "sha256": "76c2ef3baa4877088bb12745707afd7ad08a68be5fa848deae8625622db7e543",
+      "size_bytes": 3333115,
+      "page_count": 47,
+      "allowed_page_range": {"page_start": 1, "page_end": 47},
+      "provenance_note": "Pre-extracted statistical_ml lecture (lec8). The PDF itself remains local and untracked."
+    }
+  ]
+}

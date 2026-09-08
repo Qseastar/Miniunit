@@ -1,0 +1,317 @@
+{
+  "schema_version": 1,
+  "record_type": "p7_study_a_synthetic_fixture_set",
+  "synthetic_only": true,
+  "not_approved_for_real_human_data": true,
+  "candidate_analysis_not_yet_frozen_for_real_study": true,
+  "synthetic_test_missing_reason_vocabulary": [
+    "synthetic_external_not_administered"
+  ],
+  "study_a_boundary": {
+    "research_question": "frozen_estimate_rank_monotonic_alignment_with_independent_course_grounded_performance_criterion",
+    "human_study_authorized": false,
+    "real_human_data_used": false,
+    "writes_production_state": false,
+    "calls_recommendation": false
+  },
+  "criterion_composition": {
+    "status": "SYNTHETIC_FIXTURE_ALIGNED_WITH_OWNER_TECHNICAL_DESIGN",
+    "actual_study_a_item_assignment": "OWNER_TECHNICAL_DESIGN_FROZEN_NOT_HUMAN_STUDY_RELEASE",
+    "primary_immediate_item_ids_by_concept": {
+      "breadth_first_search": [
+        "p7_ext_bfs_depth_claim_a",
+        "p7_ext_bfs_queue_trace_b"
+      ],
+      "uniform_cost_search": [
+        "p7_ext_ucs_cost_accumulation_a",
+        "p7_ext_ucs_positive_cost_bound_d"
+      ],
+      "a_star_search": [
+        "p7_ext_astar_zero_heuristic_c",
+        "p7_ext_astar_component_change_b"
+      ],
+      "local_search": [
+        "p7_ext_local_search_neighbor_a"
+      ],
+      "minimax_search": [
+        "p7_ext_minimax_min_node_a"
+      ],
+      "monte_carlo_tree_search": [
+        "p7_ext_mcts_backpropagation_a",
+        "p7_ext_mcts_expand_untried_child_b"
+      ]
+    },
+    "exploratory_item_ids": [
+      "p7_ext_minimax_two_level_b"
+    ]
+  },
+  "records": [
+    {
+      "synthetic_profile_id": "synthetic_001",
+      "scenario_tags": ["high_mastery_high_external", "mastery_tie", "external_tie"],
+      "analysis_groups": ["positive_monotonic_pattern"],
+      "concept_id": "breadth_first_search",
+      "frozen_evidence": {
+        "frozen_evidence_sequence_id": "synthetic_freeze_bfs_high",
+        "eligible_signals": [1, 1]
+      },
+      "policy_unavailable_reasons": {},
+      "external_item_results": [
+        {"assessment_item_id": "p7_ext_bfs_depth_claim_a", "criterion_role": "synthetic_primary_immediate", "external_correct": 1, "external_total": 1, "missing_reason": null},
+        {"assessment_item_id": "p7_ext_bfs_queue_trace_b", "criterion_role": "synthetic_primary_immediate", "external_correct": 1, "external_total": 1, "missing_reason": null}
+      ]
+    },
+    {
+      "synthetic_profile_id": "synthetic_002",
+      "scenario_tags": ["low_mastery_low_external", "mastery_tie", "external_tie"],
+      "analysis_groups": ["positive_monotonic_pattern"],
+      "concept_id": "uniform_cost_search",
+      "frozen_evidence": {
+        "frozen_evidence_sequence_id": "synthetic_freeze_ucs_low",
+        "eligible_signals": [0, 0]
+      },
+      "policy_unavailable_reasons": {},
+      "external_item_results": [
+        {"assessment_item_id": "p7_ext_ucs_cost_accumulation_a", "criterion_role": "synthetic_primary_immediate", "external_correct": 0, "external_total": 1, "missing_reason": null},
+        {"assessment_item_id": "p7_ext_ucs_positive_cost_bound_d", "criterion_role": "synthetic_primary_immediate", "external_correct": 0, "external_total": 1, "missing_reason": null}
+      ]
+    },
+    {
+      "synthetic_profile_id": "synthetic_003",
+      "scenario_tags": ["mid_mastery_mid_external", "external_tie"],
+      "analysis_groups": ["positive_monotonic_pattern"],
+      "concept_id": "a_star_search",
+      "frozen_evidence": {
+        "frozen_evidence_sequence_id": "synthetic_freeze_astar_mid",
+        "eligible_signals": [0, 1]
+      },
+      "policy_unavailable_reasons": {},
+      "external_item_results": [
+        {"assessment_item_id": "p7_ext_astar_zero_heuristic_c", "criterion_role": "synthetic_primary_immediate", "external_correct": 1, "external_total": 1, "missing_reason": null},
+        {"assessment_item_id": "p7_ext_astar_component_change_b", "criterion_role": "synthetic_primary_immediate", "external_correct": 0, "external_total": 1, "missing_reason": null}
+      ]
+    },
+    {
+      "synthetic_profile_id": "synthetic_004",
+      "scenario_tags": ["low_mastery_low_external", "local_search_single_item"],
+      "analysis_groups": ["positive_monotonic_pattern"],
+      "concept_id": "local_search",
+      "frozen_evidence": {
+        "frozen_evidence_sequence_id": "synthetic_freeze_local_low",
+        "eligible_signals": [0]
+      },
+      "policy_unavailable_reasons": {},
+      "external_item_results": [
+        {"assessment_item_id": "p7_ext_local_search_neighbor_a", "criterion_role": "synthetic_primary_immediate", "external_correct": 0, "external_total": 1, "missing_reason": null}
+      ]
+    },
+    {
+      "synthetic_profile_id": "synthetic_005",
+      "scenario_tags": ["high_mastery_high_external", "minimax_transfer_exploratory_excluded", "single_concept_small_valid_sample"],
+      "analysis_groups": ["positive_monotonic_pattern"],
+      "concept_id": "minimax_search",
+      "frozen_evidence": {
+        "frozen_evidence_sequence_id": "synthetic_freeze_minimax_high",
+        "eligible_signals": [1, 1]
+      },
+      "policy_unavailable_reasons": {},
+      "external_item_results": [
+        {"assessment_item_id": "p7_ext_minimax_min_node_a", "criterion_role": "synthetic_primary_immediate", "external_correct": 1, "external_total": 1, "missing_reason": null},
+        {"assessment_item_id": "p7_ext_minimax_two_level_b", "criterion_role": "exploratory_transfer", "external_correct": 1, "external_total": 1, "missing_reason": null}
+      ]
+    },
+    {
+      "synthetic_profile_id": "synthetic_006",
+      "scenario_tags": ["mid_mastery_mid_external", "external_tie"],
+      "analysis_groups": ["positive_monotonic_pattern"],
+      "concept_id": "monte_carlo_tree_search",
+      "frozen_evidence": {
+        "frozen_evidence_sequence_id": "synthetic_freeze_mcts_mid",
+        "eligible_signals": [0, 1]
+      },
+      "policy_unavailable_reasons": {},
+      "external_item_results": [
+        {"assessment_item_id": "p7_ext_mcts_backpropagation_a", "criterion_role": "synthetic_primary_immediate", "external_correct": 1, "external_total": 1, "missing_reason": null},
+        {"assessment_item_id": "p7_ext_mcts_expand_untried_child_b", "criterion_role": "synthetic_primary_immediate", "external_correct": 0, "external_total": 1, "missing_reason": null}
+      ]
+    },
+    {
+      "synthetic_profile_id": "synthetic_007",
+      "scenario_tags": ["high_mastery_low_external", "inverse_pattern"],
+      "analysis_groups": ["inverse_pattern"],
+      "concept_id": "a_star_search",
+      "frozen_evidence": {
+        "frozen_evidence_sequence_id": "synthetic_freeze_astar_high_external_low",
+        "eligible_signals": [1, 1]
+      },
+      "policy_unavailable_reasons": {},
+      "external_item_results": [
+        {"assessment_item_id": "p7_ext_astar_zero_heuristic_c", "criterion_role": "synthetic_primary_immediate", "external_correct": 0, "external_total": 1, "missing_reason": null},
+        {"assessment_item_id": "p7_ext_astar_component_change_b", "criterion_role": "synthetic_primary_immediate", "external_correct": 0, "external_total": 1, "missing_reason": null}
+      ]
+    },
+    {
+      "synthetic_profile_id": "synthetic_008",
+      "scenario_tags": ["low_mastery_high_external", "local_search_single_item", "inverse_pattern"],
+      "analysis_groups": ["inverse_pattern"],
+      "concept_id": "local_search",
+      "frozen_evidence": {
+        "frozen_evidence_sequence_id": "synthetic_freeze_local_low_external_high",
+        "eligible_signals": [0, 0]
+      },
+      "policy_unavailable_reasons": {},
+      "external_item_results": [
+        {"assessment_item_id": "p7_ext_local_search_neighbor_a", "criterion_role": "synthetic_primary_immediate", "external_correct": 1, "external_total": 1, "missing_reason": null}
+      ]
+    },
+    {
+      "synthetic_profile_id": "synthetic_009",
+      "scenario_tags": ["mastery_tie", "external_tie", "no_clear_monotonic_pattern"],
+      "analysis_groups": ["no_clear_monotonic_pattern"],
+      "concept_id": "breadth_first_search",
+      "frozen_evidence": {
+        "frozen_evidence_sequence_id": "synthetic_freeze_bfs_mixed",
+        "eligible_signals": [1, 0]
+      },
+      "policy_unavailable_reasons": {},
+      "external_item_results": [
+        {"assessment_item_id": "p7_ext_bfs_depth_claim_a", "criterion_role": "synthetic_primary_immediate", "external_correct": 1, "external_total": 1, "missing_reason": null},
+        {"assessment_item_id": "p7_ext_bfs_queue_trace_b", "criterion_role": "synthetic_primary_immediate", "external_correct": 0, "external_total": 1, "missing_reason": null}
+      ]
+    },
+    {
+      "synthetic_profile_id": "synthetic_010",
+      "scenario_tags": ["mastery_tie", "external_tie", "no_clear_monotonic_pattern"],
+      "analysis_groups": ["no_clear_monotonic_pattern"],
+      "concept_id": "uniform_cost_search",
+      "frozen_evidence": {
+        "frozen_evidence_sequence_id": "synthetic_freeze_ucs_mixed",
+        "eligible_signals": [0, 1]
+      },
+      "policy_unavailable_reasons": {},
+      "external_item_results": [
+        {"assessment_item_id": "p7_ext_ucs_cost_accumulation_a", "criterion_role": "synthetic_primary_immediate", "external_correct": 1, "external_total": 1, "missing_reason": null},
+        {"assessment_item_id": "p7_ext_ucs_positive_cost_bound_d", "criterion_role": "synthetic_primary_immediate", "external_correct": 0, "external_total": 1, "missing_reason": null}
+      ]
+    },
+    {
+      "synthetic_profile_id": "synthetic_011",
+      "scenario_tags": ["production_evidence_external_missing", "one_concept_external_missing"],
+      "analysis_groups": ["missing_external_boundary"],
+      "concept_id": "monte_carlo_tree_search",
+      "frozen_evidence": {
+        "frozen_evidence_sequence_id": "synthetic_freeze_mcts_external_missing",
+        "eligible_signals": [1, 0]
+      },
+      "policy_unavailable_reasons": {},
+      "external_item_results": [
+        {"assessment_item_id": "p7_ext_mcts_backpropagation_a", "criterion_role": "synthetic_primary_immediate", "external_correct": null, "external_total": null, "missing_reason": "synthetic_external_not_administered"},
+        {"assessment_item_id": "p7_ext_mcts_expand_untried_child_b", "criterion_role": "synthetic_primary_immediate", "external_correct": null, "external_total": null, "missing_reason": "synthetic_external_not_administered"}
+      ]
+    },
+    {
+      "synthetic_profile_id": "synthetic_012",
+      "scenario_tags": ["multiple_concepts_external_missing", "local_search_single_item"],
+      "analysis_groups": ["missing_external_boundary"],
+      "concept_id": "local_search",
+      "frozen_evidence": {
+        "frozen_evidence_sequence_id": "synthetic_freeze_local_external_missing",
+        "eligible_signals": [1]
+      },
+      "policy_unavailable_reasons": {},
+      "external_item_results": [
+        {"assessment_item_id": "p7_ext_local_search_neighbor_a", "criterion_role": "synthetic_primary_immediate", "external_correct": null, "external_total": null, "missing_reason": "synthetic_external_not_administered"}
+      ]
+    },
+    {
+      "synthetic_profile_id": "synthetic_013",
+      "scenario_tags": ["external_present_policy_unavailable"],
+      "analysis_groups": ["policy_unavailable_boundary"],
+      "concept_id": "a_star_search",
+      "frozen_evidence": null,
+      "policy_unavailable_reasons": {
+        "CURRENT_FIXED_STEP": "synthetic_no_frozen_eligible_evidence",
+        "PRIOR_REGULARIZED_BERNOULLI": "synthetic_no_frozen_eligible_evidence",
+        "COUNT_DECAYED_STEP": "synthetic_no_frozen_eligible_evidence"
+      },
+      "external_item_results": [
+        {"assessment_item_id": "p7_ext_astar_zero_heuristic_c", "criterion_role": "synthetic_primary_immediate", "external_correct": 1, "external_total": 1, "missing_reason": null},
+        {"assessment_item_id": "p7_ext_astar_component_change_b", "criterion_role": "synthetic_primary_immediate", "external_correct": 0, "external_total": 1, "missing_reason": null}
+      ]
+    },
+    {
+      "synthetic_profile_id": "synthetic_014",
+      "scenario_tags": ["constant_external_score", "no_clear_monotonic_pattern"],
+      "analysis_groups": ["constant_external_boundary"],
+      "concept_id": "breadth_first_search",
+      "frozen_evidence": {
+        "frozen_evidence_sequence_id": "synthetic_freeze_bfs_constant_external",
+        "eligible_signals": [0]
+      },
+      "policy_unavailable_reasons": {},
+      "external_item_results": [
+        {"assessment_item_id": "p7_ext_bfs_depth_claim_a", "criterion_role": "synthetic_primary_immediate", "external_correct": 0, "external_total": 1, "missing_reason": null},
+        {"assessment_item_id": "p7_ext_bfs_queue_trace_b", "criterion_role": "synthetic_primary_immediate", "external_correct": 0, "external_total": 1, "missing_reason": null}
+      ]
+    },
+    {
+      "synthetic_profile_id": "synthetic_015",
+      "scenario_tags": ["constant_external_score", "no_clear_monotonic_pattern"],
+      "analysis_groups": ["constant_external_boundary"],
+      "concept_id": "uniform_cost_search",
+      "frozen_evidence": {
+        "frozen_evidence_sequence_id": "synthetic_freeze_ucs_constant_external",
+        "eligible_signals": [1]
+      },
+      "policy_unavailable_reasons": {},
+      "external_item_results": [
+        {"assessment_item_id": "p7_ext_ucs_cost_accumulation_a", "criterion_role": "synthetic_primary_immediate", "external_correct": 0, "external_total": 1, "missing_reason": null},
+        {"assessment_item_id": "p7_ext_ucs_positive_cost_bound_d", "criterion_role": "synthetic_primary_immediate", "external_correct": 0, "external_total": 1, "missing_reason": null}
+      ]
+    },
+    {
+      "synthetic_profile_id": "synthetic_016",
+      "scenario_tags": ["constant_external_score", "no_clear_monotonic_pattern"],
+      "analysis_groups": ["constant_external_boundary"],
+      "concept_id": "monte_carlo_tree_search",
+      "frozen_evidence": {
+        "frozen_evidence_sequence_id": "synthetic_freeze_mcts_constant_external",
+        "eligible_signals": [1, 1]
+      },
+      "policy_unavailable_reasons": {},
+      "external_item_results": [
+        {"assessment_item_id": "p7_ext_mcts_backpropagation_a", "criterion_role": "synthetic_primary_immediate", "external_correct": 0, "external_total": 1, "missing_reason": null},
+        {"assessment_item_id": "p7_ext_mcts_expand_untried_child_b", "criterion_role": "synthetic_primary_immediate", "external_correct": 0, "external_total": 1, "missing_reason": null}
+      ]
+    },
+    {
+      "synthetic_profile_id": "synthetic_017",
+      "scenario_tags": ["high_mastery_low_external", "inverse_pattern"],
+      "analysis_groups": ["inverse_pattern"],
+      "concept_id": "breadth_first_search",
+      "frozen_evidence": {
+        "frozen_evidence_sequence_id": "synthetic_freeze_bfs_inverse",
+        "eligible_signals": [1, 1]
+      },
+      "policy_unavailable_reasons": {},
+      "external_item_results": [
+        {"assessment_item_id": "p7_ext_bfs_depth_claim_a", "criterion_role": "synthetic_primary_immediate", "external_correct": 0, "external_total": 1, "missing_reason": null},
+        {"assessment_item_id": "p7_ext_bfs_queue_trace_b", "criterion_role": "synthetic_primary_immediate", "external_correct": 0, "external_total": 1, "missing_reason": null}
+      ]
+    },
+    {
+      "synthetic_profile_id": "synthetic_018",
+      "scenario_tags": ["low_mastery_high_external", "inverse_pattern", "local_search_single_item"],
+      "analysis_groups": ["inverse_pattern"],
+      "concept_id": "local_search",
+      "frozen_evidence": {
+        "frozen_evidence_sequence_id": "synthetic_freeze_local_inverse",
+        "eligible_signals": [0, 0]
+      },
+      "policy_unavailable_reasons": {},
+      "external_item_results": [
+        {"assessment_item_id": "p7_ext_local_search_neighbor_a", "criterion_role": "synthetic_primary_immediate", "external_correct": 1, "external_total": 1, "missing_reason": null}
+      ]
+    }
+  ]
+}

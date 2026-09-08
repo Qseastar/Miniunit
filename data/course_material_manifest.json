@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "materials": [
+    {
+      "material_id": "course_core_ai_lec2_uninformed_search",
+      "source_role": "course_core",
+      "source_file": "ai_lec2_uninformed_search.pdf",
+      "sha256": "1c6d336e70a303dc3ed1c2d8b28da317055a24c69f7a9c1f658db8a1783413c7",
+      "size_bytes": 3355910,
+      "page_count": 66,
+      "allowed_page_range": {"page_start": 1, "page_end": 66},
+      "provenance_note": "Pre-extracted project subset regenerated with qpdf; the PDF itself remains local and untracked."
+    },
+    {
+      "material_id": "course_core_ai_lec3_informed_search",
+      "source_role": "course_core",
+      "source_file": "ai_lec3_informed_search.pdf",
+      "sha256": "0872083a3b94dbde950a3b149d808addd6dcabb26b7c009d867f25110a6ea3e8",
+      "size_bytes": 3414879,
+      "page_count": 65,
+      "allowed_page_range": {"page_start": 1, "page_end": 65},
+      "provenance_note": "Pre-extracted project subset regenerated with qpdf; the PDF itself remains local and untracked."
+    },
+    {
+      "material_id": "course_core_ai_lec4_local_search_and_llm_search",
+      "source_role": "course_core",
+      "source_file": "ai_lec4_local_search_and_llm_search.pdf",
+      "sha256": "f13b527d76df4e49007476ff34505887872b5df02cf29bc8d60b538896c9381a",
+      "size_bytes": 4745429,
+      "page_count": 32,
+      "allowed_page_range": {"page_start": 1, "page_end": 32},
+      "provenance_note": "Pre-extracted project subset regenerated with qpdf; the PDF itself remains local and untracked."
+    },
+    {
+      "material_id": "course_core_ai_lec5_adversarial_search",
+      "source_role": "course_core",
+      "source_file": "ai_lec5_adversarial_search.pdf",
+      "sha256": "f3bb103f8f07e37f7388e1e576e96b789d7e27878a86fea153354bb5af10381d",
+      "size_bytes": 2455998,
+      "page_count": 38,
+      "allowed_page_range": {"page_start": 1, "page_end": 38},
+      "provenance_note": "Pre-extracted project subset regenerated with qpdf; the PDF itself remains local and untracked."
+    },
+    {
+      "material_id": "course_core_ai_lec6_mcts_and_search_summary",
+      "source_role": "course_core",
+      "source_file": "ai_lec6_mcts_and_search_summary.pdf",
+      "sha256": "5cd936b05b94536b7fca239d97b07ccaa3b35ce4dce1b5709fb545ad38365799",
+      "size_bytes": 4542718,
+      "page_count": 44,
+      "allowed_page_range": {"page_start": 1, "page_end": 44},
+      "provenance_note": "Pre-extracted project subset regenerated with qpdf; the PDF itself remains local and untracked."
+    },
+    {
+      "material_id": "prerequisite_support_ds_graph_traversal_shortest_path",
+      "source_role": "prerequisite_support",
+      "source_file": "ds_graph_traversal_shortest_path.pdf",
+      "sha256": "984537428e90d83c0360ac7a9843ffc86163db0b57624d698b55d05d7ef621db",
+      "size_bytes": 3437628,
+      "page_count": 26,
+      "allowed_page_range": {"page_start": 1, "page_end": 26},
+      "provenance_note": "Pre-extracted prerequisite-support subset regenerated with qpdf; the PDF itself remains local and untracked."
+    },
+    {
+      "material_id": "prerequisite_support_ds_stack_queue_priority_queue",
+      "source_role": "prerequisite_support",
+      "source_file": "ds_stack_queue_priority_queue.pdf",
+      "sha256": "7cb69a9ffa5a1bb8fa556fc497ecc50c385d6d945cb701d3250b7c55b94ed0ac",
+      "size_bytes": 7313044,
+      "page_count": 15,
+      "allowed_page_range": {"page_start": 1, "page_end": 15},
+      "provenance_note": "Pre-extracted prerequisite-support subset regenerated with qpdf; the PDF itself remains local and untracked."
+    },
+    {
+      "material_id": "prerequisite_support_ds_tree_traversal_heap",
+      "source_role": "prerequisite_support",
+      "source_file": "ds_tree_traversal_heap.pdf",
+      "sha256": "7544525ce7517c32b126dc0dec3f651a85b61be5b88d2cc7b95d9ca60e2a1d6f",
+      "size_bytes": 1261576,
+      "page_count": 13,
+      "allowed_page_range": {"page_start": 1, "page_end": 13},
+      "provenance_note": "Pre-extracted prerequisite-support subset regenerated with qpdf; the PDF itself remains local and untracked."
+    }
+  ]
+}

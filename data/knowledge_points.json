@@ -1,0 +1,561 @@
+{
+  "schema_version": "0.1.0",
+  "course": {
+    "course_id": "intro_ai",
+    "course_name": "Introduction to Artificial Intelligence",
+    "unit": "Search Algorithms",
+    "version": "mvp_search_v1"
+  },
+  "knowledge_points": [
+    {
+      "id": "search_problem_formulation",
+      "title_zh": "搜索问题建模",
+      "title_en": "Search Problem Formulation",
+      "module": "Uninformed Search",
+      "description": "Define an AI search problem using states, initial state, actions, transition model, goal test, and path cost.",
+      "prerequisites": [],
+      "learning_objectives": [
+        "Identify the components of a search problem.",
+        "Explain how a real task can be converted into a state-space search problem."
+      ],
+      "common_misconceptions": [
+        "Thinking that the search algorithm itself defines the problem.",
+        "Ignoring the path cost when formulating the problem."
+      ],
+      "mastery_criteria": [
+        "Can define state, action, goal test, and path cost for a simple problem."
+      ]
+    },
+    {
+      "id": "state_space_and_operators",
+      "title_zh": "状态空间与操作",
+      "title_en": "State Space and Operators",
+      "module": "Uninformed Search",
+      "description": "Understand how states and operators define the possible transitions in a search problem.",
+      "prerequisites": [
+        "search_problem_formulation"
+      ],
+      "learning_objectives": [
+        "Describe what a state space is.",
+        "Explain how operators generate successor states."
+      ],
+      "common_misconceptions": [
+        "Confusing a state with a node in the search tree.",
+        "Assuming all state spaces are finite and small."
+      ],
+      "mastery_criteria": [
+        "Can list valid successors for a given state."
+      ]
+    },
+    {
+      "id": "tree_search_vs_graph_search",
+      "title_zh": "树搜索与图搜索",
+      "title_en": "Tree Search vs Graph Search",
+      "module": "Uninformed Search",
+      "description": "Compare tree search and graph search, especially how repeated states are handled.",
+      "prerequisites": [
+        "state_space_and_operators"
+      ],
+      "learning_objectives": [
+        "Explain why repeated states can cause inefficiency or loops.",
+        "Distinguish search tree nodes from problem states."
+      ],
+      "common_misconceptions": [
+        "Assuming tree search and graph search always expand the same nodes.",
+        "Believing that repeated-state checking is only an optimization."
+      ],
+      "mastery_criteria": [
+        "Can explain the role of an explored set in graph search."
+      ]
+    },
+    {
+      "id": "frontier_and_explored_set",
+      "title_zh": "边界队列与已探索集合",
+      "title_en": "Frontier and Explored Set",
+      "module": "Uninformed Search",
+      "description": "Understand the frontier as the set of generated but unexpanded nodes, and the explored set as visited states.",
+      "prerequisites": [
+        "tree_search_vs_graph_search"
+      ],
+      "learning_objectives": [
+        "Describe the role of the frontier.",
+        "Explain why different data structures lead to different search strategies."
+      ],
+      "common_misconceptions": [
+        "Confusing frontier with explored set.",
+        "Thinking the frontier is always a queue."
+      ],
+      "mastery_criteria": [
+        "Can trace how the frontier changes during BFS or DFS."
+      ]
+    },
+    {
+      "id": "breadth_first_search",
+      "title_zh": "广度优先搜索",
+      "title_en": "Breadth-First Search",
+      "module": "Uninformed Search",
+      "description": "Breadth-first search expands the shallowest nodes first, typically using a FIFO queue.",
+      "prerequisites": [
+        "frontier_and_explored_set"
+      ],
+      "learning_objectives": [
+        "Trace the expansion order of BFS.",
+        "Explain when BFS is complete and optimal."
+      ],
+      "common_misconceptions": [
+        "Thinking BFS is always optimal even when step costs differ.",
+        "Confusing shallowest solution with lowest-cost solution."
+      ],
+      "mastery_criteria": [
+        "Can explain why BFS finds the shortest path in number of steps when all step costs are equal."
+      ]
+    },
+    {
+      "id": "depth_first_search",
+      "title_zh": "深度优先搜索",
+      "title_en": "Depth-First Search",
+      "module": "Uninformed Search",
+      "description": "Depth-first search expands the deepest node first, typically using a stack or recursion.",
+      "prerequisites": [
+        "frontier_and_explored_set"
+      ],
+      "learning_objectives": [
+        "Trace the expansion order of DFS.",
+        "Explain why DFS may fail in infinite-depth spaces."
+      ],
+      "common_misconceptions": [
+        "Thinking DFS always finds the shortest path.",
+        "Thinking DFS and backtracking are exactly the same concept."
+      ],
+      "mastery_criteria": [
+        "Can provide a counterexample where DFS finds a non-shortest solution."
+      ]
+    },
+    {
+      "id": "completeness_optimality_complexity",
+      "title_zh": "完备性、最优性与复杂度",
+      "title_en": "Completeness, Optimality, and Complexity",
+      "module": "Search Evaluation",
+      "description": "Evaluate search algorithms using completeness, optimality, time complexity, and space complexity.",
+      "prerequisites": [
+        "breadth_first_search",
+        "depth_first_search"
+      ],
+      "learning_objectives": [
+        "Define completeness and optimality.",
+        "Compare search algorithms using standard evaluation criteria."
+      ],
+      "common_misconceptions": [
+        "Confusing completeness with optimality.",
+        "Thinking a faster algorithm is always a better algorithm."
+      ],
+      "mastery_criteria": [
+        "Can compare BFS and DFS in terms of completeness, optimality, time, and space."
+      ]
+    },
+    {
+      "id": "uniform_cost_search",
+      "title_zh": "一致代价搜索",
+      "title_en": "Uniform-Cost Search",
+      "module": "Uninformed Search",
+      "description": "Uniform-cost search expands the node with the lowest path cost and is optimal under nonnegative step costs.",
+      "prerequisites": [
+        "frontier_and_explored_set",
+        "completeness_optimality_complexity"
+      ],
+      "learning_objectives": [
+        "Explain the difference between BFS and UCS.",
+        "Trace UCS using path costs."
+      ],
+      "common_misconceptions": [
+        "Thinking UCS and BFS are always identical.",
+        "Confusing path cost with depth."
+      ],
+      "mastery_criteria": [
+        "Can determine which node UCS expands next based on cumulative path cost."
+      ]
+    },
+    {
+      "id": "informed_search_and_heuristics",
+      "title_zh": "有信息搜索与启发函数",
+      "title_en": "Informed Search and Heuristics",
+      "module": "Informed Search",
+      "description": "Understand how heuristic functions estimate distance or cost to the goal and guide search.",
+      "prerequisites": [
+        "uniform_cost_search"
+      ],
+      "learning_objectives": [
+        "Define a heuristic function.",
+        "Explain why heuristics can improve search efficiency."
+      ],
+      "common_misconceptions": [
+        "Thinking a heuristic must always be exact.",
+        "Ignoring the difference between estimated cost and true cost."
+      ],
+      "mastery_criteria": [
+        "Can propose a simple heuristic for a grid-world search problem."
+      ]
+    },
+    {
+      "id": "greedy_best_first_search",
+      "title_zh": "贪心最佳优先搜索",
+      "title_en": "Greedy Best-First Search",
+      "module": "Informed Search",
+      "description": "Greedy best-first search expands the node that appears closest to the goal according to the heuristic value.",
+      "prerequisites": [
+        "informed_search_and_heuristics"
+      ],
+      "learning_objectives": [
+        "Explain how greedy best-first search selects nodes.",
+        "Identify why greedy search is not guaranteed to be optimal."
+      ],
+      "common_misconceptions": [
+        "Thinking the locally best heuristic choice always gives the best path.",
+        "Confusing greedy best-first search with A* search."
+      ],
+      "mastery_criteria": [
+        "Can construct or explain a case where greedy search gives a suboptimal solution."
+      ]
+    },
+    {
+      "id": "a_star_search",
+      "title_zh": "A* 搜索",
+      "title_en": "A* Search",
+      "module": "Informed Search",
+      "description": "A* search evaluates nodes using f(n) = g(n) + h(n), combining path cost and heuristic estimate.",
+      "prerequisites": [
+        "uniform_cost_search",
+        "informed_search_and_heuristics"
+      ],
+      "learning_objectives": [
+        "Explain the meaning of g(n), h(n), and f(n).",
+        "Trace the node selection process of A*."
+      ],
+      "common_misconceptions": [
+        "Thinking A* only uses the heuristic.",
+        "Confusing A* with greedy best-first search."
+      ],
+      "mastery_criteria": [
+        "Can calculate f(n) values and choose the next node to expand."
+      ]
+    },
+    {
+      "id": "admissibility_and_consistency",
+      "title_zh": "可采纳性与一致性",
+      "title_en": "Admissibility and Consistency",
+      "module": "Informed Search",
+      "description": "Understand the conditions under which heuristics allow A* to guarantee optimality.",
+      "prerequisites": [
+        "a_star_search"
+      ],
+      "learning_objectives": [
+        "Define admissibility.",
+        "Define consistency.",
+        "Explain how these properties relate to A* optimality."
+      ],
+      "common_misconceptions": [
+        "Thinking every heuristic guarantees optimality.",
+        "Confusing admissibility with consistency."
+      ],
+      "mastery_criteria": [
+        "Can judge whether a simple heuristic is admissible or consistent in a small graph."
+      ]
+    },
+    {
+      "id": "local_search",
+      "title_zh": "局部搜索",
+      "title_en": "Local Search",
+      "module": "Local Search and LLM Search",
+      "description": "A course-unit topic covering search that operates from candidate states rather than retaining a full search tree.",
+      "prerequisites": [
+        "search_problem_formulation"
+      ],
+      "learning_objectives": [
+        "Recognize local search as a Search Algorithms unit topic.",
+        "Relate a local-search question to the course material source."
+      ],
+      "common_misconceptions": [
+        "Assuming every search method must retain a full path tree.",
+        "Treating a local-search source as a replacement for graph-search definitions."
+      ],
+      "mastery_criteria": [
+        "Can identify when a question concerns local search."
+      ]
+    },
+    {
+      "id": "hill_climbing",
+      "title_zh": "爬山法",
+      "title_en": "Hill Climbing",
+      "module": "Local Search and LLM Search",
+      "description": "A local-search method that repeatedly moves from the current state to a better neighboring state and stops when no better neighbor is available.",
+      "prerequisites": [
+        "local_search"
+      ],
+      "learning_objectives": [
+        "Describe the neighbor-improvement rule used by hill climbing.",
+        "Recognize its local-optimum limitation and the role of randomization variants."
+      ],
+      "common_misconceptions": [
+        "Thinking hill climbing retains every path from the initial state.",
+        "Assuming a locally better neighbor guarantees a global optimum."
+      ],
+      "mastery_criteria": [
+        "Can trace a hill-climbing move using a stated evaluation function."
+      ]
+    },
+    {
+      "id": "simulated_annealing",
+      "title_zh": "模拟退火",
+      "title_en": "Simulated Annealing",
+      "module": "Local Search and LLM Search",
+      "description": "A local-search method that combines improvement moves with controlled randomness, using a temperature schedule to reduce randomness over time.",
+      "prerequisites": [
+        "hill_climbing"
+      ],
+      "learning_objectives": [
+        "Explain why simulated annealing may accept a non-improving move.",
+        "Describe the role of a temperature schedule."
+      ],
+      "common_misconceptions": [
+        "Thinking simulated annealing is an unrestricted random walk.",
+        "Assuming its randomness remains constant throughout search."
+      ],
+      "mastery_criteria": [
+        "Can distinguish the early and late roles of randomness in simulated annealing."
+      ]
+    },
+    {
+      "id": "evolutionary_search",
+      "title_zh": "演化搜索",
+      "title_en": "Evolutionary Search",
+      "module": "Local Search and LLM Search",
+      "description": "A population-based search approach that iterates selection, recombination, and mutation, with fitter individuals more likely to produce descendants.",
+      "prerequisites": [
+        "local_search"
+      ],
+      "learning_objectives": [
+        "Identify population, fitness, selection, recombination, and mutation.",
+        "Explain how these operations create later generations."
+      ],
+      "common_misconceptions": [
+        "Thinking evolutionary search follows a single candidate path.",
+        "Confusing a fitness value with a guaranteed optimal solution."
+      ],
+      "mastery_criteria": [
+        "Can explain the role of selection and mutation in a simple evolutionary-search cycle."
+      ]
+    },
+    {
+      "id": "iterative_deepening_search",
+      "title_zh": "迭代加深深度优先搜索",
+      "title_en": "Iterative Deepening Search",
+      "module": "Uninformed Search",
+      "description": "Repeatedly run depth-limited depth-first search with increasing depth limits.",
+      "prerequisites": [
+        "depth_first_search",
+        "breadth_first_search"
+      ],
+      "learning_objectives": [
+        "Explain how iterative deepening raises its depth limit.",
+        "Compare its repeated shallow-node generation with BFS and DFS trade-offs."
+      ],
+      "common_misconceptions": [
+        "Thinking iterative deepening expands every node only once.",
+        "Assuming it is optimal when action costs are unequal."
+      ],
+      "mastery_criteria": [
+        "Can explain why iterative deepening is complete and when its shallowest solution is optimal."
+      ]
+    },
+    {
+      "id": "llm_search_and_test_time_scaling",
+      "title_zh": "LLM 搜索与测试时扩展",
+      "title_en": "LLM Search and Test-Time Scaling",
+      "module": "Local Search and LLM Search",
+      "description": "A course-unit topic on search in the context of large language models and test-time computation.",
+      "prerequisites": [
+        "search_problem_formulation"
+      ],
+      "learning_objectives": [
+        "Recognize LLM search and test-time scaling as a course topic.",
+        "Locate the corresponding course-material source for a question."
+      ],
+      "common_misconceptions": [
+        "Assuming LLM search automatically changes learner mastery.",
+        "Treating test-time scaling as a replacement for course-grounded evidence."
+      ],
+      "mastery_criteria": [
+        "Can identify when a question concerns LLM search or test-time scaling."
+      ]
+    },
+    {
+      "id": "adversarial_search",
+      "title_zh": "对抗搜索",
+      "title_en": "Adversarial Search",
+      "module": "Adversarial Search",
+      "description": "A course-unit topic about search in settings with opposing decision makers.",
+      "prerequisites": [
+        "search_problem_formulation"
+      ],
+      "learning_objectives": [
+        "Recognize adversarial search as a Search Algorithms unit topic.",
+        "Locate the corresponding course-material source for a question."
+      ],
+      "common_misconceptions": [
+        "Assuming all search problems have only one decision maker.",
+        "Treating adversarial-search material as ordinary shortest-path search."
+      ],
+      "mastery_criteria": [
+        "Can identify when a question concerns adversarial search."
+      ]
+    },
+    {
+      "id": "minimax_search",
+      "title_zh": "最小最大搜索",
+      "title_en": "Minimax Search",
+      "module": "Adversarial Search",
+      "description": "A deterministic game-search method that selects actions by alternating MAX and MIN values in a two-player zero-sum game tree.",
+      "prerequisites": [
+        "adversarial_search"
+      ],
+      "learning_objectives": [
+        "Identify MAX and MIN decision nodes.",
+        "Explain how terminal utilities are propagated through a game tree."
+      ],
+      "common_misconceptions": [
+        "Treating every game-tree node as controlled by the same player.",
+        "Choosing the locally largest value at a MIN node."
+      ],
+      "mastery_criteria": [
+        "Can compute the minimax value of a small fully specified game tree."
+      ]
+    },
+    {
+      "id": "alpha_beta_pruning",
+      "title_zh": "Alpha-Beta 剪枝",
+      "title_en": "Alpha-Beta Pruning",
+      "module": "Adversarial Search",
+      "description": "A minimax optimization that maintains alpha and beta bounds and prunes successors that cannot affect the ancestor decision.",
+      "prerequisites": [
+        "minimax_search"
+      ],
+      "learning_objectives": [
+        "Explain the alpha and beta bounds.",
+        "Recognize when an alpha-beta cutoff occurs."
+      ],
+      "common_misconceptions": [
+        "Thinking pruning changes the minimax decision.",
+        "Assuming search order has no effect on pruning efficiency."
+      ],
+      "mastery_criteria": [
+        "Can identify a pruned branch in a small alpha-beta trace."
+      ]
+    },
+    {
+      "id": "game_state_evaluation",
+      "title_zh": "博弈状态评估函数",
+      "title_en": "Game-State Evaluation Functions",
+      "module": "Adversarial Search",
+      "description": "A resource-limited game-search technique that estimates nonterminal state quality from weighted features when exhaustive search to terminal states is impractical.",
+      "prerequisites": [
+        "minimax_search"
+      ],
+      "learning_objectives": [
+        "Explain why a nonterminal evaluation function is needed under limited search depth.",
+        "Identify weighted state features as an evaluation design approach."
+      ],
+      "common_misconceptions": [
+        "Treating an evaluation value as a terminal utility.",
+        "Assuming alpha-beta alone makes deep exhaustive game search feasible."
+      ],
+      "mastery_criteria": [
+        "Can explain how a feature-based evaluation supports depth-limited game search."
+      ]
+    },
+    {
+      "id": "monte_carlo_search",
+      "title_zh": "蒙特卡洛搜索",
+      "title_en": "Monte Carlo Search",
+      "module": "MCTS and Search Summary",
+      "description": "A search approach that estimates a state's value through repeated randomized simulations and their observed outcomes.",
+      "prerequisites": [
+        "adversarial_search"
+      ],
+      "learning_objectives": [
+        "Explain how repeated simulations estimate a state value.",
+        "Relate win-rate estimates to simulated outcomes."
+      ],
+      "common_misconceptions": [
+        "Treating one simulation as a reliable state evaluation.",
+        "Assuming simulation budgets are unlimited."
+      ],
+      "mastery_criteria": [
+        "Can explain how sampled outcomes form a win-rate estimate."
+      ]
+    },
+    {
+      "id": "exploration_exploitation",
+      "title_zh": "探索与利用",
+      "title_en": "Exploration and Exploitation",
+      "module": "MCTS and Search Summary",
+      "description": "The trade-off between trying uncertain choices to improve estimates and selecting choices with the best currently known reward.",
+      "prerequisites": [
+        "monte_carlo_search"
+      ],
+      "learning_objectives": [
+        "Distinguish exploration from exploitation.",
+        "Explain why either extreme can be inadequate under a limited budget."
+      ],
+      "common_misconceptions": [
+        "Thinking exploitation produces a trustworthy estimate after one trial.",
+        "Thinking exploration never uses reward information."
+      ],
+      "mastery_criteria": [
+        "Can describe the exploration-exploitation trade-off in a multi-armed-bandit example."
+      ]
+    },
+    {
+      "id": "upper_confidence_bound",
+      "title_zh": "上限置信区间",
+      "title_en": "Upper-Confidence Bound",
+      "module": "MCTS and Search Summary",
+      "description": "A selection rule that combines estimated reward with an uncertainty allowance, favoring actions whose estimated upper bound is high.",
+      "prerequisites": [
+        "exploration_exploitation"
+      ],
+      "learning_objectives": [
+        "Explain the reward-estimate and uncertainty terms in UCB.",
+        "Relate UCB to balanced action selection."
+      ],
+      "common_misconceptions": [
+        "Treating UCB as greedy selection by average reward only.",
+        "Assuming an underexplored action has no value until it has the best observed reward."
+      ],
+      "mastery_criteria": [
+        "Can explain why UCB may select an uncertain action."
+      ]
+    },
+    {
+      "id": "monte_carlo_tree_search",
+      "title_zh": "蒙特卡洛树搜索",
+      "title_en": "Monte Carlo Tree Search",
+      "module": "MCTS and Search Summary",
+      "description": "A course-unit topic on Monte Carlo Tree Search and its role in the search summary material.",
+      "prerequisites": [
+        "monte_carlo_search",
+        "upper_confidence_bound"
+      ],
+      "learning_objectives": [
+        "Recognize Monte Carlo Tree Search as a course topic.",
+        "Locate the corresponding course-material source for a question."
+      ],
+      "common_misconceptions": [
+        "Assuming Monte Carlo Tree Search is identical to breadth-first search.",
+        "Using an unverified source image as a factual explanation."
+      ],
+      "mastery_criteria": [
+        "Can identify when a question concerns Monte Carlo Tree Search."
+      ]
+    }
+  ]
+}

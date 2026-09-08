@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "concepts": [
+    {"concept_id": "search_problem_formulation", "summary_zh": "把搜索任务明确为状态、初始状态、动作、状态转移、目标测试与路径代价等组成部分。"},
+    {"concept_id": "state_space_and_operators", "summary_zh": "状态空间描述问题中可能到达的状态，操作说明状态之间可以如何发生转换。"},
+    {"concept_id": "tree_search_vs_graph_search", "summary_zh": "树搜索会重复展开相同状态；图搜索会记录已探索状态，以避免不必要的重复。"},
+    {"concept_id": "frontier_and_explored_set", "summary_zh": "边界队列保存已生成但尚未展开的节点，已探索集合记录已经访问或处理过的状态。"},
+    {"concept_id": "breadth_first_search", "summary_zh": "BFS 总是先扩展更浅的节点，通常用先进先出的队列维护等待展开的边界。"},
+    {"concept_id": "depth_first_search", "summary_zh": "DFS 优先沿更深的方向展开节点，通常使用栈结构或递归来保存待探索路径。"},
+    {"concept_id": "completeness_optimality_complexity", "summary_zh": "可用完备性、最优性、时间复杂度和空间复杂度比较搜索算法能够解决什么问题与代价。"},
+    {"concept_id": "uniform_cost_search", "summary_zh": "UCS 每次扩展累计路径代价最低的节点，并在每步代价非负时保证找到总代价最优解。"},
+    {"concept_id": "informed_search_and_heuristics", "summary_zh": "有信息搜索利用启发函数估计到目标的距离或代价，从而引导搜索更有方向地进行。"},
+    {"concept_id": "greedy_best_first_search", "summary_zh": "贪心最佳优先搜索优先扩展启发函数看来最接近目标的节点，不直接综合已走路径代价。"},
+    {"concept_id": "a_star_search", "summary_zh": "A* 用 f(n)=g(n)+h(n) 同时考虑已走路径代价与到目标的启发式估计。"},
+    {"concept_id": "admissibility_and_consistency", "summary_zh": "可采纳性与一致性描述启发函数满足哪些条件，才能支持 A* 保持最优性保证。"},
+    {"concept_id": "local_search", "summary_zh": "局部搜索围绕候选状态不断改进，而不是始终保留完整搜索树中的全部节点。"},
+    {"concept_id": "hill_climbing", "summary_zh": "爬山法从当前状态移向更好的相邻状态，当没有更好邻居时停止继续改进。"},
+    {"concept_id": "simulated_annealing", "summary_zh": "模拟退火在改进移动之外保留受温度控制的随机性，并随时间逐步降低随机程度。"},
+    {"concept_id": "evolutionary_search", "summary_zh": "演化搜索维护一组候选解，通过选择、重组和变异迭代产生更可能适应问题的后代。"},
+    {"concept_id": "iterative_deepening_search", "summary_zh": "迭代加深搜索反复执行深度受限的深度优先搜索，并逐次提高允许的深度上限。"},
+    {"concept_id": "llm_search_and_test_time_scaling", "summary_zh": "本单元讨论大语言模型中的搜索，以及在测试阶段增加计算量如何影响搜索过程。"},
+    {"concept_id": "adversarial_search", "summary_zh": "对抗搜索处理存在相互对立决策者的情形，需要考虑不同参与者的选择会如何相互影响。"},
+    {"concept_id": "minimax_search", "summary_zh": "最小最大搜索在双人零和博弈树中交替考虑 MAX 与 MIN 的取值来选择行动。"},
+    {"concept_id": "alpha_beta_pruning", "summary_zh": "Alpha-Beta 剪枝维护上下界，并跳过不会改变祖先决策的后继分支以减少搜索。"},
+    {"concept_id": "game_state_evaluation", "summary_zh": "当无法搜索到终局时，博弈状态评估函数依据加权特征估计非终局状态的质量。"},
+    {"concept_id": "monte_carlo_search", "summary_zh": "蒙特卡洛搜索通过反复随机模拟及其观察到的结果，估计一个状态可能具有的价值。"},
+    {"concept_id": "exploration_exploitation", "summary_zh": "探索与利用需要权衡：尝试不确定选择以改进估计，或选择当前已知回报更高的选项。"},
+    {"concept_id": "upper_confidence_bound", "summary_zh": "上限置信区间把当前回报估计与不确定性补偿结合，偏向估计上界更高的行动。"},
+    {"concept_id": "monte_carlo_tree_search", "summary_zh": "蒙特卡洛树搜索把蒙特卡洛模拟用于树形搜索，并作为课程搜索总结材料中的重要主题。"}
+  ]
+}

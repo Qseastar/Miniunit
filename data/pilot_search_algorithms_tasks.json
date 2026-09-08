@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "pilot_name": "introai_search_algorithms_internal",
+  "tasks": [
+    {
+      "task_id": "course_question_answering",
+      "order": 1,
+      "title_zh": "课程自由问答",
+      "instructions_zh": "提交一个关于 BFS、UCS、IDDFS 或 A* 的课程问题。",
+      "observations_zh": "观察回答是否清楚，以及课件来源是否有帮助。",
+      "estimated_minutes": 3
+    },
+    {
+      "task_id": "reviewed_diagnostic",
+      "order": 2,
+      "title_zh": "审核诊断",
+      "instructions_zh": "从回答后的审核诊断入口进入，并完成至少一道题。",
+      "observations_zh": "观察题目、反馈和学习记录变化是否容易理解。",
+      "estimated_minutes": 4
+    },
+    {
+      "task_id": "mastery_map",
+      "order": 3,
+      "title_zh": "知识掌握图谱",
+      "instructions_zh": "打开知识掌握图谱，并查看一个知识点详情。",
+      "observations_zh": "观察先修关系、状态和下一步操作是否清楚。",
+      "estimated_minutes": 3
+    },
+    {
+      "task_id": "map_to_learning_action",
+      "order": 4,
+      "title_zh": "图谱到学习行动",
+      "instructions_zh": "从知识点详情选择围绕此知识点提问，或开始审核诊断。",
+      "observations_zh": "观察页面跳转和预填行为是否符合预期。",
+      "estimated_minutes": 3
+    },
+    {
+      "task_id": "persistent_learning_state",
+      "order": 5,
+      "title_zh": "学习状态持续追踪",
+      "instructions_zh": "完成审核诊断后刷新页面，并使用同一学习链接重新打开。",
+      "observations_zh": "观察掌握度和已跟踪知识点是否恢复。",
+      "estimated_minutes": 3
+    },
+    {
+      "task_id": "repeat_practice",
+      "order": 6,
+      "title_zh": "重复题与复习练习",
+      "instructions_zh": "再次进入已经完成过的同一审核诊断题。",
+      "observations_zh": "确认系统明确显示复习练习，且重复练习不会再次提高掌握度。",
+      "estimated_minutes": 3
+    }
+  ]
+}

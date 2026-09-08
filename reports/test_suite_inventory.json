@@ -1,0 +1,15 @@
+{
+  "baseline_before_p2g": 971,
+  "category_file_counts": {
+    "acceptance": 1,
+    "candidate": 1,
+    "scorer": 2,
+    "selector_handoff": 2,
+    "tooling": 7,
+    "ui": 4
+  },
+  "collected_test_count": 1266,
+  "collection_mode": "pytest --collect-only -q",
+  "schema_version": 1,
+  "test_file_count": 40
+}

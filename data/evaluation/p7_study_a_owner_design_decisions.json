@@ -1,0 +1,319 @@
+{
+  "schema_version": 1,
+  "record_type": "p7_study_a_owner_technical_design_decisions",
+  "decision_status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+  "decision_scope": "STUDY_A_TECHNICAL_DESIGN_ONLY",
+  "owner_decision_recorded": true,
+  "human_study_authorized": false,
+  "readiness_level": 2,
+  "study_a_boundary": {
+    "research_question": "frozen_estimate_rank_monotonic_alignment_with_independent_course_grounded_performance_criterion",
+    "study_b_recommendation_intervention": "SEPARATE_NOT_IN_SCOPE",
+    "forbidden_claims": [
+      "true_mastery",
+      "ground_truth",
+      "calibration",
+      "learning_gains",
+      "recommendation_effectiveness",
+      "treatment_control_effect",
+      "causal_effect",
+      "grading_accuracy",
+      "course_grade_prediction"
+    ]
+  },
+  "primary_instrument": {
+    "status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+    "primary_item_ids_by_concept": {
+      "breadth_first_search": [
+        "p7_ext_bfs_depth_claim_a",
+        "p7_ext_bfs_queue_trace_b"
+      ],
+      "uniform_cost_search": [
+        "p7_ext_ucs_cost_accumulation_a",
+        "p7_ext_ucs_positive_cost_bound_d"
+      ],
+      "a_star_search": [
+        "p7_ext_astar_zero_heuristic_c",
+        "p7_ext_astar_component_change_b"
+      ],
+      "local_search": [
+        "p7_ext_local_search_neighbor_a"
+      ],
+      "minimax_search": [
+        "p7_ext_minimax_min_node_a"
+      ],
+      "monte_carlo_tree_search": [
+        "p7_ext_mcts_backpropagation_a",
+        "p7_ext_mcts_expand_untried_child_b"
+      ]
+    },
+    "primary_item_count": 10,
+    "reporting_structure": "CONCEPT_SPECIFIC_CONCEPT_STRATIFIED",
+    "cross_concept_pooled_summary_role": "EXPLORATORY_ONLY",
+    "limitations": [
+      "LOCAL_SEARCH_CORRECT_OVER_1",
+      "MINIMAX_PRIMARY_CORRECT_OVER_1",
+      "CONCEPT_CRITERION_GRANULARITY_IS_ASYMMETRIC",
+      "STRICT_DELAYED_PARALLEL_FORMS_UNAVAILABLE"
+    ]
+  },
+  "local_search": {
+    "status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+    "primary_item_id": "p7_ext_local_search_neighbor_a",
+    "external_concept_performance": "CORRECT_OVER_1",
+    "representation_slot_status": "LOCAL_SEARCH_REPRESENTATION_BLOCKED_BY_INDEPENDENCE",
+    "second_replacement_item": "NOT_CREATED"
+  },
+  "minimax_transfer": {
+    "status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+    "item_id": "p7_ext_minimax_two_level_b",
+    "historical_role": "TRANSFER_EXPLORATORY_ONLY",
+    "study_a_administration": "NOT_ADMINISTERED_IN_PRIMARY_STUDY_A",
+    "primary_item_id": "p7_ext_minimax_min_node_a"
+  },
+  "estimator_roles": {
+    "status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+    "P0": "PRIMARY_ESTIMATOR",
+    "P1": "MATHEMATICAL_REFERENCE_ONLY",
+    "P2": "PRESPECIFIED_SENSITIVITY_ESTIMATOR",
+    "P3": "PRESPECIFIED_SENSITIVITY_ESTIMATOR",
+    "p0_formula": "M_new = 0.65 * M_old + 0.35 * selected_signal",
+    "p2_definition": "BETA_1_1_PRIOR_REGULARIZED_BERNOULLI",
+    "p3_definition": "ALPHA_N_MAX_0_10_0_35_OVER_SQRT_N",
+    "policy_winner_selection": "FORBIDDEN"
+  },
+  "analysis_design": {
+    "status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+    "primary_analysis_unit": "CONCEPT_STRATIFIED",
+    "primary_supporting_description": "DESCRIPTIVE_ORDERING",
+    "pooled_participant_by_concept": "EXPLORATORY_ONLY",
+    "learner_level_cross_concept_aggregation": "NOT_ADOPTED_FOR_PRIMARY",
+    "cross_concept_weighting_rule": "NOT_OWNER_APPROVED"
+  },
+  "rank_statistics": {
+    "status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+    "primary_descriptive_rank_statistic": "KENDALL_TAU_B",
+    "prespecified_sensitivity_statistic": "SPEARMAN_RHO",
+    "descriptive_ordering_required": true,
+    "required_counts": [
+      "concordant_count",
+      "discordant_count",
+      "mastery_tie_count",
+      "external_tie_count",
+      "joint_tie_count",
+      "valid_pair_count",
+      "missing_count"
+    ],
+    "minimum_valid_pairs_semantics": "COMPUTATION_SAFETY_ONLY_NOT_SAMPLE_SIZE_OR_POWER"
+  },
+  "missing_data": {
+    "status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+    "missing_value": null,
+    "missing_is_zero": false,
+    "technical_missing_reason_vocabulary": [
+      "instrument_not_administered",
+      "participant_nonresponse",
+      "technical_failure",
+      "estimate_unavailable_no_eligible_evidence",
+      "protocol_deviation",
+      "other_controlled_reason"
+    ],
+    "withdrawal_data_handling": "INSTITUTIONAL_VERIFICATION_REQUIRED",
+    "advisor_dependencies": [
+      "withdrawal_communication_and_participant_protection"
+    ],
+    "institutional_dependencies": [
+      "withdrawal_retention_deletion_and_aggregate_handling"
+    ]
+  },
+  "administration": {
+    "status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+    "all_participants_receive_same_primary_items": true,
+    "partial_administration": "NOT_ADOPTED",
+    "participant_specific_subset": "NOT_ADOPTED",
+    "balanced_incomplete_block": "NOT_ADOPTED",
+    "primary_item_attempts": "SINGLE_ATTEMPT",
+    "immediate_replay_as_independent_criterion": false,
+    "order_policy": "OWNER_APPROVED_FIXED_PREGENERATED_CONSISTENT_ORDER",
+    "exact_item_order": "PENDING_PRE_STUDY_FREEZE",
+    "exact_order_dependencies": [
+      "ADVISOR_CONFIRMATION_REQUIRED",
+      "INSTITUTIONAL_VERIFICATION_REQUIRED"
+    ]
+  },
+  "version_freeze_contract": {
+    "status": "TECHNICAL_DESIGN_FREEZE",
+    "human_study_release": "NOT_HUMAN_STUDY_RELEASE",
+    "required_evidence": [
+      "commit_hash",
+      "manifest",
+      "sha256_checksum",
+      "procedure_version",
+      "analysis_version"
+    ],
+    "required_artifacts_before_any_real_study": [
+      "production_commit_or_release",
+      "production_diagnostic_registry",
+      "mastery_policy_implementation",
+      "external_item_ids_and_exact_wording",
+      "selected_10_item_instrument_manifest",
+      "item_order_and_administration_policy_version",
+      "analysis_script_version",
+      "analysis_plan_version",
+      "missing_data_semantic_version",
+      "procedure_version"
+    ]
+  },
+  "reporting_hierarchy": {
+    "status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+    "primary": [
+      "CONCEPT_LEVEL_CONCEPT_STRATIFIED_REPORTING",
+      "P0_MASTERY_ESTIMATE",
+      "KENDALL_TAU_B",
+      "DESCRIPTIVE_ORDERING_TIES_VALID_N_MISSING_SUMMARIES"
+    ],
+    "sensitivity": [
+      "P2",
+      "P3",
+      "SPEARMAN_RHO"
+    ],
+    "exploratory": [
+      "POOLED_PARTICIPANT_BY_CONCEPT_VISUALIZATION_AND_DESCRIPTIVE_SUMMARIES"
+    ],
+    "not_reported_for_current_study_a": [
+      "DELAYED_RETENTION_CLAIM",
+      "MINIMAX_TRANSFER_RESULT"
+    ],
+    "required_limitations": [
+      "LOCAL_SEARCH_CORRECT_OVER_1",
+      "MINIMAX_PRIMARY_CORRECT_OVER_1",
+      "CONCEPT_GRANULARITY_ASYMMETRY",
+      "STRICT_DELAYED_PARALLEL_FORMS_UNAVAILABLE",
+      "TIES",
+      "MISSING",
+      "SMALL_N_RISK",
+      "REPEATED_PARTICIPANT_STRUCTURE",
+      "POOLED_ANALYSIS_EXPLORATORY_ONLY"
+    ]
+  },
+  "decisions": [
+    {
+      "decision_id": "OD-01",
+      "status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+      "owner_decision": "USE_ALL_10_PRIMARY_ELIGIBLE_ITEMS_AND_CONCEPT_SPECIFIC_PRIMARY_REPORTING",
+      "technical_effect": "FREEZE_10_ITEM_PRIMARY_MANIFEST_EXCLUDE_MINIMAX_TRANSFER_NO_SINGLE_CROSS_CONCEPT_PRIMARY_TOTAL",
+      "pending_dependencies": [
+        "ADVISOR_CONFIRMATION_REQUIRED",
+        "INSTITUTIONAL_VERIFICATION_REQUIRED"
+      ]
+    },
+    {
+      "decision_id": "OD-02",
+      "status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+      "owner_decision": "RETAIN_LOCAL_SEARCH_AS_CORRECT_OVER_1_WITH_BLOCKED_SECOND_REPRESENTATION_SLOT",
+      "technical_effect": "KEEP_SINGLE_PRIMARY_ITEM_NO_REPLACEMENT_NO_WEIGHT_NORMALIZATION",
+      "pending_dependencies": [
+        "ADVISOR_CONFIRMATION_REQUIRED",
+        "INSTITUTIONAL_VERIFICATION_REQUIRED"
+      ]
+    },
+    {
+      "decision_id": "OD-03",
+      "status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+      "owner_decision": "DO_NOT_ADMINISTER_MINIMAX_TRANSFER_IN_PRIMARY_STUDY_A",
+      "technical_effect": "EXCLUDE_P7_EXT_MINIMAX_TWO_LEVEL_B_RETAIN_RESEARCH_ONLY_HISTORY",
+      "pending_dependencies": [
+        "ADVISOR_CONFIRMATION_REQUIRED",
+        "INSTITUTIONAL_VERIFICATION_REQUIRED"
+      ]
+    },
+    {
+      "decision_id": "OD-04",
+      "status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+      "owner_decision": "P0_PRIMARY_P2_P3_PRESPECIFIED_SENSITIVITY_P1_MATHEMATICAL_REFERENCE_ONLY",
+      "technical_effect": "FORBID_POLICY_WINNER_SELECTION_OR_PRODUCTION_POLICY_CHANGE_FROM_STUDY_A",
+      "pending_dependencies": [
+        "ADVISOR_CONFIRMATION_REQUIRED"
+      ]
+    },
+    {
+      "decision_id": "OD-05",
+      "status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+      "owner_decision": "CONCEPT_STRATIFIED_PRIMARY_DESCRIPTIVE_ORDERING_SUPPORTING_POOLED_EXPLORATORY_ONLY",
+      "technical_effect": "DO_NOT_ASSUME_PARTICIPANT_BY_CONCEPT_PAIRS_ARE_INDEPENDENT_HOMOGENEOUS_OR_EQUALLY_WEIGHTED",
+      "pending_dependencies": [
+        "ADVISOR_CONFIRMATION_REQUIRED"
+      ]
+    },
+    {
+      "decision_id": "OD-06",
+      "status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+      "owner_decision": "KENDALL_TAU_B_PRIMARY_DESCRIPTIVE_SPEARMAN_RHO_PRESPECIFIED_SENSITIVITY",
+      "technical_effect": "ALWAYS_REPORT_ORDERING_TIES_VALID_PAIRS_AND_MISSING_COUNTS_NO_SIGNIFICANCE_OR_POWER_CLAIMS",
+      "pending_dependencies": [
+        "ADVISOR_CONFIRMATION_REQUIRED"
+      ]
+    },
+    {
+      "decision_id": "OD-07",
+      "status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+      "owner_decision": "MISSING_IS_NULL_PLUS_CONTROLLED_REASON_NEVER_ZERO",
+      "technical_effect": "FREEZE_TECHNICAL_REASON_VOCABULARY_FAIL_CLOSED_FOR_UNKNOWN_OR_UNAVAILABLE_RESULTS",
+      "pending_dependencies": [
+        "ADVISOR_CONFIRMATION_REQUIRED",
+        "INSTITUTIONAL_VERIFICATION_REQUIRED"
+      ]
+    },
+    {
+      "decision_id": "OD-08",
+      "status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+      "owner_decision": "SAME_10_PRIMARY_ITEMS_SINGLE_ATTEMPT_NO_PARTIAL_ADMINISTRATION_FIXED_ORDER_POLICY_EXACT_ORDER_PENDING",
+      "technical_effect": "NO_IMMEDIATE_REPLAY_AS_INDEPENDENT_CRITERION_NO_REAL_SESSION_ALLOCATOR",
+      "pending_dependencies": [
+        "ADVISOR_CONFIRMATION_REQUIRED",
+        "INSTITUTIONAL_VERIFICATION_REQUIRED"
+      ]
+    },
+    {
+      "decision_id": "OD-09",
+      "status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+      "owner_decision": "USE_COMMIT_MANIFEST_SHA256_PROCEDURE_AND_ANALYSIS_VERSION_FREEZE_CONTRACT",
+      "technical_effect": "TECHNICAL_DESIGN_FREEZE_NOT_HUMAN_STUDY_RELEASE",
+      "pending_dependencies": [
+        "ADVISOR_CONFIRMATION_REQUIRED",
+        "INSTITUTIONAL_VERIFICATION_REQUIRED"
+      ]
+    },
+    {
+      "decision_id": "OD-10",
+      "status": "OWNER_TECHNICAL_DESIGN_FROZEN",
+      "owner_decision": "CONCEPT_STRATIFIED_P0_KENDALL_AND_ORDERING_PRIMARY_P2_P3_SPEARMAN_SENSITIVITY_POOLED_EXPLORATORY",
+      "technical_effect": "OMIT_DELAYED_RETENTION_AND_MINIMAX_TRANSFER_RESULTS_FROM_CURRENT_STUDY_A_REPORTING",
+      "pending_dependencies": [
+        "ADVISOR_CONFIRMATION_REQUIRED",
+        "INSTITUTIONAL_VERIFICATION_REQUIRED"
+      ]
+    }
+  ],
+  "pending_external_dependencies": {
+    "advisor": {
+      "status": "ADVISOR_CONFIRMATION_REQUIRED",
+      "items": [
+        "study_scope_and_feasibility_review",
+        "participant_relationship_pressure_safeguards",
+        "protocol_and_analysis_review_before_any_invitation",
+        "future_presentation_or_publication_requirements"
+      ]
+    },
+    "institution": {
+      "status": "INSTITUTIONAL_VERIFICATION_REQUIRED",
+      "items": [
+        "ethics_or_registration_or_exemption_determination",
+        "consent_and_participant_information_requirements",
+        "recruitment_and_compensation_requirements",
+        "data_minimization_linkage_retention_deletion_and_access_requirements",
+        "withdrawal_and_complaint_handling_requirements"
+      ]
+    }
+  }
+}

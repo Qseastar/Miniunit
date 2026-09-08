@@ -1,0 +1,897 @@
+{
+  "blocked_slot_count": 1,
+  "candidate_template_count": 0,
+  "concepts": [
+    {
+      "ability_slices": [
+        "本题所依据的五项要素是初始状态、可执行动作、状态转移模型、目标测试和路径代价；它们描述问题本身。具体搜索算法和 frontier 的实现属于求解策略，而不是这五项问题定义要素。本题只验证能否识别课件明确列出的定义要素，不代表已经能够独立完成完整的问题建模。",
+        "只验证三个单位行动的基础累计；不验证非单位代价、UCS、启发式或完整问题建模。"
+      ],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "search_problem_formulation",
+      "course_chunks": [
+        "lec2_search_problem_components",
+        "lec2_solution_and_optimality",
+        "lec2_eight_puzzle_formulation",
+        "lec5_adversarial_game_model"
+      ],
+      "eligible_intent_coverage": [
+        "definition",
+        "diagnostic_request",
+        "explanation"
+      ],
+      "overclaim_risk": "narrow_slice_only",
+      "prerequisites": [],
+      "production_evidence_count": 2,
+      "question_types": [
+        "multiple_choice",
+        "single_choice"
+      ],
+      "remaining_gap": "A template is narrow evidence, not complete concept mastery.",
+      "scorers": [
+        "multiple_choice_v1",
+        "single_choice_v1"
+      ],
+      "source_strength": "direct_or_reviewed_metadata",
+      "status": "production",
+      "template_ids": [
+        "verify_search_problem_components_v1",
+        "verify_path_cost_accumulation_v1"
+      ],
+      "title_zh": "搜索问题建模",
+      "ui_available": true
+    },
+    {
+      "ability_slices": [
+        "空格位于左上角，合法 operator 有向右和向下：可以与右侧的 1 或下方的 3 交换。当前四个候选选项中，只有 move_right 表示的状态是合法 successor；向下交换得到的另一个合法 successor 没有出现在选项中。因此本题是候选选项中唯一正确，并不表示全局只有一个合法 successor。"
+      ],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "state_space_and_operators",
+      "course_chunks": [
+        "lec2_search_problem_components",
+        "lec2_eight_puzzle_formulation",
+        "support_graph_basics"
+      ],
+      "eligible_intent_coverage": [
+        "definition",
+        "diagnostic_request",
+        "explanation"
+      ],
+      "overclaim_risk": "narrow_slice_only",
+      "prerequisites": [
+        "search_problem_formulation"
+      ],
+      "production_evidence_count": 1,
+      "question_types": [
+        "single_choice"
+      ],
+      "remaining_gap": "A template is narrow evidence, not complete concept mastery.",
+      "scorers": [
+        "single_choice_v1"
+      ],
+      "source_strength": "direct_or_reviewed_metadata",
+      "status": "production",
+      "template_ids": [
+        "verify_successor_operator_v1"
+      ],
+      "title_zh": "状态空间与操作",
+      "ui_available": true
+    },
+    {
+      "ability_slices": [
+        "Lec2 p.27 的 graph-search 伪代码先从 frontier 取出 node，再检查其 state 是否不在 closed；只有条件成立时才记录并扩展。因为 STATE[N]=S 且 S 已在 explored/closed 中，该条件不成立，所以不再次扩展 N。N 是另一个 search node，但它表示的仍是同一个 problem state。本题只验证课件这版伪代码中的重复状态处理，不涵盖生成时去重、frontier duplicate、reopening 或 lower-cost replacement。",
+        "只验证 node 与 state 的表示关系；不规定完整 node schema，不覆盖 duplicate replacement 或 reopening。"
+      ],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "tree_search_vs_graph_search",
+      "course_chunks": [
+        "lec2_search_tree_depth",
+        "lec2_search_graph_vs_tree",
+        "lec2_tree_search_strategy",
+        "lec2_graph_search_repeated_states",
+        "lec3_tree_graph_astar",
+        "support_tree_basics",
+        "support_graph_basics",
+        "support_graph_visited_dfs"
+      ],
+      "eligible_intent_coverage": [
+        "definition",
+        "diagnostic_request",
+        "explanation"
+      ],
+      "overclaim_risk": "narrow_slice_only",
+      "prerequisites": [
+        "state_space_and_operators"
+      ],
+      "production_evidence_count": 2,
+      "question_types": [
+        "single_choice"
+      ],
+      "remaining_gap": "A template is narrow evidence, not complete concept mastery.",
+      "scorers": [
+        "single_choice_v1"
+      ],
+      "source_strength": "direct_or_reviewed_metadata",
+      "status": "production",
+      "template_ids": [
+        "verify_graph_search_repeated_state_handling_v1",
+        "verify_search_node_state_distinction_v1"
+      ],
+      "title_zh": "树搜索与图搜索",
+      "ui_available": true
+    },
+    {
+      "ability_slices": [
+        "本题采用题面所声明的 graph-search 约定。开始时 frontier=[Y]、explored={}；取出并记录 Y 后，frontier=[]、explored={Y}；扩展 Y 并加入新节点 X 后，frontier=[X]、explored={Y}。因此节点 X 位于 frontier，状态 Y 位于 explored；状态 X 尚未加入 explored，节点 Y 已不在 frontier，Z 尚未生成。这个加入时点是本题明确规定的约定，不主张它是所有教材和实现的唯一规则。"
+      ],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "frontier_and_explored_set",
+      "course_chunks": [
+        "lec2_frontier_expansion",
+        "lec2_tree_search_strategy",
+        "lec2_graph_search_repeated_states",
+        "support_graph_bfs_queue"
+      ],
+      "eligible_intent_coverage": [
+        "definition",
+        "diagnostic_request",
+        "explanation"
+      ],
+      "overclaim_risk": "narrow_slice_only",
+      "prerequisites": [
+        "tree_search_vs_graph_search"
+      ],
+      "production_evidence_count": 1,
+      "question_types": [
+        "multiple_choice"
+      ],
+      "remaining_gap": "A template is narrow evidence, not complete concept mastery.",
+      "scorers": [
+        "multiple_choice_v1"
+      ],
+      "source_strength": "direct_or_reviewed_metadata",
+      "status": "production",
+      "template_ids": [
+        "verify_frontier_explored_membership_v1"
+      ],
+      "title_zh": "边界队列与已探索集合",
+      "ui_available": true
+    },
+    {
+      "ability_slices": [
+        "BFS 按先进先出的顺序处理 frontier，因此 A 先于 B、C 被扩展。",
+        "BFS 按步数而不是累计代价选择路径。只有每一步代价相同，步数最少才等价于路径总代价最低。"
+      ],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "breadth_first_search",
+      "course_chunks": [
+        "lec2_bfs_layer_order",
+        "lec2_bfs_properties",
+        "lec2_bfs_dfs_choice",
+        "lec2_iddfs_strategy",
+        "lec3_search_strategy_exercise",
+        "lec6_search_summary",
+        "support_queue_fifo",
+        "support_tree_level_order",
+        "support_graph_bfs_queue"
+      ],
+      "eligible_intent_coverage": [
+        "comparison",
+        "diagnostic_request",
+        "explanation"
+      ],
+      "overclaim_risk": "narrow_slice_only",
+      "prerequisites": [
+        "frontier_and_explored_set"
+      ],
+      "production_evidence_count": 2,
+      "question_types": [
+        "single_choice"
+      ],
+      "remaining_gap": "A template is narrow evidence, not complete concept mastery.",
+      "scorers": [
+        "single_choice_v1"
+      ],
+      "source_strength": "direct_or_reviewed_metadata",
+      "status": "production",
+      "template_ids": [
+        "verify_bfs_frontier_choice_v1",
+        "verify_bfs_equal_cost_condition_v1"
+      ],
+      "title_zh": "广度优先搜索",
+      "ui_available": true
+    },
+    {
+      "ability_slices": [
+        "DFS 优先扩展 frontier 中最深的节点。B 和 C 都处于 depth=2，比 A 更深；题面又明确 C 在 B 之后入栈，因此按照 stack 的后进先出规则，C 位于栈顶并应被下一步弹出。选择 B 忽略了同深度节点的 LIFO 次序，选择 A 忽略了 deepest-first，DFS 也不会一次同时弹出两个节点。本题已显式给出 frontier 和入栈顺序，不依赖未声明的左右 successor 顺序；它只验证一次 DFS frontier 选择，不测量完备性、最优性或复杂度，也不代表已经完整掌握 DFS。",
+        "只验证受限 infinite-branch 场景中的完备性风险；不测时间、空间或所有有限问题上的表现。"
+      ],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "depth_first_search",
+      "course_chunks": [
+        "lec2_dfs_deepest_first",
+        "lec2_dfs_properties",
+        "lec2_bfs_dfs_choice",
+        "lec2_iddfs_strategy",
+        "lec3_search_strategy_exercise",
+        "lec4_llm_agent_planning",
+        "lec6_search_summary",
+        "support_stack_lifo",
+        "support_stack_recursion",
+        "support_graph_visited_dfs"
+      ],
+      "eligible_intent_coverage": [
+        "algorithm_trace",
+        "definition",
+        "diagnostic_request",
+        "explanation",
+        "property"
+      ],
+      "overclaim_risk": "narrow_slice_only",
+      "prerequisites": [
+        "frontier_and_explored_set"
+      ],
+      "production_evidence_count": 2,
+      "question_types": [
+        "single_choice"
+      ],
+      "remaining_gap": "A template is narrow evidence, not complete concept mastery.",
+      "scorers": [
+        "single_choice_v1"
+      ],
+      "source_strength": "direct_or_reviewed_metadata",
+      "status": "production",
+      "template_ids": [
+        "verify_dfs_frontier_choice_v1",
+        "verify_dfs_infinite_branch_risk_v1"
+      ],
+      "title_zh": "深度优先搜索",
+      "ui_available": true
+    },
+    {
+      "ability_slices": [
+        "只验证 IDDFS 的一个条件性性质陈述；不构成 BFS、DFS、IDDFS、UCS 的完整性质矩阵。"
+      ],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "completeness_optimality_complexity",
+      "course_chunks": [
+        "lec2_solution_and_optimality",
+        "lec2_search_evaluation",
+        "lec2_bfs_properties",
+        "lec2_dfs_properties",
+        "lec2_bfs_dfs_choice",
+        "lec2_iddfs_properties",
+        "lec2_ucs_properties",
+        "lec3_greedy_limitations",
+        "lec3_a_star_completeness"
+      ],
+      "eligible_intent_coverage": [
+        "comparison",
+        "diagnostic_request",
+        "property"
+      ],
+      "overclaim_risk": "narrow_slice_only",
+      "prerequisites": [
+        "breadth_first_search",
+        "depth_first_search"
+      ],
+      "production_evidence_count": 1,
+      "question_types": [
+        "single_choice"
+      ],
+      "remaining_gap": "A template is narrow evidence, not complete concept mastery.",
+      "scorers": [
+        "single_choice_v1"
+      ],
+      "source_strength": "direct_or_reviewed_metadata",
+      "status": "production",
+      "template_ids": [
+        "verify_search_algorithm_properties_v1"
+      ],
+      "title_zh": "完备性、最优性与复杂度",
+      "ui_available": true
+    },
+    {
+      "ability_slices": [
+        "UCS 总是优先扩展累计路径代价 g(n) 最小的 frontier 节点，因此应选择 A。"
+      ],
+      "blocked_count": 1,
+      "candidate_evidence_count": 0,
+      "concept_id": "uniform_cost_search",
+      "course_chunks": [
+        "lec2_ucs_lowest_cost",
+        "lec2_ucs_properties",
+        "lec2_ucs_limitations",
+        "lec3_a_star_f_g_h",
+        "lec3_ucs_vs_astar",
+        "lec3_heuristic_extremes",
+        "lec3_search_strategy_exercise",
+        "lec6_search_summary",
+        "support_priority_queue",
+        "support_heap_priority_queue",
+        "support_dijkstra_shortest_path"
+      ],
+      "eligible_intent_coverage": [
+        "comparison",
+        "definition",
+        "diagnostic_request",
+        "explanation"
+      ],
+      "overclaim_risk": "narrow_slice_only",
+      "prerequisites": [
+        "frontier_and_explored_set",
+        "completeness_optimality_complexity"
+      ],
+      "production_evidence_count": 1,
+      "question_types": [
+        "single_choice"
+      ],
+      "remaining_gap": "A template is narrow evidence, not complete concept mastery.",
+      "scorers": [
+        "single_choice_v1"
+      ],
+      "source_strength": "direct_or_reviewed_metadata",
+      "status": "production",
+      "template_ids": [
+        "verify_ucs_min_g_choice_v1"
+      ],
+      "title_zh": "一致代价搜索",
+      "ui_available": true
+    },
+    {
+      "ability_slices": [
+        "课件把 g(n) 定义为从起始结点到结点 n 的开销代价值，把 h(n) 定义为从结点 n 到目标结点路径中所估算的最小开销代价值。它们分别描述已走路径与到目标的估计，不要求 h(n) 等于真实剩余代价。本题只验证这两个记号的角色，不验证 A* 的 frontier 选择。"
+      ],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "informed_search_and_heuristics",
+      "course_chunks": [
+        "lec2_ucs_limitations",
+        "lec3_heuristic_information",
+        "lec3_greedy_search",
+        "lec3_a_star_f_g_h",
+        "lec3_ucs_vs_astar",
+        "lec3_heuristic_design",
+        "lec3_eight_puzzle_heuristics",
+        "lec3_heuristic_extremes",
+        "lec3_informed_search_summary"
+      ],
+      "eligible_intent_coverage": [
+        "comparison",
+        "definition",
+        "diagnostic_request",
+        "explanation"
+      ],
+      "overclaim_risk": "narrow_slice_only",
+      "prerequisites": [
+        "uniform_cost_search"
+      ],
+      "production_evidence_count": 1,
+      "question_types": [
+        "multiple_choice"
+      ],
+      "remaining_gap": "A template is narrow evidence, not complete concept mastery.",
+      "scorers": [
+        "multiple_choice_v1"
+      ],
+      "source_strength": "direct_or_reviewed_metadata",
+      "status": "production",
+      "template_ids": [
+        "verify_informed_search_g_h_roles_v1"
+      ],
+      "title_zh": "有信息搜索与启发函数",
+      "ui_available": true
+    },
+    {
+      "ability_slices": [
+        "A、B、C、D 的 h 分别为 5、2、4、3，B 最小，因此贪婪搜索选择 B。D 的 g+h 更小这一点不改变本题答案：按 g+h 选择是 A* 的比较方式，不是这里测试的贪婪选择规则。本题只验证一次 min-h frontier 选择，不推断贪婪搜索的完备性或最优性。",
+        "只验证可能非最优的性质边界；不构造反例，不推断 Greedy 总失败或完整性。"
+      ],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "greedy_best_first_search",
+      "course_chunks": [
+        "lec3_greedy_search",
+        "lec3_greedy_limitations"
+      ],
+      "eligible_intent_coverage": [
+        "algorithm_trace",
+        "definition",
+        "diagnostic_request",
+        "explanation",
+        "property"
+      ],
+      "overclaim_risk": "narrow_slice_only",
+      "prerequisites": [
+        "informed_search_and_heuristics"
+      ],
+      "production_evidence_count": 2,
+      "question_types": [
+        "single_choice"
+      ],
+      "remaining_gap": "A template is narrow evidence, not complete concept mastery.",
+      "scorers": [
+        "single_choice_v1"
+      ],
+      "source_strength": "direct_or_reviewed_metadata",
+      "status": "production",
+      "template_ids": [
+        "verify_greedy_min_h_choice_v1",
+        "verify_greedy_suboptimality_v1"
+      ],
+      "title_zh": "贪心最佳优先搜索",
+      "ui_available": true
+    },
+    {
+      "ability_slices": [
+        "四个节点的 f 值依次为 A=6、B=7、C=4、D=5，所以 A* 选择 f 最小的 C。只按 h 选择会混同贪婪搜索，只按 g 选择会混同 UCS。本题只验证课件给出的 min-f frontier 选择，不主张它已经检验了 A* 的最优性条件。",
+        "只验证一次公式代入；不测 min-f selection、可采纳性、一致性或 A* 最优性。"
+      ],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "a_star_search",
+      "course_chunks": [
+        "lec3_a_star_f_g_h",
+        "lec3_a_star_completeness",
+        "lec3_a_star_optimality_overview",
+        "lec3_admissibility",
+        "lec3_tree_graph_astar",
+        "lec3_consistency",
+        "lec3_ucs_vs_astar",
+        "lec3_astar_applications",
+        "lec3_eight_puzzle_heuristics",
+        "lec3_heuristic_extremes",
+        "lec3_informed_search_summary",
+        "lec3_search_strategy_exercise",
+        "lec6_search_summary"
+      ],
+      "eligible_intent_coverage": [
+        "algorithm_trace",
+        "definition",
+        "diagnostic_request",
+        "explanation"
+      ],
+      "overclaim_risk": "narrow_slice_only",
+      "prerequisites": [
+        "uniform_cost_search",
+        "informed_search_and_heuristics"
+      ],
+      "production_evidence_count": 2,
+      "question_types": [
+        "single_choice"
+      ],
+      "remaining_gap": "A template is narrow evidence, not complete concept mastery.",
+      "scorers": [
+        "single_choice_v1"
+      ],
+      "source_strength": "direct_or_reviewed_metadata",
+      "status": "production",
+      "template_ids": [
+        "verify_astar_min_f_choice_v1",
+        "verify_astar_f_value_v1"
+      ],
+      "title_zh": "A* 搜索",
+      "ui_available": true
+    },
+    {
+      "ability_slices": [
+        "可采纳性要求对任意节点有 h(n)≤h*(n)，即不高估真实最小剩余代价。选项 D 中 P 的估计恰好等于 4，Q 的估计小于 7，因此两者都满足；其余选项至少有一个节点高估。本题只检验可采纳性，不检验一致性，也不把这一次判断当作 A* tree-search 或 graph-search 最优性条件的完整证明。",
+        "只验证单条边的一致性条件；不证明整个 heuristic 对所有边一致，也不证明 A* 的完整最优性条件。"
+      ],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "admissibility_and_consistency",
+      "course_chunks": [
+        "lec3_a_star_optimality_overview",
+        "lec3_admissibility",
+        "lec3_consistency",
+        "lec3_heuristic_design",
+        "lec3_informed_search_summary"
+      ],
+      "eligible_intent_coverage": [
+        "definition",
+        "diagnostic_request",
+        "explanation",
+        "property"
+      ],
+      "overclaim_risk": "narrow_slice_only",
+      "prerequisites": [
+        "a_star_search"
+      ],
+      "production_evidence_count": 2,
+      "question_types": [
+        "single_choice"
+      ],
+      "remaining_gap": "A template is narrow evidence, not complete concept mastery.",
+      "scorers": [
+        "single_choice_v1"
+      ],
+      "source_strength": "direct_or_reviewed_metadata",
+      "status": "production",
+      "template_ids": [
+        "verify_admissibility_no_overestimate_v1",
+        "verify_consistency_edge_check_v1"
+      ],
+      "title_zh": "可采纳性与一致性",
+      "ui_available": true
+    },
+    {
+      "ability_slices": [],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "local_search",
+      "course_chunks": [
+        "lec4_local_search_state_neighbors",
+        "lec4_hill_climbing",
+        "lec4_evolutionary_search_cycle"
+      ],
+      "eligible_intent_coverage": [],
+      "overclaim_risk": "no_verified_slice",
+      "prerequisites": [
+        "search_problem_formulation"
+      ],
+      "production_evidence_count": 0,
+      "question_types": [],
+      "remaining_gap": "No production verification template.",
+      "scorers": [],
+      "source_strength": "none",
+      "status": "none",
+      "template_ids": [],
+      "title_zh": "局部搜索",
+      "ui_available": false
+    },
+    {
+      "ability_slices": [],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "hill_climbing",
+      "course_chunks": [
+        "lec4_hill_climbing",
+        "lec4_simulated_annealing",
+        "lec6_search_summary"
+      ],
+      "eligible_intent_coverage": [],
+      "overclaim_risk": "no_verified_slice",
+      "prerequisites": [
+        "local_search"
+      ],
+      "production_evidence_count": 0,
+      "question_types": [],
+      "remaining_gap": "No production verification template.",
+      "scorers": [],
+      "source_strength": "none",
+      "status": "none",
+      "template_ids": [],
+      "title_zh": "爬山法",
+      "ui_available": false
+    },
+    {
+      "ability_slices": [],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "simulated_annealing",
+      "course_chunks": [
+        "lec4_simulated_annealing"
+      ],
+      "eligible_intent_coverage": [],
+      "overclaim_risk": "no_verified_slice",
+      "prerequisites": [
+        "hill_climbing"
+      ],
+      "production_evidence_count": 0,
+      "question_types": [],
+      "remaining_gap": "No production verification template.",
+      "scorers": [],
+      "source_strength": "none",
+      "status": "none",
+      "template_ids": [],
+      "title_zh": "模拟退火",
+      "ui_available": false
+    },
+    {
+      "ability_slices": [],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "evolutionary_search",
+      "course_chunks": [
+        "lec4_evolutionary_search_cycle",
+        "lec4_evolutionary_search_applications",
+        "lec4_llm_guided_evolution",
+        "lec6_search_summary"
+      ],
+      "eligible_intent_coverage": [],
+      "overclaim_risk": "no_verified_slice",
+      "prerequisites": [
+        "local_search"
+      ],
+      "production_evidence_count": 0,
+      "question_types": [],
+      "remaining_gap": "No production verification template.",
+      "scorers": [],
+      "source_strength": "none",
+      "status": "none",
+      "template_ids": [],
+      "title_zh": "演化搜索",
+      "ui_available": false
+    },
+    {
+      "ability_slices": [
+        "IDDFS 会用逐步增加的 depth limit 反复运行 depth-limited DFS。按题面明确声明的 0、1、2、…… 约定，limit=0 和 limit=1 都未找到目标后，下一轮应把 limit 提高到 2，并从根节点重新开始，而不是继续上一轮暂停的 DFS。重复 limit=1 或改成一次无限深 DFS 也不符合 iterative deepening。Lec2 p.53 的文字从 limit=1 开始展示，p.54–55 的动画明确包含 limit=0 和 limit=1；本题明确采用动画页的 0、1、2 约定，因此答案唯一。本题只验证 limit 递增和每轮重启，不代表完整掌握 IDDFS 的复杂度、完备性或最优性；depth-limited DFS 在此是 IDDFS 的内部步骤，不是独立的 mastery concept。"
+      ],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "iterative_deepening_search",
+      "course_chunks": [
+        "lec2_iddfs_strategy",
+        "lec2_iddfs_properties"
+      ],
+      "eligible_intent_coverage": [
+        "definition",
+        "diagnostic_request",
+        "explanation"
+      ],
+      "overclaim_risk": "narrow_slice_only",
+      "prerequisites": [
+        "depth_first_search",
+        "breadth_first_search"
+      ],
+      "production_evidence_count": 1,
+      "question_types": [
+        "single_choice"
+      ],
+      "remaining_gap": "A template is narrow evidence, not complete concept mastery.",
+      "scorers": [
+        "single_choice_v1"
+      ],
+      "source_strength": "direct_or_reviewed_metadata",
+      "status": "production",
+      "template_ids": [
+        "verify_iddfs_depth_limit_schedule_v1"
+      ],
+      "title_zh": "迭代加深深度优先搜索",
+      "ui_available": true
+    },
+    {
+      "ability_slices": [],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "llm_search_and_test_time_scaling",
+      "course_chunks": [
+        "lec4_llm_search_test_time_scaling",
+        "lec4_llm_agent_planning",
+        "lec4_llm_guided_evolution",
+        "lec6_game_ai_applications"
+      ],
+      "eligible_intent_coverage": [],
+      "overclaim_risk": "no_verified_slice",
+      "prerequisites": [
+        "search_problem_formulation"
+      ],
+      "production_evidence_count": 0,
+      "question_types": [],
+      "remaining_gap": "No production verification template.",
+      "scorers": [],
+      "source_strength": "none",
+      "status": "none",
+      "template_ids": [],
+      "title_zh": "LLM 搜索与测试时扩展",
+      "ui_available": false
+    },
+    {
+      "ability_slices": [],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "adversarial_search",
+      "course_chunks": [
+        "lec5_adversarial_game_model",
+        "lec5_game_tree_values",
+        "lec5_minimax_search",
+        "lec6_mcts_selection_simulation_backpropagation",
+        "lec6_adversarial_mcts_statistics",
+        "lec6_game_ai_applications",
+        "lec6_search_summary"
+      ],
+      "eligible_intent_coverage": [],
+      "overclaim_risk": "no_verified_slice",
+      "prerequisites": [
+        "search_problem_formulation"
+      ],
+      "production_evidence_count": 0,
+      "question_types": [],
+      "remaining_gap": "No production verification template.",
+      "scorers": [],
+      "source_strength": "none",
+      "status": "none",
+      "template_ids": [],
+      "title_zh": "对抗搜索",
+      "ui_available": false
+    },
+    {
+      "ability_slices": [],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "minimax_search",
+      "course_chunks": [
+        "lec5_game_tree_values",
+        "lec5_minimax_search",
+        "lec5_alpha_beta_pruning"
+      ],
+      "eligible_intent_coverage": [],
+      "overclaim_risk": "no_verified_slice",
+      "prerequisites": [
+        "adversarial_search"
+      ],
+      "production_evidence_count": 0,
+      "question_types": [],
+      "remaining_gap": "No production verification template.",
+      "scorers": [],
+      "source_strength": "none",
+      "status": "none",
+      "template_ids": [],
+      "title_zh": "最小最大搜索",
+      "ui_available": false
+    },
+    {
+      "ability_slices": [],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "alpha_beta_pruning",
+      "course_chunks": [
+        "lec5_alpha_beta_pruning",
+        "lec5_alpha_beta_ordering",
+        "lec5_game_state_evaluation"
+      ],
+      "eligible_intent_coverage": [],
+      "overclaim_risk": "no_verified_slice",
+      "prerequisites": [
+        "minimax_search"
+      ],
+      "production_evidence_count": 0,
+      "question_types": [],
+      "remaining_gap": "No production verification template.",
+      "scorers": [],
+      "source_strength": "none",
+      "status": "none",
+      "template_ids": [],
+      "title_zh": "Alpha-Beta 剪枝",
+      "ui_available": false
+    },
+    {
+      "ability_slices": [],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "game_state_evaluation",
+      "course_chunks": [
+        "lec5_game_state_evaluation",
+        "lec6_monte_carlo_estimation",
+        "lec6_mcts_to_alphago"
+      ],
+      "eligible_intent_coverage": [],
+      "overclaim_risk": "no_verified_slice",
+      "prerequisites": [
+        "minimax_search"
+      ],
+      "production_evidence_count": 0,
+      "question_types": [],
+      "remaining_gap": "No production verification template.",
+      "scorers": [],
+      "source_strength": "none",
+      "status": "none",
+      "template_ids": [],
+      "title_zh": "博弈状态评估函数",
+      "ui_available": false
+    },
+    {
+      "ability_slices": [],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "monte_carlo_search",
+      "course_chunks": [
+        "lec6_monte_carlo_estimation",
+        "lec6_exploration_exploitation",
+        "lec6_mcts_four_stages",
+        "lec6_mcts_selection_simulation_backpropagation"
+      ],
+      "eligible_intent_coverage": [],
+      "overclaim_risk": "no_verified_slice",
+      "prerequisites": [
+        "adversarial_search"
+      ],
+      "production_evidence_count": 0,
+      "question_types": [],
+      "remaining_gap": "No production verification template.",
+      "scorers": [],
+      "source_strength": "none",
+      "status": "none",
+      "template_ids": [],
+      "title_zh": "蒙特卡洛搜索",
+      "ui_available": false
+    },
+    {
+      "ability_slices": [],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "exploration_exploitation",
+      "course_chunks": [
+        "lec6_exploration_exploitation",
+        "lec6_upper_confidence_bound"
+      ],
+      "eligible_intent_coverage": [],
+      "overclaim_risk": "no_verified_slice",
+      "prerequisites": [
+        "monte_carlo_search"
+      ],
+      "production_evidence_count": 0,
+      "question_types": [],
+      "remaining_gap": "No production verification template.",
+      "scorers": [],
+      "source_strength": "none",
+      "status": "none",
+      "template_ids": [],
+      "title_zh": "探索与利用",
+      "ui_available": false
+    },
+    {
+      "ability_slices": [],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "upper_confidence_bound",
+      "course_chunks": [
+        "lec6_upper_confidence_bound",
+        "lec6_mcts_four_stages"
+      ],
+      "eligible_intent_coverage": [],
+      "overclaim_risk": "no_verified_slice",
+      "prerequisites": [
+        "exploration_exploitation"
+      ],
+      "production_evidence_count": 0,
+      "question_types": [],
+      "remaining_gap": "No production verification template.",
+      "scorers": [],
+      "source_strength": "none",
+      "status": "none",
+      "template_ids": [],
+      "title_zh": "上限置信区间",
+      "ui_available": false
+    },
+    {
+      "ability_slices": [],
+      "blocked_count": 0,
+      "candidate_evidence_count": 0,
+      "concept_id": "monte_carlo_tree_search",
+      "course_chunks": [
+        "lec6_mcts_four_stages",
+        "lec6_mcts_selection_simulation_backpropagation",
+        "lec6_adversarial_mcts_statistics",
+        "lec6_mcts_to_alphago",
+        "lec6_game_ai_applications",
+        "lec6_search_summary"
+      ],
+      "eligible_intent_coverage": [],
+      "overclaim_risk": "no_verified_slice",
+      "prerequisites": [
+        "monte_carlo_search",
+        "upper_confidence_bound"
+      ],
+      "production_evidence_count": 0,
+      "question_types": [],
+      "remaining_gap": "No production verification template.",
+      "scorers": [],
+      "source_strength": "none",
+      "status": "none",
+      "template_ids": [],
+      "title_zh": "蒙特卡洛树搜索",
+      "ui_available": false
+    }
+  ],
+  "production_template_count": 20,
+  "schema_version": 1
+}

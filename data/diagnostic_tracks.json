@@ -1,0 +1,51 @@
+{
+  "version": 2,
+  "tracks": [
+    {
+      "id": "bfs_equal_cost_ucs",
+      "title": "BFS、等步代价条件与 UCS",
+      "steps": [
+        {
+          "question_id": "dq_bfs_expansion_001",
+          "concept_ids": [
+            "breadth_first_search"
+          ],
+          "prompt_variants": [
+            {
+              "id": "bfs_expansion_frontier_v2",
+              "prompt": "frontier 中依次加入 A、B、C 三个节点。BFS 下一步应先扩展哪一个？这体现了它怎样的扩展顺序？",
+              "review_status": "human_verified"
+            }
+          ]
+        },
+        {
+          "question_id": "dq_bfs_order_001",
+          "concept_ids": [
+            "breadth_first_search",
+            "completeness_optimality_complexity"
+          ],
+          "prompt_variants": [
+            {
+              "id": "bfs_equal_cost_path_v2",
+              "prompt": "从 S 到 G 有两条路：甲只需 2 步，但其中一步代价为 100；乙要走 4 步，每步代价为 1。BFS 会优先偏向哪条？在什么条件下，这种按步数的选择才保证路径总代价最低？",
+              "review_status": "human_verified"
+            }
+          ]
+        },
+        {
+          "question_id": "dq_ucs_when_costs_differ_001",
+          "concept_ids": [
+            "uniform_cost_search"
+          ],
+          "prompt_variants": [
+            {
+              "id": "ucs_frontier_cost_choice_v2",
+              "prompt": "某搜索问题的动作代价不同。frontier 中 A 的累计路径代价 g(n)=6，B 的 g(n)=3，C 的 g(n)=5。下一步应扩展谁？应使用什么搜索策略，并用什么结构管理 frontier？",
+              "review_status": "human_verified"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

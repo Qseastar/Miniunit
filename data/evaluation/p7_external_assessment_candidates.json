@@ -1,0 +1,321 @@
+{
+  "schema_version": 1,
+  "assessment_status": "pending_owner_review",
+  "study_scope": {
+    "study_id": "introai_p7_study_a_draft",
+    "purpose": "RESEARCH_ASSESSMENT_ONLY",
+    "selected_concept_ids": [
+      "breadth_first_search",
+      "uniform_cost_search",
+      "a_star_search",
+      "local_search",
+      "minimax_search",
+      "monte_carlo_tree_search"
+    ],
+    "policy_comparison": [
+      "CURRENT_FIXED_STEP",
+      "PRIOR_REGULARIZED_BERNOULLI",
+      "COUNT_DECAYED_STEP"
+    ],
+    "external_item_visibility": "not_registered_in_production"
+  },
+  "items": [
+    {
+      "assessment_item_id": "p7_ext_bfs_depth_claim_a",
+      "concept_id": "breadth_first_search",
+      "capability_slice": "在行动代价改变后判断 BFS 的最少步数结论与总代价结论的边界",
+      "question_type": "single_choice",
+      "stem": "一个导航图中原本每一步代价都为 1，BFS 找到了一条经过 3 步的路径。后来其中一条边的代价改为 5，系统仍按 BFS 的层次顺序搜索。仅根据这些信息，下列哪项判断最恰当？",
+      "choices": [
+        {"id": "a", "text": "仍以最少步数的路径为先，因此可保证总代价最低。"},
+        {"id": "b", "text": "仍以最少步数的路径为先，但不能仅凭步数保证总代价最低。"},
+        {"id": "c", "text": "会改以累计路径代价为先，因而不再按层搜索。"},
+        {"id": "d", "text": "不再能按层比较路径，因为边代价已不相同。"}
+      ],
+      "expected_answer": {"choice_id": "b"},
+      "source_refs": [{"chunk_id": "lec2_bfs_layer_order", "source_file": "ai_lec2_uninformed_search.pdf", "page_start": 31, "page_end": 34}, {"chunk_id": "lec2_bfs_properties", "source_file": "ai_lec2_uninformed_search.pdf", "page_start": 35, "page_end": 35}],
+      "production_overlap_analysis": {
+        "production_template_ids": ["verify_bfs_equal_cost_condition_v1"],
+        "classification": "INDEPENDENT_CAPABILITY_SAMPLE",
+        "risk": "medium",
+        "rationale": "production 直接询问哪一项条件成立；本题要求在一个原本单位代价、随后破坏该条件的应用情境中保留最少步数结论，同时拒绝把它外推为最低总代价。"
+      },
+      "difficulty_rationale": "需要区分搜索顺序未改变与总代价保证失效两个结论，不需要计算路径代价或证明完整最优性定理。",
+      "measures": "BFS 的最少步数性质与最低总代价结论仅在行动代价相同时才可连接的条件边界。",
+      "does_not_measure": "任意边权下的最优性、UCS 或完整 BFS 性能矩阵。",
+      "second_reasonable_answer_audit": "choice b 唯一同时保留 BFS 的层次/步数性质并限制总代价结论；a 忽略已破坏的等代价前提，c 把 UCS 的规则赋给 BFS，d 否认 BFS 仍可按层比较步数。",
+      "independence_rationale": "学生不能只复述 production 的等代价选项，必须判断一个条件被破坏后哪些结论仍然成立；不是节点或数字的表面替换。",
+      "human_review_status": "pending_owner_review"
+    },
+    {
+      "assessment_item_id": "p7_ext_bfs_queue_trace_b",
+      "concept_id": "breadth_first_search",
+      "capability_slice": "按 FIFO 规则追踪同层 frontier 的扩展顺序",
+      "question_type": "single_choice",
+      "stem": "BFS 已从根节点扩展并按顺序把 P、Q 加入空 frontier。随后扩展 P，并按顺序加入 R、S；Q 尚未扩展。下一步应扩展哪个节点？",
+      "choices": [
+        {"id": "a", "text": "Q"},
+        {"id": "b", "text": "R"},
+        {"id": "c", "text": "S"},
+        {"id": "d", "text": "P"}
+      ],
+      "expected_answer": {"choice_id": "a"},
+      "source_refs": [{"chunk_id": "lec2_bfs_layer_order", "source_file": "ai_lec2_uninformed_search.pdf", "page_start": 31, "page_end": 34}],
+      "production_overlap_analysis": {
+        "production_template_ids": ["verify_bfs_frontier_choice_v1"],
+        "classification": "INDEPENDENT_CAPABILITY_SAMPLE",
+        "risk": "medium",
+        "rationale": "同属 FIFO frontier capability，但本题要求经过一次扩展后保留同层节点 Q 的队列追踪，而非重用 production 中 A/B/C 的单步选择。"
+      },
+      "difficulty_rationale": "两个 FIFO 操作，适合作为 production 单步选择的平行实例。",
+      "measures": "BFS frontier 的先进先出与同层节点优先关系。",
+      "does_not_measure": "BFS 的路径代价性质、图搜索去重或 DFS。",
+      "second_reasonable_answer_audit": "FIFO 下 Q 在 R、S 之前；d 已扩展，b/c 忽略 Q 的先入队顺序。",
+      "independence_rationale": "节点、时序和 required inference 均不同，非 cosmetic rewrite。",
+      "human_review_status": "pending_owner_review"
+    },
+    {
+      "assessment_item_id": "p7_ext_ucs_cost_accumulation_a",
+      "concept_id": "uniform_cost_search",
+      "capability_slice": "比较累计路径代价而非最后一步或步数",
+      "question_type": "single_choice",
+      "stem": "UCS 的 frontier 中有三个节点：X 的路径代价为 2+4，Y 的路径代价为 5，Z 的路径代价为 1+7。下一步应扩展哪个节点？",
+      "choices": [
+        {"id": "a", "text": "X，因为累计路径代价为 6。"},
+        {"id": "b", "text": "Y，因为累计路径代价为 5。"},
+        {"id": "c", "text": "Z，因为最后一步代价为 7。"},
+        {"id": "d", "text": "X，因为它经过两步而不是一步。"}
+      ],
+      "expected_answer": {"choice_id": "b"},
+      "source_refs": [{"chunk_id": "lec2_ucs_lowest_cost", "source_file": "ai_lec2_uninformed_search.pdf", "page_start": 60, "page_end": 62}],
+      "production_overlap_analysis": {
+        "production_template_ids": ["verify_ucs_min_g_choice_v1"],
+        "classification": "INDEPENDENT_CAPABILITY_SAMPLE",
+        "risk": "medium",
+        "rationale": "production 给出已算出的 g 值；本题要求先把不同边代价相加，再在新的三个路径之间按 g(n) 比较。"
+      },
+      "difficulty_rationale": "增加基础累计一步，但仍是封闭的 min-g 决策。",
+      "measures": "UCS 依据累计路径代价 g(n) 选择 frontier。",
+      "does_not_measure": "duplicate replacement、优先队列实现细节或可采纳启发式。",
+      "second_reasonable_answer_audit": "Y 的 g=5，小于 X=6 与 Z=8；c/d 分别混淆最后一步代价和步数。",
+      "independence_rationale": "不同实例与额外累计推理，不是替换 production 数字的同一题。",
+      "human_review_status": "pending_owner_review"
+    },
+    {
+      "assessment_item_id": "p7_ext_ucs_positive_cost_bound_d",
+      "concept_id": "uniform_cost_search",
+      "capability_slice": "识别 UCS 完备性分析中每一步行动代价的正下界条件",
+      "question_type": "single_choice",
+      "stem": "课件在分析一致代价搜索（UCS）的完备性时，对每一步行动代价作了哪项假设？",
+      "choices": [
+        {"id": "a", "text": "存在 ε>0，使每一步行动代价都至少为 ε。"},
+        {"id": "b", "text": "所有行动代价都必须相同。"},
+        {"id": "c", "text": "每一步行动代价只需非负，允许为 0。"},
+        {"id": "d", "text": "搜索图中不能存在环。"}
+      ],
+      "expected_answer": {"choice_id": "a"},
+      "source_refs": [{"chunk_id": "lec2_ucs_properties", "source_file": "ai_lec2_uninformed_search.pdf", "page_start": 63, "page_end": 63}],
+      "production_overlap_analysis": {
+        "production_template_ids": ["verify_ucs_min_g_choice_v1", "verify_search_algorithm_properties_v1"],
+        "classification": "COMPLEMENTARY_CAPABILITY",
+        "risk": "low",
+        "rationale": "production UCS 题测 frontier 中最小 g 的选择；通用性质题的正确答案是 IDDFS，未测 UCS 的正下界完备性条件。本题只判断 Lec2 对 UCS 完备性的明确前提，不给 g 值、不要求累计计算或 frontier 选点。"
+      },
+      "difficulty_rationale": "测试课件性能分析中一个明确前提；不要求证明完备性或计算复杂度。",
+      "measures": "UCS 在每一步行动代价有正下界时的完备性条件。",
+      "does_not_measure": "frontier min-g 选择、累计路径代价计算、最优性证明、frontier replacement/decrease-key 或 A*。",
+      "second_reasonable_answer_audit": "choice a 精确保留课件的 ε>0 正下界；b 是 BFS/IDDFS 最优性条件，c 允许 0 而不满足正下界，d 不是课件列出的 UCS 完备性前提。",
+      "independence_rationale": "正确路径是读取并应用 UCS 完备性的正下界条件，不是查看既给累计 g、选择最小值，亦不是现有 external sibling 的边代价加法。",
+      "human_review_status": "pending_owner_review"
+    },
+    {
+      "assessment_item_id": "p7_ext_astar_zero_heuristic_c",
+      "concept_id": "a_star_search",
+      "capability_slice": "理解 A* 在 h(n)=0 这一启发式极端下与 UCS 的关系",
+      "question_type": "single_choice",
+      "stem": "按照课件对启发式函数两个极端的讨论，若 A* 对每个节点都使用 h(n)=0，它的选择行为与哪种搜索策略相同？",
+      "choices": [
+        {"id": "a", "text": "一致代价搜索，因为此时 f(n) 只由累计路径代价 g(n) 决定。"},
+        {"id": "b", "text": "贪婪搜索，因为此时只依据 h(n) 估计选择节点。"},
+        {"id": "c", "text": "宽度优先搜索，因为 h(n) 对所有节点都相同。"},
+        {"id": "d", "text": "深度优先搜索，因为不再使用启发式函数。"}
+      ],
+      "expected_answer": {"choice_id": "a"},
+      "source_refs": [{"chunk_id": "lec3_heuristic_extremes", "source_file": "ai_lec3_informed_search.pdf", "page_start": 57, "page_end": 57}],
+      "production_overlap_analysis": {
+        "production_template_ids": ["verify_astar_min_f_choice_v1", "verify_astar_f_value_v1"],
+        "classification": "COMPLEMENTARY_CAPABILITY",
+        "risk": "low",
+        "rationale": "production 测 f=g+h 的计算与 min-f 选择，现有 external sibling 隔离同 h 下 g 的作用；本题测课件明确给出的 h=0 极端及其与 UCS 的关系，不需要计算任何 f 值或在 frontier 中选点。"
+      },
+      "difficulty_rationale": "一个课程明确陈述的闭合关系判断；不要求计算 f 值，也不要求可采纳性或最优性证明。",
+      "measures": "当 h(n)=0 时，A* 的选择依据退化为累计路径代价，因而与 UCS 对齐。",
+      "does_not_measure": "f(n) 的数值计算、min-f frontier 比较、可采纳性、一致性或 A* 最优性。",
+      "second_reasonable_answer_audit": "choice a 唯一符合课件的 h(n)=0 极端；b 错把 h=0 当作只看 h，c 把无启发式误作按层，d 把无启发式误作深度优先。题面没有 tie、图结构或最优性外推。",
+      "independence_rationale": "替换被拒绝的计算/选最小 f 近似题，转向课件直接支持的 heuristic-extreme consequence；不与 production 的数值推理路径或现有 component-change item 重合。",
+      "human_review_status": "pending_owner_review"
+    },
+    {
+      "assessment_item_id": "p7_ext_astar_component_change_b",
+      "concept_id": "a_star_search",
+      "capability_slice": "理解同一 h 下 g 的变化会改变 f",
+      "question_type": "single_choice",
+      "stem": "两个 A* frontier 节点的 h 值都为 3。T 的 g 值为 2，U 的 g 值为 6。为什么 A* 会优先 T？",
+      "choices": [
+        {"id": "a", "text": "因为 T 的 f=5 小于 U 的 f=9。"},
+        {"id": "b", "text": "因为相同 h 时 A* 应随机选择。"},
+        {"id": "c", "text": "因为 T 的 h 更小。"},
+        {"id": "d", "text": "因为 A* 只比较 g，不比较 h。"}
+      ],
+      "expected_answer": {"choice_id": "a"},
+      "source_refs": [{"chunk_id": "lec3_a_star_f_g_h", "source_file": "ai_lec3_informed_search.pdf", "page_start": 18, "page_end": 18}, {"chunk_id": "lec3_a_star_f_g_h", "source_file": "ai_lec3_informed_search.pdf", "page_start": 21, "page_end": 21}],
+      "production_overlap_analysis": {
+        "production_template_ids": ["verify_astar_min_f_choice_v1", "verify_astar_f_value_v1"],
+        "classification": "COMPLEMENTARY_CAPABILITY",
+        "risk": "low",
+        "rationale": "本题固定 h，突出已走路径代价对 f 的作用，避免重复 production 的完整选点或一次公式代入。"
+      },
+      "difficulty_rationale": "隔离一个变量，减少算术负担并测试 g/h 的功能关系。",
+      "measures": "A* 同时使用 g 与 h，而不是只使用 h 或只使用 g。",
+      "does_not_measure": "贪心搜索、UCS 或 A* 最优性证明。",
+      "second_reasonable_answer_audit": "T/U 的 h 相等，只有 a 正确代入 f=g+h；b/c/d 与给定数值或规则冲突。",
+      "independence_rationale": "采用控制变量解释任务，而非 production 的节点选择题重述。",
+      "human_review_status": "pending_owner_review"
+    },
+    {
+      "assessment_item_id": "p7_ext_local_search_neighbor_a",
+      "concept_id": "local_search",
+      "capability_slice": "在应用情境中识别当前候选解与邻域质量比较的局部搜索视角",
+      "question_type": "single_choice",
+      "stem": "按照 Lec4 对局部搜索的总体介绍，一个排课优化过程从当前候选课表出发，对只移动一门课得到的相邻课表比较冲突数。下列哪项最恰当地概括这个过程的搜索视角？",
+      "choices": [
+        {"id": "a", "text": "围绕当前候选课表及其邻域比较解的质量，并据此选择后续候选。"},
+        {"id": "b", "text": "围绕从初始课表到每个候选的完整动作路径比较路径质量。"},
+        {"id": "c", "text": "围绕一个待扩展 frontier 的全局队列排列所有候选课表。"},
+        {"id": "d", "text": "围绕全部已探索课表穷举候选后再比较整体质量。"}
+      ],
+      "expected_answer": {"choice_id": "a"},
+      "source_refs": [{"chunk_id": "lec4_local_search_state_neighbors", "source_file": "ai_lec4_local_search_and_llm_search.pdf", "page_start": 9, "page_end": 11}],
+      "production_overlap_analysis": {
+        "production_template_ids": ["verify_local_search_final_state_focus_v1"],
+        "classification": "INDEPENDENT_CAPABILITY_SAMPLE",
+        "risk": "medium",
+        "rationale": "production 直接询问总体关注对象；本题给出排课邻域应用情境，要求选择与课件 framing 相符的搜索视角，不把局部搜索等同为某一具体变体。"
+      },
+      "difficulty_rationale": "应用一个邻域比较情境，不要求指定 Hill Climbing、模拟退火或任何接受规则。",
+      "measures": "局部搜索以当前候选解及其邻域的解质量为核心的总体 framing。",
+      "does_not_measure": "爬山法停止条件、模拟退火接受概率、所有局部搜索实现的内存结构、全局最优或完整路径。",
+      "second_reasonable_answer_audit": "choice a 唯一同时保留当前候选、邻域和质量比较；b/c/d 分别转向完整路径、系统 frontier 或穷举已探索状态。所有选项采用平行的“围绕…比较”表达，不以绝对词或选项长度提示答案。",
+      "independence_rationale": "不同问题域与操作描述，且题目测量的是上位 Local Search framing，不是 production wording、Hill Climbing 规则或一个仅靠绝对化排除的类别判断。",
+      "human_review_status": "pending_owner_review"
+    },
+    {
+      "assessment_item_id": "p7_ext_minimax_min_node_a",
+      "concept_id": "minimax_search",
+      "capability_slice": "在给定终局值时计算 MIN 节点的返回值",
+      "question_type": "single_choice",
+      "stem": "一个 MIN 节点的三个子节点终局评估值分别为 6、2、5。该 MIN 节点应向其父节点返回什么值？",
+      "choices": [
+        {"id": "a", "text": "6"},
+        {"id": "b", "text": "5"},
+        {"id": "c", "text": "2"},
+        {"id": "d", "text": "无法判断，必须先知道 alpha 和 beta。"}
+      ],
+      "expected_answer": {"choice_id": "c"},
+      "source_refs": [{"chunk_id": "lec5_minimax_search", "source_file": "ai_lec5_adversarial_search.pdf", "page_start": 16, "page_end": 19}],
+      "production_overlap_analysis": {
+        "production_template_ids": ["verify_minimax_max_min_value_choice_v1"],
+        "classification": "COMPLEMENTARY_CAPABILITY",
+        "risk": "low",
+        "rationale": "production 验证 MAX 根据已给 minimax child values 选择；本题独立测量 MIN 层如何从终局评估返回值。"
+      },
+      "difficulty_rationale": "单层 MIN 聚合，能力与 production 的单层 MAX 对称且不要求完整树。",
+      "measures": "minimax 中 MIN 节点选择子节点最小值。",
+      "does_not_measure": "完整博弈树、深度截断、评估函数质量或 Alpha-Beta。",
+      "second_reasonable_answer_audit": "MIN 唯一返回最小的 2；d 混入未要求的 Alpha-Beta。",
+      "independence_rationale": "更换为 MIN operation 和新 terminal values，不复用 production 的 MAX selection instance。",
+      "human_review_status": "pending_owner_review"
+    },
+    {
+      "assessment_item_id": "p7_ext_minimax_two_level_b",
+      "concept_id": "minimax_search",
+      "capability_slice": "组合 MIN 子树值与根 MAX 选择",
+      "question_type": "single_choice",
+      "stem": "根节点是 MAX。左侧 MIN 子树的两个终局值为 3、8；右侧 MIN 子树的两个终局值为 4、5。根节点应选择哪一侧？",
+      "choices": [
+        {"id": "a", "text": "左侧，因为 8 是全树最大的终局值。"},
+        {"id": "b", "text": "右侧，因为左侧返回 3、右侧返回 4，MAX 选择 4。"},
+        {"id": "c", "text": "左侧，因为 MIN 总选择最大的终局值。"},
+        {"id": "d", "text": "无法判断，必须知道 UCB。"}
+      ],
+      "expected_answer": {"choice_id": "b"},
+      "source_refs": [{"chunk_id": "lec5_minimax_search", "source_file": "ai_lec5_adversarial_search.pdf", "page_start": 16, "page_end": 19}],
+      "production_overlap_analysis": {
+        "production_template_ids": ["verify_minimax_max_min_value_choice_v1"],
+        "classification": "INDEPENDENT_CAPABILITY_SAMPLE",
+        "risk": "medium",
+        "rationale": "能力仍是 minimax value propagation，但本题需要先处理两个 MIN 子树，不能凭记住 production 的单层 MAX 题直接作答。"
+      },
+      "difficulty_rationale": "两层封闭树是与 production 可比、但更完整的 parallel form；需 owner 审查难度是否过高。",
+      "measures": "MIN 与 MAX 的基本 value propagation。",
+      "does_not_measure": "实际对弈策略、截断深度或 Alpha-Beta 剪枝。",
+      "second_reasonable_answer_audit": "左 MIN 返回 3，右 MIN 返回 4，MAX 选右；其余选项错误使用单个叶子、MIN 规则或无关 UCB。",
+      "independence_rationale": "新树结构和两层操作，非 cosmetic rewrite；但难度可比性需人工确认。",
+      "human_review_status": "pending_owner_review"
+    },
+    {
+      "assessment_item_id": "p7_ext_mcts_backpropagation_a",
+      "concept_id": "monte_carlo_tree_search",
+      "capability_slice": "识别模拟后将结果沿访问路径更新的回传阶段",
+      "question_type": "single_choice",
+      "stem": "一次 MCTS 模拟已经结束，并得到本次 rollout 的结果。接下来系统应执行什么操作，才能让之前选择过的树节点利用这次结果？",
+      "choices": [
+        {"id": "a", "text": "沿本次访问路径回传并更新节点统计。"},
+        {"id": "b", "text": "从根开始重新随机模拟，且不更新任何节点。"},
+        {"id": "c", "text": "删除所有未访问子节点。"},
+        {"id": "d", "text": "只按最小 g(n) 选择下一节点。"}
+      ],
+      "expected_answer": {"choice_id": "a"},
+      "source_refs": [{"chunk_id": "lec6_mcts_four_stages", "source_file": "ai_lec6_mcts_and_search_summary.pdf", "page_start": 20, "page_end": 20}],
+      "production_overlap_analysis": {
+        "production_template_ids": ["verify_mcts_four_stage_order_v1"],
+        "classification": "COMPLEMENTARY_CAPABILITY",
+        "risk": "low",
+        "rationale": "production 测四阶段顺序；本题隔离模拟之后的 backpropagation 功能，并改用直接文字说明回传更新奖励均值和访问次数的 Lec6 p.20。"
+      },
+      "difficulty_rationale": "只要求识别回传功能，不涉及 UCB 数值或对抗统计细节。",
+      "measures": "MCTS simulation 结果通过 backpropagation 更新访问路径的角色。",
+      "does_not_measure": "四阶段完整顺序、UCB 公式、rollout policy 或 AlphaGo。",
+      "second_reasonable_answer_audit": "a 是模拟后的回传定义；b/c/d 分别忽略学习、删除无据或混入 UCS。",
+      "independence_rationale": "改测阶段功能，避免复制 production 的顺序题；source ref 已从主要图示页改为直接定义回传更新的文本页。",
+      "human_review_status": "pending_owner_review"
+    },
+    {
+      "assessment_item_id": "p7_ext_mcts_expand_untried_child_b",
+      "concept_id": "monte_carlo_tree_search",
+      "capability_slice": "区分选择阶段与扩展未尝试子节点的阶段",
+      "question_type": "single_choice",
+      "stem": "MCTS 已沿树到达一个节点；该节点仍有一个尚未加入树的合法子动作。下一步把这个新子节点加入树，对应哪个阶段？",
+      "choices": [
+        {"id": "a", "text": "选择（selection）"},
+        {"id": "b", "text": "扩展（expansion）"},
+        {"id": "c", "text": "模拟（simulation）"},
+        {"id": "d", "text": "回传（backpropagation）"}
+      ],
+      "expected_answer": {"choice_id": "b"},
+      "source_refs": [{"chunk_id": "lec6_mcts_four_stages", "source_file": "ai_lec6_mcts_and_search_summary.pdf", "page_start": 20, "page_end": 20}, {"chunk_id": "lec6_mcts_selection_simulation_backpropagation", "source_file": "ai_lec6_mcts_and_search_summary.pdf", "page_start": 32, "page_end": 32}],
+      "production_overlap_analysis": {
+        "production_template_ids": ["verify_mcts_four_stage_order_v1"],
+        "classification": "INDEPENDENT_CAPABILITY_SAMPLE",
+        "risk": "medium",
+        "rationale": "仍属四阶段 family，但 production 测全序列；本题用未尝试子动作的 operational cue 测 expansion 的含义。"
+      },
+      "difficulty_rationale": "单一阶段功能判断，难度低于完整排序题，适合作为候选平行 form。",
+      "measures": "MCTS expansion 将未尝试 child 加入搜索树。",
+      "does_not_measure": "selection policy、simulation 结果、回传统计或 UCB。",
+      "second_reasonable_answer_audit": "加入未尝试 child 的定义唯一对应 expansion；其他三个阶段在题面动作上均不匹配。",
+      "independence_rationale": "以操作线索代替阶段列表排序，需 owner 检查是否仍过近。",
+      "human_review_status": "pending_owner_review"
+    }
+  ]
+}
