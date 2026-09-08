@@ -6,7 +6,9 @@
       "module_id": "search_algorithms",
       "display_name_zh": "搜索算法",
       "display_name_en": "Search Algorithms",
-      "unit_ids": ["search_algorithms"],
+      "unit_ids": [
+        "search_algorithms"
+      ],
       "knowledge_points_path": "data/knowledge_points.json",
       "course_chunks_path": "data/course_chunks.json",
       "diagnostic_templates_path": "data/diagnostic_templates.json",
@@ -21,6 +23,25 @@
       "default_formative_track_id": "bfs_equal_cost_ucs",
       "mastery_map_layout_path": "data/search_algorithms_mastery_map_layout.json",
       "concept_copy_zh_path": "data/search_algorithms_concept_copy_zh.json"
+    },
+    {
+      "module_id": "statistical_ml",
+      "display_name_zh": "统计机器学习",
+      "display_name_en": "Statistical Machine Learning",
+      "unit_ids": [
+        "statistical_ml"
+      ],
+      "knowledge_points_path": "data/statistical_ml_knowledge.json",
+      "course_chunks_path": "data/statistical_ml_chunks.json",
+      "diagnostic_templates_path": "data/statistical_ml_templates.json",
+      "course_material_manifest_path": "data/statistical_ml_manifest.json",
+      "default_diagnostic_concept_ids": [
+        "statistical_ml__supervised_vs_unsupervised",
+        "statistical_ml__k_nearest_neighbors",
+        "statistical_ml__linear_regression_least_squares",
+        "statistical_ml__logistic_regression",
+        "statistical_ml__k_means_clustering"
+      ]
     }
   ]
 }

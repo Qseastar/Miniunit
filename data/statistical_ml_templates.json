@@ -1,4 +1,53 @@
 {
   "schema_version": 1,
-  "templates": []
+  "templates": [
+    {
+      "id": "verify_supervised_vs_unsupervised_definition_v1",
+      "schema_version": 1,
+      "review_status": "human_verified",
+      "purpose": "mastery_verification",
+      "concept_ids": [
+        "statistical_ml__supervised_vs_unsupervised"
+      ],
+      "eligible_intents": [
+        "diagnostic_request",
+        "definition",
+        "explanation"
+      ],
+      "selection_priority": 300,
+      "question_type": "single_choice",
+      "prompt": "给定一批训练样本，如果其中每个样本都没有对应的标注（标签），这属于哪一类学习任务？",
+      "choices": [
+        {
+          "id": "unsupervised",
+          "text": "无监督学习"
+        },
+        {
+          "id": "supervised",
+          "text": "监督学习"
+        },
+        {
+          "id": "reinforcement",
+          "text": "强化学习"
+        },
+        {
+          "id": "semi_supervised",
+          "text": "半监督学习"
+        }
+      ],
+      "expected_answer": {
+        "choice_id": "unsupervised"
+      },
+      "deterministic_scorer": "single_choice_v1",
+      "misconception_rules": [],
+      "teaching_support": {
+        "hint": "回忆监督学习与无监督学习的关键区别：训练样本是否带有标注。",
+        "explanation": "监督学习要求所有训练样本都有对应的标注；无监督学习的训练样本均没有标注（例如聚类任务）。题干明确说明样本均无标注，因此属于无监督学习。"
+      },
+      "benchmark_case_ids": [
+        "stat_ml_supervised_unsupervised_correct",
+        "stat_ml_supervised_unsupervised_wrong"
+      ]
+    }
+  ]
 }
