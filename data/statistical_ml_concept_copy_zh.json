@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "concepts": [
+    {
+      "concept_id": "statistical_ml__supervised_learning",
+      "summary_zh": "监督学习要求每个训练样本都有对应标注，模型从带标注样本中学习输入到输出的映射。"
+    },
+    {
+      "concept_id": "statistical_ml__unsupervised_learning",
+      "summary_zh": "无监督学习的训练样本没有标注，模型需要自行发现数据内在结构或分布规律。"
+    },
+    {
+      "concept_id": "statistical_ml__knn_lazy_learning",
+      "summary_zh": "k近邻是懒惰学习代表，训练阶段不显式建模，预测时才基于邻近样本投票或平均。"
+    },
+    {
+      "concept_id": "statistical_ml__knn_k_value_selection",
+      "summary_zh": "k值选取影响模型复杂度，k过小易过拟合，k过大则模型过于简单。"
+    },
+    {
+      "concept_id": "statistical_ml__knn_distance_metric",
+      "summary_zh": "距离度量用闵可夫斯基距离，p为2是欧氏距离，p为1是曼哈顿距离。"
+    },
+    {
+      "concept_id": "statistical_ml__linear_regression_univariate",
+      "summary_zh": "一元线性回归用单个特征拟合连续目标，最小二乘法最小化均方误差求参数。"
+    },
+    {
+      "concept_id": "statistical_ml__clustering_evaluation",
+      "summary_zh": "聚类好坏没有绝对标准，希望簇内相似度高而簇间相似度低。"
+    },
+    {
+      "concept_id": "statistical_ml__linear_regression_multivariate",
+      "summary_zh": "多元线性回归用多个特征的线性组合预测，参数可用矩阵形式闭式求解。"
+    },
+    {
+      "concept_id": "statistical_ml__kmeans_algorithm",
+      "summary_zh": "K均值以簇内样本均值表示簇，反复选中心、划分样本、更新均值直到收敛。"
+    },
+    {
+      "concept_id": "statistical_ml__linear_regression_regularization",
+      "summary_zh": "正则化限制参数大小提升泛化，岭回归用二范数，LASSO用一范数。"
+    },
+    {
+      "concept_id": "statistical_ml__logistic_regression_glm",
+      "summary_zh": "广义线性模型在线性模型基础上引入联系函数，对数几率回归是其二分类特例。"
+    },
+    {
+      "concept_id": "statistical_ml__kmeans_limitations",
+      "summary_zh": "K均值需预设簇数、对初始化敏感、迭代开销大，且假设各维重要性相同。"
+    },
+    {
+      "concept_id": "statistical_ml__clustering_applications",
+      "summary_zh": "聚类可单独发现数据结构，也可作为分类等任务的前驱，如文本聚类与色彩压缩。"
+    },
+    {
+      "concept_id": "statistical_ml__linear_regression_srm",
+      "summary_zh": "结构风险最小化在经验风险上加上参数范数惩罚，权衡拟合与复杂度。"
+    },
+    {
+      "concept_id": "statistical_ml__logistic_regression_sigmoid",
+      "summary_zh": "S形函数把线性输出映射到0到1之间，作为对数几率回归的替代函数。"
+    },
+    {
+      "concept_id": "statistical_ml__logistic_regression_mle",
+      "summary_zh": "对数几率回归用极大似然估计求解，等价于最小化交叉熵损失。"
+    },
+    {
+      "concept_id": "statistical_ml__logistic_regression_gradient_descent",
+      "summary_zh": "梯度下降沿负梯度方向迭代更新参数，学习率控制每步更新幅度。"
+    }
+  ]
+}

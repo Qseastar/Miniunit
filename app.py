@@ -602,6 +602,11 @@ def _render_question_answering(st: Any) -> None:
             "示例：BFS 找到的是步数最少还是总代价最低？｜A* 的启发函数为什么要可采纳？｜UCS 为什么按累计路径代价选择下一个节点？"
         )
         placeholder = "例如：BFS 找到的是步数最少还是总代价最低？"
+    elif module["module_id"] == "statistical_ml":
+        st.caption(
+            "示例：监督学习与无监督学习的根本区别是什么？｜k近邻算法中 k 值过小会导致什么？｜对数几率回归是分类还是回归算法？"
+        )
+        placeholder = "例如：监督学习与无监督学习的根本区别是什么？"
     else:
         st.caption("请围绕当前模块的课程材料提问；切换模块后，问答与引用范围会同时切换。")
         placeholder = "例如：请解释当前模块中的一个核心概念。"
@@ -1091,6 +1096,7 @@ def _get_mastery_map_static_inputs(st: Any) -> dict[str, Any]:
         "concept_copy_data": load_concept_copy_zh(
             paths["concept_copy_zh_path"]
         ),
+        "stage_names": data["module"].get("mastery_map_stage_names"),
     }
     st.session_state["introai_mastery_map_static_inputs"] = inputs
     return inputs
@@ -1129,6 +1135,7 @@ def _render_mastery_map(st: Any) -> None:
             concept_copy_data=static_inputs["concept_copy_data"],
             knowledge_data=data["knowledge_data"],
             selected_concept_id=selected_id,
+            stage_names=static_inputs.get("stage_names"),
         )
     except (AppServiceError, DiagnosticTemplateError, MasteryMapError) as error:
         _LOGGER.warning("mastery_map_unavailable category=%s", type(error).__name__)

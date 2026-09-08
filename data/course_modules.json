@@ -36,12 +36,23 @@
       "diagnostic_templates_path": "data/statistical_ml_templates.json",
       "course_material_manifest_path": "data/statistical_ml_manifest.json",
       "default_diagnostic_concept_ids": [
-        "statistical_ml__supervised_vs_unsupervised",
-        "statistical_ml__k_nearest_neighbors",
-        "statistical_ml__linear_regression_least_squares",
-        "statistical_ml__logistic_regression",
-        "statistical_ml__k_means_clustering"
-      ]
+        "statistical_ml__supervised_learning",
+        "statistical_ml__unsupervised_learning",
+        "statistical_ml__knn_k_value_selection",
+        "statistical_ml__linear_regression_univariate",
+        "statistical_ml__kmeans_algorithm"
+      ],
+      "mastery_map_layout_path": "data/statistical_ml_mastery_map_layout.json",
+      "concept_copy_zh_path": "data/statistical_ml_concept_copy_zh.json",
+      "mastery_map_stage_names": {
+        "0": "学习阶段 1：监督学习与无监督学习",
+        "1": "学习阶段 2：基础学习算法",
+        "2": "学习阶段 3：模型扩展与聚类算法",
+        "3": "学习阶段 4：正则化与对数几率模型",
+        "4": "学习阶段 5：结构风险与激活函数",
+        "5": "学习阶段 6：参数估计",
+        "6": "学习阶段 7：优化方法"
+      }
     }
   ]
 }

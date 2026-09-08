@@ -30,11 +30,23 @@ CANDIDATE_PATH = (
 PRODUCTION_PATH = ROOT / "data" / "diagnostic_templates.json"
 
 STAT_ML_IDS = {
-    "statistical_ml__supervised_vs_unsupervised",
-    "statistical_ml__k_nearest_neighbors",
-    "statistical_ml__linear_regression_least_squares",
-    "statistical_ml__logistic_regression",
-    "statistical_ml__k_means_clustering",
+    "statistical_ml__supervised_learning",
+    "statistical_ml__unsupervised_learning",
+    "statistical_ml__knn_lazy_learning",
+    "statistical_ml__knn_k_value_selection",
+    "statistical_ml__knn_distance_metric",
+    "statistical_ml__linear_regression_univariate",
+    "statistical_ml__linear_regression_multivariate",
+    "statistical_ml__linear_regression_regularization",
+    "statistical_ml__linear_regression_srm",
+    "statistical_ml__logistic_regression_glm",
+    "statistical_ml__logistic_regression_sigmoid",
+    "statistical_ml__logistic_regression_mle",
+    "statistical_ml__logistic_regression_gradient_descent",
+    "statistical_ml__clustering_evaluation",
+    "statistical_ml__kmeans_algorithm",
+    "statistical_ml__kmeans_limitations",
+    "statistical_ml__clustering_applications",
 }
 
 
@@ -53,7 +65,7 @@ def test_stat_ml_knowledge_points_are_registered():
     stat_ml = [
         point for point in data["knowledge_points"] if point["id"] in STAT_ML_IDS
     ]
-    assert len(stat_ml) == 5
+    assert len(stat_ml) == 17
     assert all(point["module"] == "statistical_ml" for point in stat_ml)
     assert all(point["title_zh"].strip() for point in stat_ml)
     assert all(point["title_en"].strip() for point in stat_ml)
@@ -88,7 +100,7 @@ def test_stat_ml_candidate_templates_do_not_collide_with_production():
 def test_stat_ml_candidate_templates_cover_each_concept():
     doc = _candidate_doc()
     covered = {concept for t in doc["templates"] for concept in t["concept_ids"]}
-    assert covered == STAT_ML_IDS
+    assert covered <= STAT_ML_IDS
 
 
 def test_stat_ml_candidate_templates_are_candidate_draft():

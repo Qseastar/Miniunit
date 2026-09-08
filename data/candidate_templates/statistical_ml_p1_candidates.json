@@ -9,7 +9,7 @@
       "review_status": "candidate_draft",
       "purpose": "mastery_verification",
       "concept_ids": [
-        "statistical_ml__supervised_vs_unsupervised"
+        "statistical_ml__unsupervised_learning"
       ],
       "eligible_intents": [
         "diagnostic_request",
@@ -57,7 +57,7 @@
       "review_status": "candidate_draft",
       "purpose": "mastery_verification",
       "concept_ids": [
-        "statistical_ml__k_nearest_neighbors"
+        "statistical_ml__knn_k_value_selection"
       ],
       "eligible_intents": [
         "diagnostic_request",
@@ -105,7 +105,7 @@
       "review_status": "candidate_draft",
       "purpose": "mastery_verification",
       "concept_ids": [
-        "statistical_ml__k_nearest_neighbors"
+        "statistical_ml__knn_distance_metric"
       ],
       "eligible_intents": [
         "diagnostic_request",
@@ -136,7 +136,7 @@
       "review_status": "candidate_draft",
       "purpose": "mastery_verification",
       "concept_ids": [
-        "statistical_ml__linear_regression_least_squares"
+        "statistical_ml__linear_regression_univariate"
       ],
       "eligible_intents": [
         "diagnostic_request",
@@ -184,7 +184,7 @@
       "review_status": "candidate_draft",
       "purpose": "mastery_verification",
       "concept_ids": [
-        "statistical_ml__linear_regression_least_squares"
+        "statistical_ml__linear_regression_univariate"
       ],
       "eligible_intents": [
         "diagnostic_request",
@@ -215,7 +215,7 @@
       "review_status": "candidate_draft",
       "purpose": "mastery_verification",
       "concept_ids": [
-        "statistical_ml__logistic_regression"
+        "statistical_ml__logistic_regression_glm"
       ],
       "eligible_intents": [
         "diagnostic_request",
@@ -263,7 +263,7 @@
       "review_status": "candidate_draft",
       "purpose": "mastery_verification",
       "concept_ids": [
-        "statistical_ml__logistic_regression"
+        "statistical_ml__logistic_regression_sigmoid"
       ],
       "eligible_intents": [
         "diagnostic_request",
@@ -311,7 +311,7 @@
       "review_status": "candidate_draft",
       "purpose": "mastery_verification",
       "concept_ids": [
-        "statistical_ml__k_means_clustering"
+        "statistical_ml__kmeans_algorithm"
       ],
       "eligible_intents": [
         "diagnostic_request",
@@ -363,7 +363,7 @@
       "review_status": "candidate_draft",
       "purpose": "mastery_verification",
       "concept_ids": [
-        "statistical_ml__k_means_clustering"
+        "statistical_ml__kmeans_limitations"
       ],
       "eligible_intents": [
         "diagnostic_request",
@@ -404,11 +404,443 @@
         "stat_ml_kmeans_limitations_correct",
         "stat_ml_kmeans_limitations_wrong"
       ]
+    },
+    {
+      "id": "verify_statistical_ml_supervised_learning_sc_v1",
+      "schema_version": 1,
+      "review_status": "candidate_draft",
+      "purpose": "mastery_verification",
+      "concept_ids": [
+        "statistical_ml__supervised_learning"
+      ],
+      "eligible_intents": [
+        "diagnostic_request",
+        "definition",
+        "explanation"
+      ],
+      "selection_priority": 300,
+      "question_type": "single_choice",
+      "prompt": "关于监督学习，下列哪项说法正确？",
+      "choices": [
+        {
+          "id": "labeled",
+          "text": "所有训练样本均有对应的标注"
+        },
+        {
+          "id": "unlabeled",
+          "text": "所有训练样本均没有标注"
+        },
+        {
+          "id": "partial",
+          "text": "只有部分训练样本有标注"
+        },
+        {
+          "id": "no_data",
+          "text": "不需要任何训练样本"
+        }
+      ],
+      "expected_answer": {
+        "choice_id": "labeled"
+      },
+      "deterministic_scorer": "single_choice_v1",
+      "misconception_rules": [],
+      "teaching_support": {
+        "hint": "回忆监督学习的定义：训练样本是否带有标注？",
+        "explanation": "监督学习要求所有训练样本均有对应的标注，模型从带标注样本中学习输入到输出的映射。只有部分训练样本有标注属于半监督学习，不属于本讲监督/无监督的二分框架。"
+      },
+      "benchmark_case_ids": [
+        "verify_statistical_ml_supervised_learning_sc_v1_correct",
+        "verify_statistical_ml_supervised_learning_sc_v1_wrong"
+      ]
+    },
+    {
+      "id": "verify_statistical_ml_knn_lazy_learning_sc_v1",
+      "schema_version": 1,
+      "review_status": "candidate_draft",
+      "purpose": "mastery_verification",
+      "concept_ids": [
+        "statistical_ml__knn_lazy_learning"
+      ],
+      "eligible_intents": [
+        "diagnostic_request",
+        "property",
+        "explanation"
+      ],
+      "selection_priority": 280,
+      "question_type": "single_choice",
+      "prompt": "k近邻算法被称为懒惰学习（lazy learning）的原因是？",
+      "choices": [
+        {
+          "id": "defer_modeling",
+          "text": "训练阶段不显式建模，预测时才基于邻近样本计算"
+        },
+        {
+          "id": "eager_model",
+          "text": "训练阶段就构建出完整的决策模型"
+        },
+        {
+          "id": "no_train",
+          "text": "完全不需要训练数据"
+        },
+        {
+          "id": "slow_predict",
+          "text": "预测速度比训练更快"
+        }
+      ],
+      "expected_answer": {
+        "choice_id": "defer_modeling"
+      },
+      "deterministic_scorer": "single_choice_v1",
+      "misconception_rules": [],
+      "teaching_support": {
+        "hint": "懒惰学习的『懒惰』体现在训练阶段做了什么、没做什么？",
+        "explanation": "k近邻是懒惰学习的代表：训练阶段不显式建模，把计算推迟到预测时，基于邻近样本投票或平均。"
+      },
+      "benchmark_case_ids": [
+        "verify_statistical_ml_knn_lazy_learning_sc_v1_correct",
+        "verify_statistical_ml_knn_lazy_learning_sc_v1_wrong"
+      ]
+    },
+    {
+      "id": "verify_statistical_ml_linear_regression_multivariate_sc_v1",
+      "schema_version": 1,
+      "review_status": "candidate_draft",
+      "purpose": "mastery_verification",
+      "concept_ids": [
+        "statistical_ml__linear_regression_multivariate"
+      ],
+      "eligible_intents": [
+        "diagnostic_request",
+        "comparison",
+        "explanation"
+      ],
+      "selection_priority": 260,
+      "question_type": "single_choice",
+      "prompt": "多元线性回归与一元线性回归的主要区别在于？",
+      "choices": [
+        {
+          "id": "multi_features",
+          "text": "使用多个特征的线性组合进行预测"
+        },
+        {
+          "id": "single_feature",
+          "text": "只使用一个特征进行预测"
+        },
+        {
+          "id": "non_linear",
+          "text": "需要非线性优化方法求解参数"
+        },
+        {
+          "id": "for_classify",
+          "text": "用于分类而不是回归"
+        }
+      ],
+      "expected_answer": {
+        "choice_id": "multi_features"
+      },
+      "deterministic_scorer": "single_choice_v1",
+      "misconception_rules": [],
+      "teaching_support": {
+        "hint": "多元的『多』指的是哪个维度变多了？",
+        "explanation": "多元线性回归用多个特征的线性组合 f(x)=w₁x₁+…+wₙxₙ+b 预测，矩阵形式闭式解为 (XᵀX)⁻¹XᵀY。"
+      },
+      "benchmark_case_ids": [
+        "verify_statistical_ml_linear_regression_multivariate_sc_v1_correct",
+        "verify_statistical_ml_linear_regression_multivariate_sc_v1_wrong"
+      ]
+    },
+    {
+      "id": "verify_statistical_ml_linear_regression_regularization_sc_v1",
+      "schema_version": 1,
+      "review_status": "candidate_draft",
+      "purpose": "mastery_verification",
+      "concept_ids": [
+        "statistical_ml__linear_regression_regularization"
+      ],
+      "eligible_intents": [
+        "diagnostic_request",
+        "definition",
+        "explanation"
+      ],
+      "selection_priority": 280,
+      "question_type": "single_choice",
+      "prompt": "岭回归（Ridge Regression）在损失函数中加入的正则化项使用哪种范数？",
+      "choices": [
+        {
+          "id": "l2_norm",
+          "text": "L2 范数（‖w‖²）"
+        },
+        {
+          "id": "l1_norm",
+          "text": "L1 范数（‖w‖₁）"
+        },
+        {
+          "id": "l0_norm",
+          "text": "L0 范数"
+        },
+        {
+          "id": "no_norm",
+          "text": "不加入任何范数惩罚"
+        }
+      ],
+      "expected_answer": {
+        "choice_id": "l2_norm"
+      },
+      "deterministic_scorer": "single_choice_v1",
+      "misconception_rules": [],
+      "teaching_support": {
+        "hint": "回忆岭回归与 LASSO 的公式区别：分别用 ‖w‖² 还是 ‖w‖₁？",
+        "explanation": "岭回归使用 L2 范数 ‖w‖² 作为正则化项，而 LASSO 使用 L1 范数 ‖w‖₁。"
+      },
+      "benchmark_case_ids": [
+        "verify_statistical_ml_linear_regression_regularization_sc_v1_correct",
+        "verify_statistical_ml_linear_regression_regularization_sc_v1_wrong"
+      ]
+    },
+    {
+      "id": "verify_statistical_ml_linear_regression_srm_sc_v1",
+      "schema_version": 1,
+      "review_status": "candidate_draft",
+      "purpose": "mastery_verification",
+      "concept_ids": [
+        "statistical_ml__linear_regression_srm"
+      ],
+      "eligible_intents": [
+        "diagnostic_request",
+        "definition",
+        "explanation"
+      ],
+      "selection_priority": 260,
+      "question_type": "single_choice",
+      "prompt": "结构风险最小化（SRM）的优化目标由哪两部分组成？",
+      "choices": [
+        {
+          "id": "empirical_structural",
+          "text": "经验风险与结构风险（参数范数惩罚）"
+        },
+        {
+          "id": "only_empirical",
+          "text": "只有经验风险"
+        },
+        {
+          "id": "only_structural",
+          "text": "只有结构风险"
+        },
+        {
+          "id": "bias_variance",
+          "text": "偏差与方差"
+        }
+      ],
+      "expected_answer": {
+        "choice_id": "empirical_structural"
+      },
+      "deterministic_scorer": "single_choice_v1",
+      "misconception_rules": [],
+      "teaching_support": {
+        "hint": "SRM 的目标是 arg min L(w,b)+λ‖w‖_p，两项分别叫什么？",
+        "explanation": "结构风险最小化最小化 arg min L(w,b)+λ‖w‖_p，第一项 L(w,b) 是经验风险，第二项 λ‖w‖_p 是结构风险。"
+      },
+      "benchmark_case_ids": [
+        "verify_statistical_ml_linear_regression_srm_sc_v1_correct",
+        "verify_statistical_ml_linear_regression_srm_sc_v1_wrong"
+      ]
+    },
+    {
+      "id": "verify_statistical_ml_logistic_regression_mle_sc_v1",
+      "schema_version": 1,
+      "review_status": "candidate_draft",
+      "purpose": "mastery_verification",
+      "concept_ids": [
+        "statistical_ml__logistic_regression_mle"
+      ],
+      "eligible_intents": [
+        "diagnostic_request",
+        "property",
+        "explanation"
+      ],
+      "selection_priority": 260,
+      "question_type": "single_choice",
+      "prompt": "对数几率回归用极大似然估计求解，等价于最小化哪种损失函数？",
+      "choices": [
+        {
+          "id": "cross_entropy",
+          "text": "交叉熵损失"
+        },
+        {
+          "id": "mse",
+          "text": "均方误差损失"
+        },
+        {
+          "id": "mae",
+          "text": "平均绝对误差损失"
+        },
+        {
+          "id": "hinge",
+          "text": "合页损失"
+        }
+      ],
+      "expected_answer": {
+        "choice_id": "cross_entropy"
+      },
+      "deterministic_scorer": "single_choice_v1",
+      "misconception_rules": [],
+      "teaching_support": {
+        "hint": "对数几率回归的似然最大化取负对数后，对应哪种常见分类损失？",
+        "explanation": "对数几率回归的极大似然估计等价于最小化交叉熵损失 −Σ[y ln f + (1−y) ln(1−f)]。"
+      },
+      "benchmark_case_ids": [
+        "verify_statistical_ml_logistic_regression_mle_sc_v1_correct",
+        "verify_statistical_ml_logistic_regression_mle_sc_v1_wrong"
+      ]
+    },
+    {
+      "id": "verify_statistical_ml_logistic_regression_gradient_descent_sc_v1",
+      "schema_version": 1,
+      "review_status": "candidate_draft",
+      "purpose": "mastery_verification",
+      "concept_ids": [
+        "statistical_ml__logistic_regression_gradient_descent"
+      ],
+      "eligible_intents": [
+        "diagnostic_request",
+        "definition",
+        "explanation"
+      ],
+      "selection_priority": 260,
+      "question_type": "single_choice",
+      "prompt": "梯度下降中，学习率（步长）η 的作用是？",
+      "choices": [
+        {
+          "id": "step_size",
+          "text": "控制每次参数更新的幅度"
+        },
+        {
+          "id": "layer_count",
+          "text": "控制模型的层数"
+        },
+        {
+          "id": "sample_size",
+          "text": "控制训练样本的数量"
+        },
+        {
+          "id": "feature_count",
+          "text": "控制特征的数量"
+        }
+      ],
+      "expected_answer": {
+        "choice_id": "step_size"
+      },
+      "deterministic_scorer": "single_choice_v1",
+      "misconception_rules": [],
+      "teaching_support": {
+        "hint": "回忆参数更新公式 w = w − η∇f(w)，η 乘在什么上面？",
+        "explanation": "梯度下降按 w = w − η∇f(w) 更新参数，学习率 η 控制每步更新的幅度，不能太大也不能太小。"
+      },
+      "benchmark_case_ids": [
+        "verify_statistical_ml_logistic_regression_gradient_descent_sc_v1_correct",
+        "verify_statistical_ml_logistic_regression_gradient_descent_sc_v1_wrong"
+      ]
+    },
+    {
+      "id": "verify_statistical_ml_clustering_evaluation_sc_v1",
+      "schema_version": 1,
+      "review_status": "candidate_draft",
+      "purpose": "mastery_verification",
+      "concept_ids": [
+        "statistical_ml__clustering_evaluation"
+      ],
+      "eligible_intents": [
+        "diagnostic_request",
+        "property",
+        "explanation"
+      ],
+      "selection_priority": 280,
+      "question_type": "single_choice",
+      "prompt": "评价聚类结果『好坏』的基本原则是？",
+      "choices": [
+        {
+          "id": "high_intra_low_inter",
+          "text": "簇内相似度高，簇间相似度低"
+        },
+        {
+          "id": "low_intra_high_inter",
+          "text": "簇内相似度低，簇间相似度高"
+        },
+        {
+          "id": "equal_size",
+          "text": "所有簇的大小相同"
+        },
+        {
+          "id": "more_clusters",
+          "text": "簇的数量越多越好"
+        }
+      ],
+      "expected_answer": {
+        "choice_id": "high_intra_low_inter"
+      },
+      "deterministic_scorer": "single_choice_v1",
+      "misconception_rules": [],
+      "teaching_support": {
+        "hint": "好的聚类希望同一簇内的点怎样、不同簇之间的点怎样？",
+        "explanation": "聚类的『好坏』没有绝对标准，基本原则是簇内相似度高且簇间相似度低。"
+      },
+      "benchmark_case_ids": [
+        "verify_statistical_ml_clustering_evaluation_sc_v1_correct",
+        "verify_statistical_ml_clustering_evaluation_sc_v1_wrong"
+      ]
+    },
+    {
+      "id": "verify_statistical_ml_clustering_applications_sc_v1",
+      "schema_version": 1,
+      "review_status": "candidate_draft",
+      "purpose": "mastery_verification",
+      "concept_ids": [
+        "statistical_ml__clustering_applications"
+      ],
+      "eligible_intents": [
+        "diagnostic_request",
+        "property",
+        "explanation"
+      ],
+      "selection_priority": 260,
+      "question_type": "single_choice",
+      "prompt": "下列哪项是 lec8 课件中提到的聚类应用？",
+      "choices": [
+        {
+          "id": "text_clustering",
+          "text": "将大量论文文本聚类到不同类别"
+        },
+        {
+          "id": "sorting",
+          "text": "对数组进行排序"
+        },
+        {
+          "id": "encryption",
+          "text": "对数据进行加密"
+        },
+        {
+          "id": "compilation",
+          "text": "编译程序代码"
+        }
+      ],
+      "expected_answer": {
+        "choice_id": "text_clustering"
+      },
+      "deterministic_scorer": "single_choice_v1",
+      "misconception_rules": [],
+      "teaching_support": {
+        "hint": "课件提到的应用包括文本聚类（论文分类）和色彩压缩，哪一个与之相关？",
+        "explanation": "课件提到文本分类（将 200 多万篇论文聚类到 29000 个类别）和色彩压缩，都是聚类的典型应用。"
+      },
+      "benchmark_case_ids": [
+        "verify_statistical_ml_clustering_applications_sc_v1_correct",
+        "verify_statistical_ml_clustering_applications_sc_v1_wrong"
+      ]
     }
   ],
   "acceptance_cases": {
     "verify_supervised_vs_unsupervised_definition_v1": {
-      "primary_concept_id": "statistical_ml__supervised_vs_unsupervised",
+      "primary_concept_id": "statistical_ml__unsupervised_learning",
       "verification_goal": "Verify the student distinguishes supervised from unsupervised learning by whether training samples carry labels.",
       "capability_boundary": "Does not test semi-supervised or reinforcement learning, and does not test any concrete algorithm.",
       "evidence_strength": "direct",
@@ -435,14 +867,14 @@
       "malformed_answer": "unknown_choice"
     },
     "verify_knn_k_value_effect_v1": {
-      "primary_concept_id": "statistical_ml__k_nearest_neighbors",
+      "primary_concept_id": "statistical_ml__knn_k_value_selection",
       "verification_goal": "Verify the student knows that a small k makes the kNN model more complex and prone to overfitting.",
       "capability_boundary": "Does not test the exact optimal-k selection procedure or distance-metric computation.",
       "evidence_strength": "direct",
       "source_review_note": "lec8 p.7 states smaller k increases training error reduction but also generalization error (overfitting). Chunk ingestion for ai_lec8_statistical_learning.pdf is pending.",
       "source_refs": [
         {
-          "chunk_id": "statistical_ml_knn_algorithm",
+          "chunk_id": "statistical_ml_knn_k_value_selection",
           "source_file": "ai_lec8_statistical_learning.pdf",
           "page_start": 7,
           "page_end": 7
@@ -456,14 +888,14 @@
       "malformed_answer": "unknown_choice"
     },
     "verify_knn_manhattan_distance_v1": {
-      "primary_concept_id": "statistical_ml__k_nearest_neighbors",
+      "primary_concept_id": "statistical_ml__knn_distance_metric",
       "verification_goal": "Verify the student computes Manhattan distance (Minkowski p=1) between two 2D points.",
       "capability_boundary": "Does not test Euclidean distance, ordered vs unordered attributes, or test-time complexity.",
       "evidence_strength": "direct",
       "source_review_note": "lec8 p.8 defines Minkowski distance with p=1 as Manhattan distance. Chunk ingestion for ai_lec8_statistical_learning.pdf is pending.",
       "source_refs": [
         {
-          "chunk_id": "statistical_ml_knn_algorithm",
+          "chunk_id": "statistical_ml_knn_distance_metric",
           "source_file": "ai_lec8_statistical_learning.pdf",
           "page_start": 8,
           "page_end": 8
@@ -477,14 +909,14 @@
       "malformed_answer": "abc"
     },
     "verify_linear_regression_least_squares_objective_v1": {
-      "primary_concept_id": "statistical_ml__linear_regression_least_squares",
+      "primary_concept_id": "statistical_ml__linear_regression_univariate",
       "verification_goal": "Verify the student identifies least squares with minimizing mean squared error.",
       "capability_boundary": "Does not test multivariate regression, the closed-form matrix solution, or regularization.",
       "evidence_strength": "direct",
       "source_review_note": "lec8 p.15-16 define the least squares objective as minimizing the mean squared error. Chunk ingestion for ai_lec8_statistical_learning.pdf is pending.",
       "source_refs": [
         {
-          "chunk_id": "statistical_ml_linear_regression",
+          "chunk_id": "statistical_ml_linear_regression_univariate",
           "source_file": "ai_lec8_statistical_learning.pdf",
           "page_start": 15,
           "page_end": 16
@@ -498,14 +930,14 @@
       "malformed_answer": "unknown_choice"
     },
     "verify_linear_regression_closed_form_intercept_v1": {
-      "primary_concept_id": "statistical_ml__linear_regression_least_squares",
+      "primary_concept_id": "statistical_ml__linear_regression_univariate",
       "verification_goal": "Verify the student computes the univariate closed-form intercept b = y_mean - w*x_mean.",
       "capability_boundary": "Does not test the slope w closed form, multivariate matrix inversion, or when X^T X is singular.",
       "evidence_strength": "direct",
       "source_review_note": "lec8 p.17 gives the univariate closed form b = y_mean - w*x_mean. Chunk ingestion for ai_lec8_statistical_learning.pdf is pending.",
       "source_refs": [
         {
-          "chunk_id": "statistical_ml_linear_regression",
+          "chunk_id": "statistical_ml_linear_regression_univariate",
           "source_file": "ai_lec8_statistical_learning.pdf",
           "page_start": 17,
           "page_end": 17
@@ -519,14 +951,14 @@
       "malformed_answer": "abc"
     },
     "verify_logistic_regression_is_classifier_v1": {
-      "primary_concept_id": "statistical_ml__logistic_regression",
+      "primary_concept_id": "statistical_ml__logistic_regression_glm",
       "verification_goal": "Verify the student identifies logistic regression as a classification algorithm.",
       "capability_boundary": "Does not test the maximum-likelihood derivation, cross-entropy loss, or multi-class extension.",
       "evidence_strength": "direct",
       "source_review_note": "lec8 p.33 explicitly notes logistic regression is a classification algorithm. Chunk ingestion for ai_lec8_statistical_learning.pdf is pending.",
       "source_refs": [
         {
-          "chunk_id": "statistical_ml_logistic_regression",
+          "chunk_id": "statistical_ml_logistic_regression_glm",
           "source_file": "ai_lec8_statistical_learning.pdf",
           "page_start": 33,
           "page_end": 33
@@ -540,14 +972,14 @@
       "malformed_answer": "unknown_choice"
     },
     "verify_logistic_regression_sigmoid_range_v1": {
-      "primary_concept_id": "statistical_ml__logistic_regression",
+      "primary_concept_id": "statistical_ml__logistic_regression_sigmoid",
       "verification_goal": "Verify the student knows the sigmoid output range is the open interval (0,1).",
       "capability_boundary": "Does not test the logit/odds relation, decision threshold, or gradient descent update.",
       "evidence_strength": "direct",
       "source_review_note": "lec8 p.32 introduces the sigmoid function y = 1/(1+e^-z) with output in (0,1). Chunk ingestion for ai_lec8_statistical_learning.pdf is pending.",
       "source_refs": [
         {
-          "chunk_id": "statistical_ml_logistic_regression",
+          "chunk_id": "statistical_ml_logistic_regression_sigmoid",
           "source_file": "ai_lec8_statistical_learning.pdf",
           "page_start": 32,
           "page_end": 32
@@ -561,14 +993,14 @@
       "malformed_answer": "unknown_choice"
     },
     "verify_kmeans_steps_order_v1": {
-      "primary_concept_id": "statistical_ml__k_means_clustering",
+      "primary_concept_id": "statistical_ml__kmeans_algorithm",
       "verification_goal": "Verify the student orders the four K-Means steps correctly.",
       "capability_boundary": "Does not test convergence guarantees, centroid computation detail, or how k is chosen.",
       "evidence_strength": "direct",
       "source_review_note": "lec8 p.44 lists the four K-Means steps in order. Chunk ingestion for ai_lec8_statistical_learning.pdf is pending.",
       "source_refs": [
         {
-          "chunk_id": "statistical_ml_kmeans_clustering",
+          "chunk_id": "statistical_ml_kmeans_algorithm",
           "source_file": "ai_lec8_statistical_learning.pdf",
           "page_start": 44,
           "page_end": 44
@@ -595,14 +1027,14 @@
       ]
     },
     "verify_kmeans_limitations_v1": {
-      "primary_concept_id": "statistical_ml__k_means_clustering",
+      "primary_concept_id": "statistical_ml__kmeans_limitations",
       "verification_goal": "Verify the student recognizes that K-Means cannot auto-determine the number of clusters.",
       "capability_boundary": "Does not test initialization strategies, distance-weighted variants, or K-Means applications.",
       "evidence_strength": "direct",
       "source_review_note": "lec8 p.46 lists K-Means limitations including the need to pre-set k. Chunk ingestion for ai_lec8_statistical_learning.pdf is pending.",
       "source_refs": [
         {
-          "chunk_id": "statistical_ml_kmeans_clustering",
+          "chunk_id": "statistical_ml_kmeans_limitations",
           "source_file": "ai_lec8_statistical_learning.pdf",
           "page_start": 46,
           "page_end": 46
@@ -613,6 +1045,195 @@
       "expected_answer_position": 1,
       "correct_answer": "auto_k",
       "wrong_answer": "preset_k",
+      "malformed_answer": "unknown_choice"
+    },
+    "verify_statistical_ml_supervised_learning_sc_v1": {
+      "primary_concept_id": "statistical_ml__supervised_learning",
+      "verification_goal": "Verify the student understands supervised learning.",
+      "capability_boundary": "Does not test unrelated concepts or advanced derivations.",
+      "evidence_strength": "direct",
+      "source_review_note": "lec8 page(s) 3.",
+      "source_refs": [
+        {
+          "chunk_id": "statistical_ml_supervised_learning",
+          "source_file": "ai_lec8_statistical_learning.pdf",
+          "page_start": 3,
+          "page_end": 3
+        }
+      ],
+      "question_type": "single_choice",
+      "deterministic_scorer": "single_choice_v1",
+      "expected_answer_position": 1,
+      "correct_answer": "labeled",
+      "wrong_answer": "unlabeled",
+      "malformed_answer": "unknown_choice"
+    },
+    "verify_statistical_ml_knn_lazy_learning_sc_v1": {
+      "primary_concept_id": "statistical_ml__knn_lazy_learning",
+      "verification_goal": "Verify the student understands knn lazy learning.",
+      "capability_boundary": "Does not test unrelated concepts or advanced derivations.",
+      "evidence_strength": "direct",
+      "source_review_note": "lec8 page(s) 5.",
+      "source_refs": [
+        {
+          "chunk_id": "statistical_ml_knn_lazy_learning",
+          "source_file": "ai_lec8_statistical_learning.pdf",
+          "page_start": 5,
+          "page_end": 5
+        }
+      ],
+      "question_type": "single_choice",
+      "deterministic_scorer": "single_choice_v1",
+      "expected_answer_position": 1,
+      "correct_answer": "defer_modeling",
+      "wrong_answer": "eager_model",
+      "malformed_answer": "unknown_choice"
+    },
+    "verify_statistical_ml_linear_regression_multivariate_sc_v1": {
+      "primary_concept_id": "statistical_ml__linear_regression_multivariate",
+      "verification_goal": "Verify the student understands linear regression multivariate.",
+      "capability_boundary": "Does not test unrelated concepts or advanced derivations.",
+      "evidence_strength": "direct",
+      "source_review_note": "lec8 page(s) 20-24.",
+      "source_refs": [
+        {
+          "chunk_id": "statistical_ml_linear_regression_multivariate",
+          "source_file": "ai_lec8_statistical_learning.pdf",
+          "page_start": 20,
+          "page_end": 24
+        }
+      ],
+      "question_type": "single_choice",
+      "deterministic_scorer": "single_choice_v1",
+      "expected_answer_position": 1,
+      "correct_answer": "multi_features",
+      "wrong_answer": "single_feature",
+      "malformed_answer": "unknown_choice"
+    },
+    "verify_statistical_ml_linear_regression_regularization_sc_v1": {
+      "primary_concept_id": "statistical_ml__linear_regression_regularization",
+      "verification_goal": "Verify the student understands linear regression regularization.",
+      "capability_boundary": "Does not test unrelated concepts or advanced derivations.",
+      "evidence_strength": "direct",
+      "source_review_note": "lec8 page(s) 27-28.",
+      "source_refs": [
+        {
+          "chunk_id": "statistical_ml_linear_regression_regularization",
+          "source_file": "ai_lec8_statistical_learning.pdf",
+          "page_start": 27,
+          "page_end": 28
+        }
+      ],
+      "question_type": "single_choice",
+      "deterministic_scorer": "single_choice_v1",
+      "expected_answer_position": 1,
+      "correct_answer": "l2_norm",
+      "wrong_answer": "l1_norm",
+      "malformed_answer": "unknown_choice"
+    },
+    "verify_statistical_ml_linear_regression_srm_sc_v1": {
+      "primary_concept_id": "statistical_ml__linear_regression_srm",
+      "verification_goal": "Verify the student understands linear regression srm.",
+      "capability_boundary": "Does not test unrelated concepts or advanced derivations.",
+      "evidence_strength": "direct",
+      "source_review_note": "lec8 page(s) 29.",
+      "source_refs": [
+        {
+          "chunk_id": "statistical_ml_linear_regression_srm",
+          "source_file": "ai_lec8_statistical_learning.pdf",
+          "page_start": 29,
+          "page_end": 29
+        }
+      ],
+      "question_type": "single_choice",
+      "deterministic_scorer": "single_choice_v1",
+      "expected_answer_position": 1,
+      "correct_answer": "empirical_structural",
+      "wrong_answer": "only_empirical",
+      "malformed_answer": "unknown_choice"
+    },
+    "verify_statistical_ml_logistic_regression_mle_sc_v1": {
+      "primary_concept_id": "statistical_ml__logistic_regression_mle",
+      "verification_goal": "Verify the student understands logistic regression mle.",
+      "capability_boundary": "Does not test unrelated concepts or advanced derivations.",
+      "evidence_strength": "direct",
+      "source_review_note": "lec8 page(s) 35-36.",
+      "source_refs": [
+        {
+          "chunk_id": "statistical_ml_logistic_regression_mle",
+          "source_file": "ai_lec8_statistical_learning.pdf",
+          "page_start": 35,
+          "page_end": 36
+        }
+      ],
+      "question_type": "single_choice",
+      "deterministic_scorer": "single_choice_v1",
+      "expected_answer_position": 1,
+      "correct_answer": "cross_entropy",
+      "wrong_answer": "mse",
+      "malformed_answer": "unknown_choice"
+    },
+    "verify_statistical_ml_logistic_regression_gradient_descent_sc_v1": {
+      "primary_concept_id": "statistical_ml__logistic_regression_gradient_descent",
+      "verification_goal": "Verify the student understands logistic regression gradient descent.",
+      "capability_boundary": "Does not test unrelated concepts or advanced derivations.",
+      "evidence_strength": "direct",
+      "source_review_note": "lec8 page(s) 37.",
+      "source_refs": [
+        {
+          "chunk_id": "statistical_ml_logistic_regression_gradient_descent",
+          "source_file": "ai_lec8_statistical_learning.pdf",
+          "page_start": 37,
+          "page_end": 37
+        }
+      ],
+      "question_type": "single_choice",
+      "deterministic_scorer": "single_choice_v1",
+      "expected_answer_position": 1,
+      "correct_answer": "step_size",
+      "wrong_answer": "layer_count",
+      "malformed_answer": "unknown_choice"
+    },
+    "verify_statistical_ml_clustering_evaluation_sc_v1": {
+      "primary_concept_id": "statistical_ml__clustering_evaluation",
+      "verification_goal": "Verify the student understands clustering evaluation.",
+      "capability_boundary": "Does not test unrelated concepts or advanced derivations.",
+      "evidence_strength": "direct",
+      "source_review_note": "lec8 page(s) 42.",
+      "source_refs": [
+        {
+          "chunk_id": "statistical_ml_clustering_evaluation",
+          "source_file": "ai_lec8_statistical_learning.pdf",
+          "page_start": 42,
+          "page_end": 42
+        }
+      ],
+      "question_type": "single_choice",
+      "deterministic_scorer": "single_choice_v1",
+      "expected_answer_position": 1,
+      "correct_answer": "high_intra_low_inter",
+      "wrong_answer": "low_intra_high_inter",
+      "malformed_answer": "unknown_choice"
+    },
+    "verify_statistical_ml_clustering_applications_sc_v1": {
+      "primary_concept_id": "statistical_ml__clustering_applications",
+      "verification_goal": "Verify the student understands clustering applications.",
+      "capability_boundary": "Does not test unrelated concepts or advanced derivations.",
+      "evidence_strength": "direct",
+      "source_review_note": "lec8 page(s) 47.",
+      "source_refs": [
+        {
+          "chunk_id": "statistical_ml_clustering_applications",
+          "source_file": "ai_lec8_statistical_learning.pdf",
+          "page_start": 47,
+          "page_end": 47
+        }
+      ],
+      "question_type": "single_choice",
+      "deterministic_scorer": "single_choice_v1",
+      "expected_answer_position": 1,
+      "correct_answer": "text_clustering",
+      "wrong_answer": "sorting",
       "malformed_answer": "unknown_choice"
     }
   }

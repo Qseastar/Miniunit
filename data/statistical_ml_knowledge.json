@@ -8,98 +8,326 @@
   },
   "knowledge_points": [
     {
-      "id": "statistical_ml__supervised_vs_unsupervised",
-      "title_zh": "监督学习与无监督学习",
-      "title_en": "Supervised vs Unsupervised Learning",
+      "id": "statistical_ml__supervised_learning",
+      "title_zh": "监督学习",
+      "title_en": "Supervised Learning",
       "module": "statistical_ml",
-      "description": "Distinguish supervised learning (every training sample has a label) from unsupervised learning (training samples have no labels).",
+      "description": "Learning from training samples that each carry a label, mapping inputs to outputs.",
       "prerequisites": [],
       "learning_objectives": [
-        "Distinguish supervised from unsupervised learning by whether training samples carry labels.",
-        "Classify a learning task as supervised or unsupervised given the data description."
+        "State that supervised learning requires labeled training samples.",
+        "Recognize classification and regression as supervised tasks."
       ],
       "common_misconceptions": [
-        "Believing clustering (unsupervised) requires labeled samples.",
-        "Confusing 'produces an output' with 'has labeled training data'."
+        "Believing supervised learning can work without any labeled data."
       ],
       "mastery_criteria": [
-        "Can correctly classify a task as supervised or unsupervised based on whether the training data is labeled."
+        "Can identify whether a task is supervised given the training data description."
       ]
     },
     {
-      "id": "statistical_ml__k_nearest_neighbors",
-      "title_zh": "k近邻算法",
-      "title_en": "K-Nearest Neighbors",
+      "id": "statistical_ml__unsupervised_learning",
+      "title_zh": "无监督学习",
+      "title_en": "Unsupervised Learning",
       "module": "statistical_ml",
-      "description": "A representative lazy learner: predict a test sample by voting (classification) or averaging (regression) over its k nearest training samples; key issues are the choice of k and the distance metric.",
-      "prerequisites": ["statistical_ml__supervised_vs_unsupervised"],
+      "description": "Learning from training samples without labels, discovering internal structure.",
+      "prerequisites": [],
       "learning_objectives": [
-        "Explain how the choice of k affects model complexity and overfitting.",
-        "Compute Minkowski distances (Euclidean p=2, Manhattan p=1) between two points."
+        "State that unsupervised learning uses unlabeled samples.",
+        "Recognize clustering as an unsupervised task."
       ],
       "common_misconceptions": [
-        "Believing a smaller k yields a simpler model.",
+        "Believing clustering requires labeled samples."
+      ],
+      "mastery_criteria": [
+        "Can identify whether a task is unsupervised given the training data description."
+      ]
+    },
+    {
+      "id": "statistical_ml__knn_lazy_learning",
+      "title_zh": "懒惰学习",
+      "title_en": "Lazy Learning",
+      "module": "statistical_ml",
+      "description": "k-nearest neighbors defers explicit modeling; it votes or averages over neighbors at prediction time.",
+      "prerequisites": [
+        "statistical_ml__supervised_learning"
+      ],
+      "learning_objectives": [
+        "Explain why kNN is a lazy learner.",
+        "Describe the vote/average prediction rule."
+      ],
+      "common_misconceptions": [
+        "Believing kNN builds an explicit model during training."
+      ],
+      "mastery_criteria": [
+        "Can explain kNN's lazy prediction mechanism."
+      ]
+    },
+    {
+      "id": "statistical_ml__knn_k_value_selection",
+      "title_zh": "k值选择",
+      "title_en": "k Value Selection",
+      "module": "statistical_ml",
+      "description": "Choosing k trades off model complexity: small k overfits, large k (up to N) oversimplifies.",
+      "prerequisites": [
+        "statistical_ml__supervised_learning"
+      ],
+      "learning_objectives": [
+        "Explain how k affects overfitting and generalization."
+      ],
+      "common_misconceptions": [
+        "Believing a smaller k yields a simpler model."
+      ],
+      "mastery_criteria": [
+        "Can state the effect of too-small or too-large k."
+      ]
+    },
+    {
+      "id": "statistical_ml__knn_distance_metric",
+      "title_zh": "距离度量",
+      "title_en": "Distance Metric",
+      "module": "statistical_ml",
+      "description": "Minkowski distance measures sample closeness; p=2 is Euclidean, p=1 is Manhattan.",
+      "prerequisites": [
+        "statistical_ml__supervised_learning"
+      ],
+      "learning_objectives": [
+        "Compute Euclidean and Manhattan distances between points."
+      ],
+      "common_misconceptions": [
         "Confusing Euclidean distance with Manhattan distance."
       ],
       "mastery_criteria": [
-        "Can state the effect of too-small or too-large k and compute Euclidean/Manhattan distance for given points."
+        "Can compute Minkowski distances for given points."
       ]
     },
     {
-      "id": "statistical_ml__linear_regression_least_squares",
-      "title_zh": "线性回归与最小二乘",
-      "title_en": "Linear Regression and Least Squares",
+      "id": "statistical_ml__linear_regression_univariate",
+      "title_zh": "一元线性回归",
+      "title_en": "Univariate Linear Regression",
       "module": "statistical_ml",
-      "description": "Fits a continuous target with a linear function f(x)=w^T x + b by minimizing the mean squared error (least squares); univariate regression has a closed-form solution.",
-      "prerequisites": ["statistical_ml__supervised_vs_unsupervised"],
+      "description": "Fits a single-feature linear model f(x)=wx+b by minimizing mean squared error (least squares).",
+      "prerequisites": [
+        "statistical_ml__supervised_learning"
+      ],
       "learning_objectives": [
         "State that least squares minimizes mean squared error.",
-        "Use the closed-form relation b = y_mean - w * x_mean to compute the intercept."
+        "Compute the closed-form intercept b = y_mean - w*x_mean."
       ],
       "common_misconceptions": [
-        "Confusing least squares with minimizing the sum of absolute errors (L1).",
-        "Believing linear regression is a classification algorithm."
+        "Confusing least squares with minimizing absolute error."
       ],
       "mastery_criteria": [
-        "Can write the least-squares objective and compute a univariate regression parameter from the closed form."
+        "Can solve a univariate regression from the closed form."
       ]
     },
     {
-      "id": "statistical_ml__logistic_regression",
-      "title_zh": "对数几率回归",
-      "title_en": "Logistic Regression",
+      "id": "statistical_ml__linear_regression_multivariate",
+      "title_zh": "多元线性回归",
+      "title_en": "Multivariate Linear Regression",
       "module": "statistical_ml",
-      "description": "Applies the sigmoid function to a linear model to produce a probability in (0,1) for binary classification; the log-odds (logit) ln(y/(1-y)) = w^T x + b is linear. It is a classification algorithm despite the name.",
-      "prerequisites": ["statistical_ml__linear_regression_least_squares"],
+      "description": "Fits f(x)=w^T x + b over multiple features; the matrix closed form is (X^T X)^-1 X^T Y.",
+      "prerequisites": [
+        "statistical_ml__linear_regression_univariate"
+      ],
       "learning_objectives": [
-        "Identify logistic regression as a classification algorithm, not regression.",
-        "Explain the sigmoid output range and the odds/logit meaning."
+        "Express multivariate regression in matrix form."
       ],
       "common_misconceptions": [
-        "Believing logistic regression is a regression algorithm because of its name.",
-        "Believing the sigmoid output can be any real number."
+        "Believing X^T X is always invertible."
       ],
       "mastery_criteria": [
-        "Can correctly identify logistic regression's algorithm class and explain sigmoid/logit."
+        "Can write the multivariate least-squares matrix solution."
       ]
     },
     {
-      "id": "statistical_ml__k_means_clustering",
+      "id": "statistical_ml__linear_regression_regularization",
+      "title_zh": "正则化",
+      "title_en": "Regularization",
+      "module": "statistical_ml",
+      "description": "Constrains parameter magnitude to improve generalization; Ridge uses L2, LASSO uses L1.",
+      "prerequisites": [
+        "statistical_ml__linear_regression_multivariate"
+      ],
+      "learning_objectives": [
+        "Distinguish Ridge (L2) from LASSO (L1) regularization."
+      ],
+      "common_misconceptions": [
+        "Believing regularization is unrelated to overfitting."
+      ],
+      "mastery_criteria": [
+        "Can identify Ridge vs LASSO by their norm penalty."
+      ]
+    },
+    {
+      "id": "statistical_ml__linear_regression_srm",
+      "title_zh": "结构风险最小化",
+      "title_en": "Structural Risk Minimization",
+      "module": "statistical_ml",
+      "description": "Minimizes empirical risk plus a parameter-norm penalty, balancing fit and complexity.",
+      "prerequisites": [
+        "statistical_ml__linear_regression_regularization"
+      ],
+      "learning_objectives": [
+        "State the SRM objective as L(w,b) + lambda*||w||_p."
+      ],
+      "common_misconceptions": [
+        "Confusing structural risk with empirical risk alone."
+      ],
+      "mastery_criteria": [
+        "Can write the SRM objective and name its two parts."
+      ]
+    },
+    {
+      "id": "statistical_ml__logistic_regression_glm",
+      "title_zh": "广义线性模型",
+      "title_en": "Generalized Linear Model",
+      "module": "statistical_ml",
+      "description": "Generalizes linear models via a link function; logistic regression is its binary classification case.",
+      "prerequisites": [
+        "statistical_ml__linear_regression_multivariate"
+      ],
+      "learning_objectives": [
+        "Relate logistic regression to the generalized linear model."
+      ],
+      "common_misconceptions": [
+        "Believing logistic regression is ordinary linear regression."
+      ],
+      "mastery_criteria": [
+        "Can explain why logistic regression is a classification GLM."
+      ]
+    },
+    {
+      "id": "statistical_ml__logistic_regression_sigmoid",
+      "title_zh": "Sigmoid 函数",
+      "title_en": "Sigmoid Function",
+      "module": "statistical_ml",
+      "description": "Maps a real value to (0,1), serving as the differentiable surrogate for the unit-step.",
+      "prerequisites": [
+        "statistical_ml__logistic_regression_glm"
+      ],
+      "learning_objectives": [
+        "State the sigmoid output range (0,1)."
+      ],
+      "common_misconceptions": [
+        "Believing sigmoid output can be any real number."
+      ],
+      "mastery_criteria": [
+        "Can identify the sigmoid function and its output range."
+      ]
+    },
+    {
+      "id": "statistical_ml__logistic_regression_mle",
+      "title_zh": "极大似然估计",
+      "title_en": "Maximum Likelihood Estimation",
+      "module": "statistical_ml",
+      "description": "Estimates logistic regression parameters by maximizing likelihood, equivalent to minimizing cross-entropy.",
+      "prerequisites": [
+        "statistical_ml__logistic_regression_sigmoid"
+      ],
+      "learning_objectives": [
+        "State that MLE minimizes cross-entropy loss for logistic regression."
+      ],
+      "common_misconceptions": [
+        "Believing MLE is unrelated to cross-entropy."
+      ],
+      "mastery_criteria": [
+        "Can write the cross-entropy loss from the likelihood."
+      ]
+    },
+    {
+      "id": "statistical_ml__logistic_regression_gradient_descent",
+      "title_zh": "梯度下降法",
+      "title_en": "Gradient Descent",
+      "module": "statistical_ml",
+      "description": "Iteratively updates parameters along the negative gradient; the learning rate controls step size.",
+      "prerequisites": [
+        "statistical_ml__logistic_regression_mle"
+      ],
+      "learning_objectives": [
+        "State the gradient descent update rule w = w - eta*grad."
+      ],
+      "common_misconceptions": [
+        "Believing the learning rate can be arbitrarily large."
+      ],
+      "mastery_criteria": [
+        "Can explain the learning-rate role in gradient descent."
+      ]
+    },
+    {
+      "id": "statistical_ml__clustering_evaluation",
+      "title_zh": "聚类评价指标",
+      "title_en": "Clustering Evaluation",
+      "module": "statistical_ml",
+      "description": "Clustering quality has no absolute standard; seek high intra-cluster and low inter-cluster similarity.",
+      "prerequisites": [
+        "statistical_ml__unsupervised_learning"
+      ],
+      "learning_objectives": [
+        "State the intra/inter-cluster similarity principle."
+      ],
+      "common_misconceptions": [
+        "Believing clustering quality has one absolute metric."
+      ],
+      "mastery_criteria": [
+        "Can judge clustering quality by intra/inter similarity."
+      ]
+    },
+    {
+      "id": "statistical_ml__kmeans_algorithm",
       "title_zh": "K均值聚类",
       "title_en": "K-Means Clustering",
       "module": "statistical_ml",
-      "description": "An unsupervised clustering algorithm that represents each cluster by the mean of its samples, iterating through: choose k centers, assign samples to the nearest center, update cluster means, and stop when centers no longer change.",
-      "prerequisites": ["statistical_ml__supervised_vs_unsupervised"],
+      "description": "Represents each cluster by its sample mean, iterating center selection, assignment, and update.",
+      "prerequisites": [
+        "statistical_ml__clustering_evaluation"
+      ],
       "learning_objectives": [
-        "Recount the four iterative steps of K-Means.",
-        "Identify K-Means limitations (pre-set k, initialization sensitivity, iteration cost)."
+        "Recount the four K-Means steps in order."
       ],
       "common_misconceptions": [
-        "Believing K-Means can automatically determine the number of clusters.",
-        "Believing K-Means is a supervised learning method."
+        "Believing K-Means can auto-determine the cluster count."
       ],
       "mastery_criteria": [
-        "Can describe the K-Means steps in the correct order and identify its limitations."
+        "Can describe K-Means steps in the correct order."
+      ]
+    },
+    {
+      "id": "statistical_ml__kmeans_limitations",
+      "title_zh": "K-Means 不足",
+      "title_en": "K-Means Limitations",
+      "module": "statistical_ml",
+      "description": "K-Means needs a preset k, is initialization-sensitive, costly to iterate, and assumes equal feature importance.",
+      "prerequisites": [
+        "statistical_ml__kmeans_algorithm"
+      ],
+      "learning_objectives": [
+        "List K-Means limitations."
+      ],
+      "common_misconceptions": [
+        "Believing K-Means finds the optimal k automatically."
+      ],
+      "mastery_criteria": [
+        "Can identify K-Means limitations."
+      ]
+    },
+    {
+      "id": "statistical_ml__clustering_applications",
+      "title_zh": "聚类应用",
+      "title_en": "Clustering Applications",
+      "module": "statistical_ml",
+      "description": "Clustering discovers data structure standalone or precedes classification; e.g., text clustering and color compression.",
+      "prerequisites": [
+        "statistical_ml__kmeans_algorithm"
+      ],
+      "learning_objectives": [
+        "Give examples of clustering applications."
+      ],
+      "common_misconceptions": [
+        "Believing clustering is only useful as an end in itself."
+      ],
+      "mastery_criteria": [
+        "Can name clustering applications such as text clustering."
       ]
     }
   ]

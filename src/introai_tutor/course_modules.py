@@ -53,6 +53,7 @@ _MODULE_OPTIONAL_FIELDS = {
     "default_formative_track_id",
     "mastery_map_layout_path",
     "concept_copy_zh_path",
+    "mastery_map_stage_names",
 }
 _PATH_FIELDS = {
     "knowledge_points_path",
@@ -148,6 +149,10 @@ def validate_course_module_registry(
         if present_map and present_map != map_fields:
             raise CourseModuleError(
                 f"{label} mastery-map configuration must contain layout and concept copy together."
+            )
+        if "mastery_map_stage_names" in module:
+            item["mastery_map_stage_names"] = _stage_names(
+                module["mastery_map_stage_names"], f"{label}.mastery_map_stage_names"
             )
         normalized.append(item)
     return {
@@ -367,6 +372,23 @@ def _identifier(value: Any, field_name: str) -> str:
     if any(character.isspace() for character in text):
         raise CourseModuleError(f"{field_name} must not contain whitespace.")
     return text
+
+
+def _stage_names(value: Any, field_name: str) -> dict[int, str]:
+    if not isinstance(value, dict) or not value:
+        raise CourseModuleError(f"{field_name} must be a non-empty object.")
+    result: dict[int, str] = {}
+    for key, name in value.items():
+        if isinstance(key, int) and not isinstance(key, bool):
+            layer = key
+        elif isinstance(key, str) and key.isdigit():
+            layer = int(key)
+        else:
+            raise CourseModuleError(f"{field_name} keys must be non-negative integer strings.")
+        if layer < 0:
+            raise CourseModuleError(f"{field_name} keys must be non-negative integer strings.")
+        result[layer] = _text(name, f"{field_name}.{key}")
+    return result
 
 
 def _text(value: Any, field_name: str) -> str:

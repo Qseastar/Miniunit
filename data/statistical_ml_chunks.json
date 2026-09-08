@@ -9,10 +9,15 @@
       "page_start": 3,
       "page_end": 3,
       "section_title": "监督学习",
-      "topic_ids": ["statistical_ml__supervised_vs_unsupervised"],
-      "support_tags": ["labeled_data", "supervised"],
-      "keywords": ["监督学习", "标注", "supervised learning"],
-      "content": "监督学习：所有训练样本均有对应的标注（labeled data）。",
+      "topic_ids": [
+        "statistical_ml__supervised_learning"
+      ],
+      "support_tags": [],
+      "keywords": [
+        "监督学习",
+        "supervised_learning"
+      ],
+      "content": "监督学习：所有训练样本均有对应的标注，模型从带标注样本中学习输入到输出的映射。",
       "language": "bilingual",
       "source_role": "course_core",
       "content_type": "definition",
@@ -24,73 +29,318 @@
       "page_start": 40,
       "page_end": 40,
       "section_title": "无监督学习",
-      "topic_ids": ["statistical_ml__supervised_vs_unsupervised"],
-      "support_tags": ["unlabeled_data", "unsupervised"],
-      "keywords": ["无监督学习", "无标注", "unsupervised learning"],
-      "content": "无监督学习：所有训练样本均没有标注（unlabeled data）。",
+      "topic_ids": [
+        "statistical_ml__unsupervised_learning"
+      ],
+      "support_tags": [],
+      "keywords": [
+        "无监督学习",
+        "unsupervised_learning"
+      ],
+      "content": "无监督学习：所有训练样本均没有标注，模型需自行发现数据的内在结构。",
       "language": "bilingual",
       "source_role": "course_core",
       "content_type": "definition",
       "review_status": "codex_draft"
     },
     {
-      "id": "statistical_ml_knn_algorithm",
+      "id": "statistical_ml_knn_lazy_learning",
       "source_file": "ai_lec8_statistical_learning.pdf",
       "page_start": 5,
-      "page_end": 8,
-      "section_title": "k近邻学习器",
-      "topic_ids": ["statistical_ml__k_nearest_neighbors"],
-      "support_tags": ["lazy_learning", "distance_metric", "k_value"],
-      "keywords": ["k近邻", "懒惰学习", "距离度量", "闵可夫斯基距离", "欧氏距离", "曼哈顿距离"],
-      "content": "k近邻是懒惰学习（lazy learning）的代表：对测试样本找到最近的 k 个样本，投票（分类）或平均（回归）。关键问题：k 值选取与距离计算。k 过小模型变复杂易过拟合，k 过大（直至 k=N）模型过于简单。距离度量用闵可夫斯基距离，p=2 为欧氏距离，p=1 为曼哈顿距离。",
+      "page_end": 5,
+      "section_title": "懒惰学习",
+      "topic_ids": [
+        "statistical_ml__knn_lazy_learning"
+      ],
+      "support_tags": [],
+      "keywords": [
+        "懒惰学习",
+        "knn_lazy_learning"
+      ],
+      "content": "k近邻是懒惰学习的代表：训练阶段不显式建模，预测时找到最近的k个样本投票（分类）或平均（回归）。",
       "language": "bilingual",
       "source_role": "course_core",
       "content_type": "algorithm",
       "review_status": "codex_draft"
     },
     {
-      "id": "statistical_ml_linear_regression",
+      "id": "statistical_ml_knn_k_value_selection",
       "source_file": "ai_lec8_statistical_learning.pdf",
-      "page_start": 14,
+      "page_start": 6,
+      "page_end": 7,
+      "section_title": "k值选择",
+      "topic_ids": [
+        "statistical_ml__knn_k_value_selection"
+      ],
+      "support_tags": [],
+      "keywords": [
+        "k值选择",
+        "knn_k_value_selection"
+      ],
+      "content": "k值选取影响模型复杂度：k过小模型复杂易过拟合，k过大（直至k=N）模型过于简单。",
+      "language": "bilingual",
+      "source_role": "course_core",
+      "content_type": "property",
+      "review_status": "codex_draft"
+    },
+    {
+      "id": "statistical_ml_knn_distance_metric",
+      "source_file": "ai_lec8_statistical_learning.pdf",
+      "page_start": 8,
+      "page_end": 8,
+      "section_title": "距离度量",
+      "topic_ids": [
+        "statistical_ml__knn_distance_metric"
+      ],
+      "support_tags": [],
+      "keywords": [
+        "距离度量",
+        "knn_distance_metric"
+      ],
+      "content": "距离度量用闵可夫斯基距离，p=2为欧氏距离，p=1为曼哈顿距离。",
+      "language": "bilingual",
+      "source_role": "course_core",
+      "content_type": "definition",
+      "review_status": "codex_draft"
+    },
+    {
+      "id": "statistical_ml_linear_regression_univariate",
+      "source_file": "ai_lec8_statistical_learning.pdf",
+      "page_start": 15,
       "page_end": 19,
-      "section_title": "线性回归与最小二乘",
-      "topic_ids": ["statistical_ml__linear_regression_least_squares"],
-      "support_tags": ["least_squares", "mean_squared_error", "closed_form"],
-      "keywords": ["线性回归", "最小二乘", "均方误差", "闭式解"],
-      "content": "线性回归用线性函数 f(x)=wx+b 拟合连续值目标。最小二乘法（least square）最小化均方误差（mean squared error）Σ(yi−f(xi))²。一元回归有闭式解：b=ȳ−w·x̄，w=Σ(xi−x̄)(yi−ȳ)/Σ(xi−x̄)²。",
+      "section_title": "一元线性回归",
+      "topic_ids": [
+        "statistical_ml__linear_regression_univariate"
+      ],
+      "support_tags": [],
+      "keywords": [
+        "一元线性回归",
+        "linear_regression_univariate"
+      ],
+      "content": "一元线性回归 f(x)=wx+b 拟合连续目标，最小二乘法最小化均方误差；闭式解 b=ȳ−w·x̄。",
       "language": "bilingual",
       "source_role": "course_core",
       "content_type": "algorithm",
       "review_status": "codex_draft"
     },
     {
-      "id": "statistical_ml_logistic_regression",
+      "id": "statistical_ml_linear_regression_multivariate",
+      "source_file": "ai_lec8_statistical_learning.pdf",
+      "page_start": 20,
+      "page_end": 24,
+      "section_title": "多元线性回归",
+      "topic_ids": [
+        "statistical_ml__linear_regression_multivariate"
+      ],
+      "support_tags": [],
+      "keywords": [
+        "多元线性回归",
+        "linear_regression_multivariate"
+      ],
+      "content": "多元线性回归 f(x)=wᵀx+b 用多个特征的线性组合预测，矩阵形式闭式解为 (XᵀX)⁻¹XᵀY。",
+      "language": "bilingual",
+      "source_role": "course_core",
+      "content_type": "algorithm",
+      "review_status": "codex_draft"
+    },
+    {
+      "id": "statistical_ml_linear_regression_regularization",
+      "source_file": "ai_lec8_statistical_learning.pdf",
+      "page_start": 27,
+      "page_end": 28,
+      "section_title": "正则化",
+      "topic_ids": [
+        "statistical_ml__linear_regression_regularization"
+      ],
+      "support_tags": [],
+      "keywords": [
+        "正则化",
+        "linear_regression_regularization"
+      ],
+      "content": "正则化限制参数大小以提升泛化：岭回归用 L2 范数，LASSO 用 L1 范数。",
+      "language": "bilingual",
+      "source_role": "course_core",
+      "content_type": "algorithm",
+      "review_status": "codex_draft"
+    },
+    {
+      "id": "statistical_ml_linear_regression_srm",
+      "source_file": "ai_lec8_statistical_learning.pdf",
+      "page_start": 29,
+      "page_end": 29,
+      "section_title": "结构风险最小化",
+      "topic_ids": [
+        "statistical_ml__linear_regression_srm"
+      ],
+      "support_tags": [],
+      "keywords": [
+        "结构风险最小化",
+        "linear_regression_srm"
+      ],
+      "content": "结构风险最小化最小化 arg min L(w,b)+λ‖w‖_p，同时权衡经验风险与结构风险。",
+      "language": "bilingual",
+      "source_role": "course_core",
+      "content_type": "property",
+      "review_status": "codex_draft"
+    },
+    {
+      "id": "statistical_ml_logistic_regression_glm",
+      "source_file": "ai_lec8_statistical_learning.pdf",
+      "page_start": 31,
+      "page_end": 34,
+      "section_title": "广义线性模型",
+      "topic_ids": [
+        "statistical_ml__logistic_regression_glm"
+      ],
+      "support_tags": [],
+      "keywords": [
+        "广义线性模型",
+        "logistic_regression_glm"
+      ],
+      "content": "广义线性模型用联系函数扩展线性模型；对数几率回归是其用于二分类的特例，是分类学习算法。",
+      "language": "bilingual",
+      "source_role": "course_core",
+      "content_type": "algorithm",
+      "review_status": "codex_draft"
+    },
+    {
+      "id": "statistical_ml_logistic_regression_sigmoid",
       "source_file": "ai_lec8_statistical_learning.pdf",
       "page_start": 32,
+      "page_end": 33,
+      "section_title": "Sigmoid 函数",
+      "topic_ids": [
+        "statistical_ml__logistic_regression_sigmoid"
+      ],
+      "support_tags": [],
+      "keywords": [
+        "Sigmoid 函数",
+        "logistic_regression_sigmoid"
+      ],
+      "content": "单位阶跃函数性质不好，用单调可微的 sigmoid 函数 y=1/(1+e^(−z)) 作为替代函数。",
+      "language": "bilingual",
+      "source_role": "course_core",
+      "content_type": "definition",
+      "review_status": "codex_draft"
+    },
+    {
+      "id": "statistical_ml_logistic_regression_mle",
+      "source_file": "ai_lec8_statistical_learning.pdf",
+      "page_start": 35,
       "page_end": 36,
-      "section_title": "对数几率回归",
-      "topic_ids": ["statistical_ml__logistic_regression"],
-      "support_tags": ["sigmoid", "logit", "classification"],
-      "keywords": ["对数几率回归", "sigmoid", "几率", "对数几率", "分类"],
-      "content": "对数几率回归在回归模型中引入 sigmoid 函数 y=1/(1+e^(−z))，输出范围 (0,1)，用于二分类，是分类学习算法（与『回归』名称无关）。对数几率 logit 为 ln(y/(1−y))=wᵀx+b。",
+      "section_title": "极大似然估计",
+      "topic_ids": [
+        "statistical_ml__logistic_regression_mle"
+      ],
+      "support_tags": [],
+      "keywords": [
+        "极大似然估计",
+        "logistic_regression_mle"
+      ],
+      "content": "对数几率回归用极大似然估计求解，等价于最小化交叉熵损失。",
       "language": "bilingual",
       "source_role": "course_core",
       "content_type": "algorithm",
       "review_status": "codex_draft"
     },
     {
-      "id": "statistical_ml_kmeans_clustering",
+      "id": "statistical_ml_logistic_regression_gradient_descent",
       "source_file": "ai_lec8_statistical_learning.pdf",
-      "page_start": 41,
-      "page_end": 46,
-      "section_title": "K均值聚类",
-      "topic_ids": ["statistical_ml__k_means_clustering"],
-      "support_tags": ["clustering", "unsupervised", "centroid"],
-      "keywords": ["K均值", "聚类", "簇", "无监督"],
-      "content": "K-Means 是无监督聚类：每个簇以样本均值表示。步骤：①随机选 k 个簇中心 → ②按距离划分样本到最近簇 → ③更新簇均值 → ④簇中心不变则停止，否则回到②。不足：需预设簇数、对初始化敏感、迭代开销大。",
+      "page_start": 37,
+      "page_end": 37,
+      "section_title": "梯度下降法",
+      "topic_ids": [
+        "statistical_ml__logistic_regression_gradient_descent"
+      ],
+      "support_tags": [],
+      "keywords": [
+        "梯度下降法",
+        "logistic_regression_gradient_descent"
+      ],
+      "content": "梯度下降沿负梯度方向迭代更新参数 w=w−η∇f(w)，学习率 η 控制步长。",
       "language": "bilingual",
       "source_role": "course_core",
       "content_type": "algorithm",
+      "review_status": "codex_draft"
+    },
+    {
+      "id": "statistical_ml_clustering_evaluation",
+      "source_file": "ai_lec8_statistical_learning.pdf",
+      "page_start": 42,
+      "page_end": 42,
+      "section_title": "聚类评价指标",
+      "topic_ids": [
+        "statistical_ml__clustering_evaluation"
+      ],
+      "support_tags": [],
+      "keywords": [
+        "聚类评价指标",
+        "clustering_evaluation"
+      ],
+      "content": "聚类好坏没有绝对标准，基本原则是簇内相似度高且簇间相似度低。",
+      "language": "bilingual",
+      "source_role": "course_core",
+      "content_type": "property",
+      "review_status": "codex_draft"
+    },
+    {
+      "id": "statistical_ml_kmeans_algorithm",
+      "source_file": "ai_lec8_statistical_learning.pdf",
+      "page_start": 44,
+      "page_end": 45,
+      "section_title": "K均值聚类",
+      "topic_ids": [
+        "statistical_ml__kmeans_algorithm"
+      ],
+      "support_tags": [],
+      "keywords": [
+        "K均值聚类",
+        "kmeans_algorithm"
+      ],
+      "content": "K均值以簇内样本均值表示簇：选k个中心、划分样本、更新均值，直到中心不再变化。",
+      "language": "bilingual",
+      "source_role": "course_core",
+      "content_type": "algorithm",
+      "review_status": "codex_draft"
+    },
+    {
+      "id": "statistical_ml_kmeans_limitations",
+      "source_file": "ai_lec8_statistical_learning.pdf",
+      "page_start": 46,
+      "page_end": 46,
+      "section_title": "K-Means 不足",
+      "topic_ids": [
+        "statistical_ml__kmeans_limitations"
+      ],
+      "support_tags": [],
+      "keywords": [
+        "K-Means 不足",
+        "kmeans_limitations"
+      ],
+      "content": "K均值需预设簇数、对初始化敏感、迭代开销大，且假设各维度重要性相同。",
+      "language": "bilingual",
+      "source_role": "course_core",
+      "content_type": "property",
+      "review_status": "codex_draft"
+    },
+    {
+      "id": "statistical_ml_clustering_applications",
+      "source_file": "ai_lec8_statistical_learning.pdf",
+      "page_start": 47,
+      "page_end": 47,
+      "section_title": "聚类应用",
+      "topic_ids": [
+        "statistical_ml__clustering_applications"
+      ],
+      "support_tags": [],
+      "keywords": [
+        "聚类应用",
+        "clustering_applications"
+      ],
+      "content": "聚类可单独发现数据结构，也可作为分类等任务的前驱，例如文本聚类与色彩压缩。",
+      "language": "bilingual",
+      "source_role": "course_core",
+      "content_type": "application",
       "review_status": "codex_draft"
     }
   ]

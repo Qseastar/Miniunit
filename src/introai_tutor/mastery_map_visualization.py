@@ -92,12 +92,13 @@ def validate_concept_copy_zh(copy_data: Any, knowledge_data: dict[str, Any]) -> 
 
 
 def build_visual_mastery_map_model(
-    *, map_model: dict[str, Any], concept_copy_data: dict[str, Any], knowledge_data: dict[str, Any], selected_concept_id: Any
+    *, map_model: dict[str, Any], concept_copy_data: dict[str, Any], knowledge_data: dict[str, Any], selected_concept_id: Any, stage_names: dict[int, str] | None = None
 ) -> dict[str, Any]:
     """Build a deterministic render snapshot from existing registry-derived data."""
     validate_concept_copy_zh(concept_copy_data, knowledge_data)
     if not isinstance(map_model, dict) or not isinstance(map_model.get("nodes_by_id"), dict):
         raise MasteryMapError("map_model is invalid for visualization.")
+    effective_stage_names = LAYER_STAGE_NAMES if stage_names is None else stage_names
     nodes_by_id = deepcopy(map_model["nodes_by_id"])
     known_ids = set(nodes_by_id)
     if not known_ids:
@@ -137,15 +138,15 @@ def build_visual_mastery_map_model(
         if not isinstance(raw_layer, dict) or not isinstance(raw_layer.get("layer"), int):
             raise MasteryMapError("Mastery-map layer is invalid for visualization.")
         layer = raw_layer["layer"]
-        if layer not in LAYER_STAGE_NAMES:
+        if layer not in effective_stage_names:
             raise MasteryMapError(f"No student stage name for layer {layer}.")
         raw_nodes = raw_layer.get("nodes")
         if not isinstance(raw_nodes, list):
             raise MasteryMapError("Mastery-map layer nodes are invalid for visualization.")
         layer_nodes = [deepcopy(nodes_by_id[item["concept_id"]]) for item in raw_nodes]
-        layers.append({"layer": layer, "stage_name": LAYER_STAGE_NAMES[layer], "nodes": layer_nodes})
+        layers.append({"layer": layer, "stage_name": effective_stage_names[layer], "nodes": layer_nodes})
     actual_layers = {layer["layer"] for layer in layers}
-    if actual_layers != set(LAYER_STAGE_NAMES):
+    if actual_layers != set(effective_stage_names):
         raise MasteryMapError("Student stage names must exactly cover the fixed map layers.")
     presentation_model = deepcopy(map_model)
     presentation_model["nodes_by_id"] = deepcopy(nodes_by_id)

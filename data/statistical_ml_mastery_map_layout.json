@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "nodes": [
+    {
+      "concept_id": "statistical_ml__supervised_learning",
+      "layer": 0,
+      "order": 0
+    },
+    {
+      "concept_id": "statistical_ml__unsupervised_learning",
+      "layer": 0,
+      "order": 1
+    },
+    {
+      "concept_id": "statistical_ml__knn_lazy_learning",
+      "layer": 1,
+      "order": 0
+    },
+    {
+      "concept_id": "statistical_ml__knn_k_value_selection",
+      "layer": 1,
+      "order": 1
+    },
+    {
+      "concept_id": "statistical_ml__knn_distance_metric",
+      "layer": 1,
+      "order": 2
+    },
+    {
+      "concept_id": "statistical_ml__linear_regression_univariate",
+      "layer": 1,
+      "order": 3
+    },
+    {
+      "concept_id": "statistical_ml__clustering_evaluation",
+      "layer": 1,
+      "order": 4
+    },
+    {
+      "concept_id": "statistical_ml__linear_regression_multivariate",
+      "layer": 2,
+      "order": 0
+    },
+    {
+      "concept_id": "statistical_ml__kmeans_algorithm",
+      "layer": 2,
+      "order": 1
+    },
+    {
+      "concept_id": "statistical_ml__linear_regression_regularization",
+      "layer": 3,
+      "order": 0
+    },
+    {
+      "concept_id": "statistical_ml__logistic_regression_glm",
+      "layer": 3,
+      "order": 1
+    },
+    {
+      "concept_id": "statistical_ml__kmeans_limitations",
+      "layer": 3,
+      "order": 2
+    },
+    {
+      "concept_id": "statistical_ml__clustering_applications",
+      "layer": 3,
+      "order": 3
+    },
+    {
+      "concept_id": "statistical_ml__linear_regression_srm",
+      "layer": 4,
+      "order": 0
+    },
+    {
+      "concept_id": "statistical_ml__logistic_regression_sigmoid",
+      "layer": 4,
+      "order": 1
+    },
+    {
+      "concept_id": "statistical_ml__logistic_regression_mle",
+      "layer": 5,
+      "order": 0
+    },
+    {
+      "concept_id": "statistical_ml__logistic_regression_gradient_descent",
+      "layer": 6,
+      "order": 0
+    }
+  ]
+}
