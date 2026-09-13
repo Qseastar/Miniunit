@@ -34,18 +34,18 @@
 
 ## 3. Diagnostic 有哪些（18 道）
 
-全部 18 道题均为 `mastery_verification`，已进入模块生产模板文件（`data/statistical_ml_templates.json`，`review_status="human_verified"`）。题型与确定性 scorer 对应关系：`single_choice` ↔ `single_choice_v1`、`numeric_answer` ↔ `numeric_answer_v1`、`ordering` ↔ `ordering_v1`。
+全部 18 道题均为 `mastery_verification`，已进入模块生产模板文件（`data/statistical_ml_templates.json`，`review_status="human_verified"`）。全部题型均为 `single_choice`（确定性 scorer `single_choice_v1`），与现有学生界面的渲染能力一致。
 
 | # | template_id | 题型 | 对应知识点（concept_id） | scorer |
 | --- | --- | --- | --- | --- |
 | 1 | `verify_supervised_vs_unsupervised_definition_v1` | single_choice | `statistical_ml__unsupervised_learning` | single_choice_v1 |
 | 2 | `verify_knn_k_value_effect_v1` | single_choice | `statistical_ml__knn_k_value_selection` | single_choice_v1 |
-| 3 | `verify_knn_manhattan_distance_v1` | numeric_answer | `statistical_ml__knn_distance_metric` | numeric_answer_v1 |
+| 3 | `verify_knn_manhattan_distance_v1` | single_choice | `statistical_ml__knn_distance_metric` | single_choice_v1 |
 | 4 | `verify_linear_regression_least_squares_objective_v1` | single_choice | `statistical_ml__linear_regression_univariate` | single_choice_v1 |
-| 5 | `verify_linear_regression_closed_form_intercept_v1` | numeric_answer | `statistical_ml__linear_regression_univariate` | numeric_answer_v1 |
+| 5 | `verify_linear_regression_closed_form_intercept_v1` | single_choice | `statistical_ml__linear_regression_univariate` | single_choice_v1 |
 | 6 | `verify_logistic_regression_is_classifier_v1` | single_choice | `statistical_ml__logistic_regression_glm` | single_choice_v1 |
 | 7 | `verify_logistic_regression_sigmoid_range_v1` | single_choice | `statistical_ml__logistic_regression_sigmoid` | single_choice_v1 |
-| 8 | `verify_kmeans_steps_order_v1` | ordering | `statistical_ml__kmeans_algorithm` | ordering_v1 |
+| 8 | `verify_kmeans_steps_order_v1` | single_choice | `statistical_ml__kmeans_algorithm` | single_choice_v1 |
 | 9 | `verify_kmeans_limitations_v1` | single_choice | `statistical_ml__kmeans_limitations` | single_choice_v1 |
 | 10 | `verify_statistical_ml_supervised_learning_sc_v1` | single_choice | `statistical_ml__supervised_learning` | single_choice_v1 |
 | 11 | `verify_statistical_ml_knn_lazy_learning_sc_v1` | single_choice | `statistical_ml__knn_lazy_learning` | single_choice_v1 |

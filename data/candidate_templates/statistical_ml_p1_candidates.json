@@ -112,14 +112,30 @@
         "algorithm_trace"
       ],
       "selection_priority": 200,
-      "question_type": "numeric_answer",
+      "question_type": "single_choice",
       "prompt": "二维空间中，两点 x=(1,1) 与 x'=(4,5) 的曼哈顿距离（闵可夫斯基距离 p=1）等于多少？",
-      "choices": [],
+      "choices": [
+        {
+          "id": "seven",
+          "text": "7"
+        },
+        {
+          "id": "five",
+          "text": "5"
+        },
+        {
+          "id": "eight",
+          "text": "8"
+        },
+        {
+          "id": "three",
+          "text": "3"
+        }
+      ],
       "expected_answer": {
-        "value": 7,
-        "absolute_tolerance": 0.01
+        "choice_id": "seven"
       },
-      "deterministic_scorer": "numeric_answer_v1",
+      "deterministic_scorer": "single_choice_v1",
       "misconception_rules": [],
       "teaching_support": {
         "hint": "曼哈顿距离是各维坐标差绝对值之和：|4−1| + |5−1|。",
@@ -191,14 +207,30 @@
         "algorithm_trace"
       ],
       "selection_priority": 200,
-      "question_type": "numeric_answer",
+      "question_type": "single_choice",
       "prompt": "一元线性回归 f(x)=wx+b 中，若训练样本 x 的均值 x̄=5、y 的均值 ȳ=3，且已求得 w=2，则闭式解给出的截距 b 等于多少？（提示：b = ȳ − w·x̄）",
-      "choices": [],
+      "choices": [
+        {
+          "id": "neg_seven",
+          "text": "-7"
+        },
+        {
+          "id": "seven",
+          "text": "7"
+        },
+        {
+          "id": "neg_thirteen",
+          "text": "-13"
+        },
+        {
+          "id": "thirteen",
+          "text": "13"
+        }
+      ],
       "expected_answer": {
-        "value": -7,
-        "absolute_tolerance": 0.01
+        "choice_id": "neg_seven"
       },
-      "deterministic_scorer": "numeric_answer_v1",
+      "deterministic_scorer": "single_choice_v1",
       "misconception_rules": [],
       "teaching_support": {
         "hint": "闭式解中 b = ȳ − w·x̄ = 3 − 2×5。",
@@ -318,35 +350,30 @@
         "algorithm_trace"
       ],
       "selection_priority": 250,
-      "question_type": "ordering",
-      "prompt": "请将 K 均值（K-Means）聚类的执行步骤按正确顺序排列。",
+      "question_type": "single_choice",
+      "prompt": "K-Means 聚类的正确执行顺序是？",
       "choices": [
         {
-          "id": "update",
-          "text": "更新各簇的均值向量，将其作为新的簇中心"
+          "id": "correct_order",
+          "text": "初始化簇中心 → 划分样本到最近簇 → 更新簇均值 → 判断是否收敛"
         },
         {
-          "id": "init",
-          "text": "随机选取 k 个样本点作为簇中心"
+          "id": "assign_first",
+          "text": "划分样本到最近簇 → 初始化簇中心 → 更新簇均值 → 判断是否收敛"
         },
         {
-          "id": "check",
-          "text": "若所有簇中心未发生改变则停止，否则回到划分步骤"
+          "id": "update_first",
+          "text": "更新簇均值 → 初始化簇中心 → 划分样本到最近簇 → 判断是否收敛"
         },
         {
-          "id": "assign",
-          "text": "将其他样本点根据其与簇中心的距离，划分给最近的簇"
+          "id": "check_first",
+          "text": "判断是否收敛 → 初始化簇中心 → 划分样本到最近簇 → 更新簇均值"
         }
       ],
       "expected_answer": {
-        "ordered_choice_ids": [
-          "init",
-          "assign",
-          "update",
-          "check"
-        ]
+        "choice_id": "correct_order"
       },
-      "deterministic_scorer": "ordering_v1",
+      "deterministic_scorer": "single_choice_v1",
       "misconception_rules": [],
       "teaching_support": {
         "hint": "回想 K-Means 的迭代：先选中心，再分配样本，再更新均值，最后判断是否收敛。",
@@ -901,12 +928,12 @@
           "page_end": 8
         }
       ],
-      "question_type": "numeric_answer",
-      "deterministic_scorer": "numeric_answer_v1",
-      "expected_answer_position": null,
-      "correct_answer": 7,
-      "wrong_answer": 5,
-      "malformed_answer": "abc"
+      "question_type": "single_choice",
+      "deterministic_scorer": "single_choice_v1",
+      "expected_answer_position": 1,
+      "correct_answer": "seven",
+      "wrong_answer": "five",
+      "malformed_answer": "unknown_choice"
     },
     "verify_linear_regression_least_squares_objective_v1": {
       "primary_concept_id": "statistical_ml__linear_regression_univariate",
@@ -943,12 +970,12 @@
           "page_end": 17
         }
       ],
-      "question_type": "numeric_answer",
-      "deterministic_scorer": "numeric_answer_v1",
-      "expected_answer_position": null,
-      "correct_answer": -7,
-      "wrong_answer": 7,
-      "malformed_answer": "abc"
+      "question_type": "single_choice",
+      "deterministic_scorer": "single_choice_v1",
+      "expected_answer_position": 1,
+      "correct_answer": "neg_seven",
+      "wrong_answer": "seven",
+      "malformed_answer": "unknown_choice"
     },
     "verify_logistic_regression_is_classifier_v1": {
       "primary_concept_id": "statistical_ml__logistic_regression_glm",
@@ -1006,25 +1033,12 @@
           "page_end": 44
         }
       ],
-      "question_type": "ordering",
-      "deterministic_scorer": "ordering_v1",
-      "expected_answer_position": null,
-      "correct_answer": [
-        "init",
-        "assign",
-        "update",
-        "check"
-      ],
-      "wrong_answer": [
-        "assign",
-        "init",
-        "update",
-        "check"
-      ],
-      "malformed_answer": [
-        "init",
-        "unknown_step"
-      ]
+      "question_type": "single_choice",
+      "deterministic_scorer": "single_choice_v1",
+      "expected_answer_position": 1,
+      "correct_answer": "correct_order",
+      "wrong_answer": "assign_first",
+      "malformed_answer": "unknown_choice"
     },
     "verify_kmeans_limitations_v1": {
       "primary_concept_id": "statistical_ml__kmeans_limitations",
