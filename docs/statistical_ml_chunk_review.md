@@ -15,7 +15,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `statistical_ml_supervised_learning` | `statistical_ml__supervised_learning` | ai_lec8_statistical_learning.pdf | 3 | 监督学习：所有训练样本均有对应标注，模型从带标注样本中学习输入到输出的映射。 | 第 3 页「监督学习(Supervised Learning) 监督学习：所有训练样本均有对应的标注」 | 部分一致 | 「模型从带标注样本中学习输入到输出的映射」为对定义的引申，非第 3 页字面；确认是否可接受 |
 | `statistical_ml_unsupervised_learning` | `statistical_ml__unsupervised_learning` | ai_lec8_statistical_learning.pdf | 40 | 无监督学习：所有训练样本均没有标注，模型需自行发现数据的内在结构。 | 第 40 页「无监督学习：所有训练样本均没有标注」 | 部分一致 | 「模型需自行发现数据的内在结构」为引申，非第 40 页字面；确认出处 |
-| `statistical_ml_knn_lazy_learning` | `statistical_ml__knn_lazy_learning` | ai_lec8_statistical_learning.pdf | 5 | k 近邻是懒惰学习的代表：训练阶段不显式建模，预测时找到最近的 k 个样本投票（分类）或平均（回归）。 | 第 5 页「k 近邻学习器…找到最近的 k 个样本，投票 或者 平均；关键问题：k 值选取；距离计算」 | 待确认 | 第 5 页未出现「懒惰学习 / lazy learning」「训练阶段不显式建模」字样，仅描述「投票或平均」；需确认「懒惰学习」这一表述的课件出处 |
+| `statistical_ml_knn_lazy_learning` | `statistical_ml__knn_lazy_learning` | ai_lec8_statistical_learning.pdf | 4–5 | k 近邻是懒惰学习的代表：训练阶段不显式建模，预测时找到最近的 k 个样本投票（分类）或平均（回归）。 | 第 4 页「…近朱者赤，近墨者黑 懒惰学习(lazy learning)的代表」；第 5 页「k 近邻学习器…找到最近的 k 个样本，投票 或者 平均」 | 部分一致 | 已确认：「懒惰学习」在第 4 页，页码已更正为 4–5；「训练阶段不显式建模」仍为引申，保留 |
 | `statistical_ml_knn_k_value_selection` | `statistical_ml__knn_k_value_selection` | ai_lec8_statistical_learning.pdf | 6–7 | k 值选取影响模型复杂度：k 过小模型复杂易过拟合，k 过大（直至 k=N）模型过于简单。 | 第 7 页「较小的 k…泛化误差会增大…模型变得更复杂，容易发生过拟合；k=N…模型过于简单」 | 一致 | 无 |
 | `statistical_ml_knn_distance_metric` | `statistical_ml__knn_distance_metric` | ai_lec8_statistical_learning.pdf | 8 | 距离度量用闵可夫斯基距离，p=2 为欧氏距离，p=1 为曼哈顿距离。 | 第 8 页「闵可夫斯基距离：p=2 欧氏距离，p=1 曼哈顿距离」 | 一致 | 无 |
 | `statistical_ml_linear_regression_univariate` | `statistical_ml__linear_regression_univariate` | ai_lec8_statistical_learning.pdf | 15–19 | 一元线性回归 f(x)=wx+b 拟合连续目标，最小二乘法最小化均方误差；闭式解 b=ȳ−w·x̄。 | 第 16 页「最小二乘法…均方误差」；第 18 页「b=1/n Σ(yᵢ−w xᵢ)=ȳ−w x̄」 | 一致 | 无 |
@@ -29,10 +29,11 @@
 | `statistical_ml_clustering_evaluation` | `statistical_ml__clustering_evaluation` | ai_lec8_statistical_learning.pdf | 42 | 聚类好坏没有绝对标准，基本原则是簇内相似度高且簇间相似度低。 | 第 42 页「聚类的"好坏"不存在绝对标准…簇内相似度高，且簇间相似度低」 | 一致 | 无 |
 | `statistical_ml_kmeans_algorithm` | `statistical_ml__kmeans_algorithm` | ai_lec8_statistical_learning.pdf | 44–45 | K 均值以簇内样本均值表示簇：选 k 个中心、划分样本、更新均值，直到中心不再变化。 | 第 44 页「每个簇以该簇中所有样本点的均值表示；Step1 选中心、Step2 划分、Step3 更新均值、Step4 未变则停止」 | 一致 | 无 |
 | `statistical_ml_kmeans_limitations` | `statistical_ml__kmeans_limitations` | ai_lec8_statistical_learning.pdf | 46 | K 均值需预设簇数、对初始化敏感、迭代开销大，且假设各维度重要性相同。 | 第 46 页「需要事先确定聚类数目…对初始化敏感…时间开销非常大…假设每个维度重要性一样」 | 一致 | 无 |
-| `statistical_ml_clustering_applications` | `statistical_ml__clustering_applications` | ai_lec8_statistical_learning.pdf | 47 | 聚类可单独发现数据结构，也可作为分类等任务的前驱，例如文本聚类与色彩压缩。 | 第 47 页「文本分类：将 200 多万篇论文聚类到 29000 个类别…色彩压缩」 | 部分一致 | ①课件字面为「文本分类」而非「文本聚类」（其描述本身是把论文"聚类"到类别，可接受，但需确认）；②「也可作为分类等任务的前驱」为一般性推断，第 47 页未直接表述 |
+| `statistical_ml_clustering_applications` | `statistical_ml__clustering_applications` | ai_lec8_statistical_learning.pdf | 47 | 聚类可单独发现数据结构，例如文本分类与色彩压缩。 | 第 47 页「文本分类：将 200 多万篇论文聚类到 29000 个类别…色彩压缩」 | 一致 | 已确认：「文本聚类」已改「文本分类」，删除「也可作为分类等任务的前驱」 |
 
 ## 核对结论
 
-- 17 条 chunk 中，**12 条一致**、**3 条部分一致**（`supervised_learning`、`unsupervised_learning`、`clustering_applications`）、**2 条待确认**（`knn_lazy_learning` 的「懒惰学习」措辞、`clustering_applications` 的「文本聚类/前驱」措辞）。
+- 17 条 chunk 中，**14 条一致**、**3 条部分一致**（`supervised_learning`、`unsupervised_learning`、`knn_lazy_learning`，均为已接受的引申）、**0 条待确认**。
+- 4 条曾标记「部分一致 / 待确认」的条目已由 owner 确认处理完成（见 `docs/statistical_ml_chunk_pending_review.md`）。
 - 所有 chunk 的页码与 `source_file`（`ai_lec8_statistical_learning.pdf`）均已与本地 `lec8.pdf` 逐页比对，页号范围正确。
-- 在课程 owner 确认上述「部分一致 / 待确认」项并核对完成后，才可将对应 chunk 从 `codex_draft` 提升为 `human_verified`。
+- chunk 的 `review_status` 仍为 `codex_draft`（本次未提升为 `human_verified`，是否提升由 owner 另行决定）。

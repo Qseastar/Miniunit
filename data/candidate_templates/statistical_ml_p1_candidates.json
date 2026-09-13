@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "candidate_batch_id": "statistical_ml_p1",
-  "candidate_status": "pending_human_review",
+  "candidate_status": "promoted_to_production",
   "templates": [
     {
       "id": "verify_supervised_vs_unsupervised_definition_v1",

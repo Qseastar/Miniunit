@@ -46,7 +46,7 @@
     {
       "id": "statistical_ml_knn_lazy_learning",
       "source_file": "ai_lec8_statistical_learning.pdf",
-      "page_start": 5,
+      "page_start": 4,
       "page_end": 5,
       "section_title": "懒惰学习",
       "topic_ids": [
@@ -337,7 +337,7 @@
         "聚类应用",
         "clustering_applications"
       ],
-      "content": "聚类可单独发现数据结构，也可作为分类等任务的前驱，例如文本聚类与色彩压缩。",
+      "content": "聚类可单独发现数据结构，例如文本分类与色彩压缩。",
       "language": "bilingual",
       "source_role": "course_core",
       "content_type": "application",

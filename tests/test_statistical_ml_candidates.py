@@ -103,9 +103,9 @@ def test_stat_ml_candidate_templates_cover_each_concept():
     assert covered <= STAT_ML_IDS
 
 
-def test_stat_ml_candidate_templates_are_candidate_draft():
+def test_stat_ml_candidate_templates_are_promoted():
     doc = _candidate_doc()
-    assert doc["candidate_status"] == "pending_human_review"
+    assert doc["candidate_status"] == "promoted_to_production"
     assert doc["schema_version"] == 1
     for template in doc["templates"]:
         assert template["review_status"] == "candidate_draft"
